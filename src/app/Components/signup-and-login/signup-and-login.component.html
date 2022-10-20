@@ -1,1 +1,203 @@
-<p>signup-and-login works!</p>
+<div class="body">
+  <div class="container" #container>
+    <div class="login-signup">
+      <div class="brand-influencer-signup">
+        <h2 class="title" #title>Sign up</h2>
+        <div #switch class="switch btn-group">
+          <button
+            class="brand-btn"
+            #brandBtn
+            (click)="
+              switchToBrand(
+                brand,
+                influnser,
+                brandBtn,
+                influencerBtn,
+                switch,
+                title
+              )
+            "
+          >
+            Brand
+          </button>
+          <button
+            class="influencer-btn"
+            #influencerBtn
+            (click)="
+              switchToInfluncer(
+                brand,
+                influnser,
+                brandBtn,
+                influencerBtn,
+                switch,
+                title
+              )
+            "
+          >
+            Influencer
+          </button>
+        </div>
+        <form action="" #brand class="brand">
+          <div class="input-field">
+            <input type="text" placeholder="" required />
+            <span>First Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" placeholder="" required />
+            <span>Last Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="email" placeholder="" required />
+            <span>Email</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="email" placeholder="" required />
+            <span>Confirm Email</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="tel" placeholder="" required />
+            <span>Contact Number</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Brand Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Jop Title</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Where did you hear about us ?</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="password" required />
+            <span>Password</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="password" required />
+            <span>Confirm Password</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Brand Instagram UserName</span>
+            <i></i>
+          </div>
+          <input type="submit" value="Sign Up" class="submit-btn" />
+        </form>
+        <form action="" #influnser class="influencer">
+          <div class="input-field">
+            <input type="text" required />
+            <span>First Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Last Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="email" required />
+            <span>Email</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="email" required />
+            <span>Confirm Email</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="tel" required />
+            <span>Contact Number</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Brand Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Jop Title</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Where did you hear about us?</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="password" required />
+            <span>Password</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="password" required />
+            <span>Confirm Password</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Brand Instagram UserName</span>
+            <i></i>
+          </div>
+          <input type="submit" value="Sign Up" class="submit-btn" />
+        </form>
+      </div>
+      <div class="login">
+        <h2 class="title">Log in</h2>
+        <form action="">
+          <div class="input-field">
+            <input type="email" required />
+            <span>Email</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="password" required />
+            <span>Password</span>
+            <i></i>
+          </div>
+          <input type="submit" value="Log In" class="submit-btn" />
+        </form>
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New To The Site?</h3>
+          <button class="submit-btn" (click)="loginSwitch(container,brand,influnser,brandBtn,influencerBtn,switch,title)">
+            Sign up
+          </button>
+        </div>
+        <img
+          src="../../../assets/images/signupAndLogin/signin.svg"
+          alt=""
+          class="image"
+        />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>Member Of The Site?</h3>
+          <button class="submit-btn" (click)="signSwitch(container,brand,influnser,brandBtn,influencerBtn,switch,title)">
+            Log In
+          </button>
+        </div>
+        <img
+          src="../../../assets/images/signupAndLogin/signup.svg"
+          alt=""
+          class="image"
+        />
+      </div>
+    </div>
+  </div>
+</div>
