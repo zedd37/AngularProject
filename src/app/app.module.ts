@@ -16,6 +16,9 @@ import { PaymentsMethodComponent } from './Components/payments/payments-method/p
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { BrowseInfluencersComponent } from './Components/browse-influencers/browse-influencers.component';
 import { SignupAndLoginComponent } from './Components/signup-and-login/signup-and-login.component';
+import { CreateCampaignOneComponent } from './Components/campaigns/create-campaign/create-campaign-one/create-campaign-one.component';
+import { CreateCampaignTwoComponent } from './Components/campaigns/create-campaign/create-campaign-two/create-campaign-two.component';
+import { CreateCampaignThreeComponent } from './Components/campaigns/create-campaign/create-campaign-three/create-campaign-three.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +35,14 @@ import { SignupAndLoginComponent } from './Components/signup-and-login/signup-an
     PaymentsMethodComponent,
     ContactUsComponent,
     BrowseInfluencersComponent,
-    SignupAndLoginComponent
+    SignupAndLoginComponent,
+    CreateCampaignOneComponent,
+    CreateCampaignTwoComponent,
+    CreateCampaignThreeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

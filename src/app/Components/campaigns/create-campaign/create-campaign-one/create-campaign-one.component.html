@@ -1,0 +1,57 @@
+<br /> <br /> <br />
+<h3>CREATE CAMPAIGN</h3>
+<div class="createCampaignContainer">
+
+  <div class="progressBar">
+    <div class="oneStep" id="icon-1">
+      <button class="progressBtn activeStep"><img class ="progressIcon activeIcon" src="assets/Icons/campaign-1.png"></button>
+      <!-- <label class="progressText">TEXT</label> -->
+      <p class="inActiveLine"></p>
+    </div>
+    <div class="oneStep" id="icon-2" >
+      <button class="progressBtn"><img class ="progressIcon" src="assets/Icons/campaign-2.png"></button>
+      <!-- <label class="progressText">TEXT</label> -->
+      <p class="inActiveLine"></p>
+    </div>
+    <div class="oneStep" id="icon-3">
+      <button class="progressBtn" ><img class ="progressIcon" src="assets/Icons/campaign-3.png"></button>
+      <!-- <label class="progressText">TEXT</label> -->
+    </div>
+
+  </div>
+  <form class="row g-3">
+    <div class="col-md-6">
+      <label for="c-title" class="form-label">Campaign Title</label>
+      <input type="text" class="form-control" id="c-title" />
+    </div>
+
+    <div class="col-md-6">
+      <label for="c-type" class="form-floating  form-label">Campaign Type</label>
+      <input type="text" class="form-control" id="c-type"/>
+    </div>
+
+
+    <div class="col-md-6">
+      <label for="c-st-date" class="form-label">Campaign Start Date</label>
+      <input type="date" class="form-control" id="c-st-date" />
+    </div>
+
+    <div class="col-md-6">
+      <label for="country" class="form-label">Country</label>
+      <select id="country" class="form-select">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="details" class="form-label">Details</label>
+      <textarea class="form-control" id="idetails" cols=200 rows=6></textarea>
+    </div>
+<br/>
+    <div class="col-md-6">
+      <label for="formFile" class="form-label">Choose Image for Campaign</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+
+  </form>
+</div>
