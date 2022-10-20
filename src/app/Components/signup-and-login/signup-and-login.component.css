@@ -294,7 +294,7 @@ form .input-field:last-of-type {
 }
 .panels-container .left-panel .content,
 .panels-container .left-panel .image {
-  transform: translateX(-200%);
+  transform: translateX(-250%);
 }
 .panels-container .right-panel .content,
 .panels-container .right-panel .image {
