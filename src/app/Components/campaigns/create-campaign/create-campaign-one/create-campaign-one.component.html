@@ -1,57 +1,88 @@
-<br /> <br /> <br />
-<h3>CREATE CAMPAIGN</h3>
-<div class="createCampaignContainer">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="createCampaignContainer">
+      <form class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Campaign Title</span>
 
-  <div class="progressBar">
-    <div class="oneStep" id="icon-1">
-      <button class="progressBtn activeStep"><img class ="progressIcon activeIcon" src="assets/Icons/campaign-1.png"></button>
-      <!-- <label class="progressText">TEXT</label> -->
-      <p class="inActiveLine"></p>
-    </div>
-    <div class="oneStep" id="icon-2" >
-      <button class="progressBtn"><img class ="progressIcon" src="assets/Icons/campaign-2.png"></button>
-      <!-- <label class="progressText">TEXT</label> -->
-      <p class="inActiveLine"></p>
-    </div>
-    <div class="oneStep" id="icon-3">
-      <button class="progressBtn" ><img class ="progressIcon" src="assets/Icons/campaign-3.png"></button>
-      <!-- <label class="progressText">TEXT</label> -->
-    </div>
+            <input type="text" class="form-control" placeholder="Type" />
+          </div>
+          <br />
+        </div>
 
-  </div>
-  <form class="row g-3">
-    <div class="col-md-6">
-      <label for="c-title" class="form-label">Campaign Title</label>
-      <input type="text" class="form-control" id="c-title" />
-    </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Campaign Type</span>
 
-    <div class="col-md-6">
-      <label for="c-type" class="form-floating  form-label">Campaign Type</label>
-      <input type="text" class="form-control" id="c-type"/>
-    </div>
+            <input type="text" class="form-control" placeholder="Type" />
+          </div>
+          <br />
+        </div>
 
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Campaign Start Date</span>
 
-    <div class="col-md-6">
-      <label for="c-st-date" class="form-label">Campaign Start Date</label>
-      <input type="date" class="form-control" id="c-st-date" />
-    </div>
+            <input
+              type="date"
+              class="form-control"
+              placeholder="name@example.com"
+            />
+          </div>
+          <br />
+        </div>
 
-    <div class="col-md-6">
-      <label for="country" class="form-label">Country</label>
-      <select id="country" class="form-select">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="col-md-6">
-      <label for="details" class="form-label">Details</label>
-      <textarea class="form-control" id="idetails" cols=200 rows=6></textarea>
-    </div>
-<br/>
-    <div class="col-md-6">
-      <label for="formFile" class="form-label">Choose Image for Campaign</label>
-      <input class="form-control" type="file" id="formFile">
-    </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Campaign Start Date</span>
 
-  </form>
-</div>
+            <select id="country" class="form-select">
+              <option selected>Choose...</option>
+              <option>Egypt</option>
+              <option>Turkey</option>
+              <option>Lebanon</option>
+            </select>
+          </div>
+          <br />
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Details</span>
+
+            <textarea
+              class="form-control"
+              id="idetails"
+              cols="200"
+              rows="6"
+              placeholder="Type here.."
+            ></textarea>
+          </div>
+          <br />
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <span class="input-group-text col-sm-12"
+            >Choose image for campaign</span
+          >
+
+          <input
+            class="form-control form-control chooseFile"
+            type="file"
+            id="formFile"
+          />
+
+          <br />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

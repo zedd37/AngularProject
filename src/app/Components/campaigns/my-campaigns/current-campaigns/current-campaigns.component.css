@@ -1,0 +1,138 @@
+*{
+  font-size: 14px;
+}
+
+thead{
+  height:50px;
+  vertical-align:text-top;
+  line-height: 25px;
+}
+
+body{
+  align-items: center;
+  justify-content: center;
+  background-color: #032539;
+  overflow: hidden;
+}
+
+thead{
+  color: #032539;
+}
+
+tbody{
+  background-color: white;
+  color: #032539;
+}
+
+.table-group-divider{
+  border-color:#032539;
+}
+
+.campaignsContainer{
+  padding: 50px 45px 45px 45px;
+  background-color: #ffffff;
+  border-radius: 0px 15px 15px 15px;
+}
+
+.iconBtn{
+  color:white;
+  border:none;
+  border-radius: 7px;
+  width:23px;
+  height:23px;
+  margin:0px 3px;
+  background-color: #fa991c;
+}
+
+.iconBtn:hover{
+  color:#032539;
+  background-color: white;
+  box-shadow: 1px 1px 3px 1px lightgrey;
+  transform: scale(1.2);
+  transition: 0.1s;
+  font-weight: bold;
+}
+
+.actionsCollapse{
+  display:none;
+}
+
+.dropdown-item:active{
+  background-color:#fa991c;
+  color:white;
+}
+
+.bi-three-dots{
+  font-size: 14px;
+  text-align: center;
+  background: #fa991c;
+  padding: 3px 6px;
+  border-radius: 6px;
+  color:white;
+  cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 991px) {
+
+  .campaignsContainer{
+    border-radius: 15px;
+    padding:5px;
+  }
+}
+
+
+  @media screen and (max-width: 729px) {
+
+    .campaignsContainer{
+      border-radius: 15px;
+      padding:10px;
+    }
+
+    .actions{
+      display:none;
+    }
+
+    .actionsCollapse{
+      display:block;
+    }
+
+    th{
+      font-size: smaller;
+      border: none;
+    }
+
+  }
+
+  @media screen and (max-width: 510px) {
+
+    .campaignsContainer{
+      border-radius: 15px;
+      padding:5px;
+    }
+
+    .actions{
+      display:none;
+    }
+
+    .actionsCollapse{
+      display:block;
+    }
+
+    th{
+      font-size: smaller;
+      border: none;
+    }
+
+    thead {
+      display: inline-block;
+    }
+
+    tbody{
+      display: inline-block;
+    }
+
+  }
+
+

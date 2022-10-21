@@ -1,6 +1,4 @@
 body{
-  align-items: center;
-  justify-content: center;
   background-color: #1c768f;
   /* overflow: hidden; */
 
@@ -32,30 +30,30 @@ body{
 }
 
 .input-group label{
-
 padding:5px;
 font-size:13px;
 }
 
 .input-group input{
   height:40px;
-  color:#a3a3a3;
+  color:#1c768f;
   border-right: 2px solid #1c768f;
   }
 
   .input-group input:focus{
     height:40px;
+    color:#1c768f;
     background-color: #e0f2f7;
     border-right: 2px solid #1c768f;
     transition: 1s;
     }
 
 textarea{
-  height:60px;
+  height:120px;
   }
 
     textarea:focus{
-      height:100px;
+      height:200px;
       color:#1c768f;
       background-color: #e0f2f7;
       border-right: 2px solid #1c768f;
@@ -71,4 +69,8 @@ textarea{
       width:100%;
     }
 
+    .createCampaignContainer{
+      border-radius: 15px;
+    }
   }
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="create-campaign-container">
+      <div class="title">NEW CAMPAIGN</div>
+
+      <div class="d-flex row">
+        <div class="create-campaign-tabs nav nav-tabs flex-column align-items-end  gap-3 col col-12 col-sm-12 flex-md-10 col-lg-2"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <button
+            class="nav-link col-sm-12 col-md-10  active"
+            id="v-pills-overview-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-overview"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-overview"
+            aria-selected="true"
+          >
+          <a href="#v-pills-overview">OVERVIEW</a>
+
+          </button>
+
+          <button
+            class="nav-link col-sm-12 col-md-10"
+            id="v-pills-instagram-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-instagram"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-instagram"
+            aria-selected="false"
+          >
+          <a href="#v-pills-instagram">INSTAGRAM</a>
+          </button>
+
+          <button
+            class="nav-link col-sm-12 col-md-10"
+            id="v-pills-tiktok-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-tiktok"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-tiktok"
+            aria-selected="false"
+          >
+          <a href="#v-pills-tiktok">TIKTOK</a>
+          </button>
+
+          <button
+          class="nav-link col-sm-12 col-md-10"
+          id="v-pills-product-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#v-pills-product"
+          type="button"
+          role="tab"
+          aria-controls="v-pills-product"
+          aria-selected="false"
+        >
+        <a href="#v-pills-product">PRODUCT</a>
+        </button>
+
+
+        </div>
+        <div class="tab-content col-12 col-sm-12 col-md-12 col-lg-10" id="v-pills-tabContent">
+          <div
+            class="tab-pane active"
+            id="v-pills-overview"
+            role="tabpanel"
+            aria-labelledby="v-pills-overview-tab"
+            tabindex="1"
+          >
+            <app-create-campaign-one></app-create-campaign-one>
+          </div>
+
+          <div
+            class="tab-pane"
+            id="v-pills-instagram"
+            role="tabpanel"
+            aria-labelledby="v-pills-instagram-tab"
+            tabindex="2"
+          >
+            <app-create-campaign-two></app-create-campaign-two>
+          </div>
+
+
+          <div
+            class="tab-pane"
+            id="v-pills-tiktok"
+            role="tabpanel"
+            aria-labelledby="v-pills-tiktok-tab"
+            tabindex="3"
+          >
+            <app-create-campaign-three></app-create-campaign-three>
+          </div>
+
+          <div
+            class="tab-pane"
+            id="v-pills-product"
+            role="tabpanel"
+            aria-labelledby="v-pills-product-tab"
+            tabindex="3"
+          >
+            <app-create-campaign-four></app-create-campaign-four>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

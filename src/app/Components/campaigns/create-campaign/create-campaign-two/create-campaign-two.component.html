@@ -1,65 +1,92 @@
-<br /> <br /> <br />
-<h3>CREATE CAMPAIGN</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
 <div class="createCampaignContainer">
 
-  <div class="progressBar">
-    <div class="oneStep" id="icon-1">
-      <button class="progressBtn activeStep"><img class ="progressIcon activeIcon" src="assets/Icons/campaign-1.png"></button>
-      <!-- <label class="progressText">TEXT</label> -->
-      <p class="activeLine"></p>
-    </div>
-    <div class="oneStep" id="icon-2" >
-      <button class="progressBtn activeStep"><img class ="progressIcon activeIcon" src="assets/Icons/campaign-2.png"></button>
-      <!-- <label class="progressText">TEXT</label> -->
-      <p class="inActiveLine"></p>
-    </div>
-    <div class="oneStep" id="icon-3">
-      <button class="progressBtn" ><img class ="progressIcon" src="assets/Icons/campaign-3.png"></button>
-      <!-- <label class="progressText">TEXT</label> -->
-    </div>
-  </div>
+  <form class="row">
 
-
-  <form class="row g-3">
-
-  <h5>Posts</h5>
-    <div class="col-md-3 mt-0">
-      <label for="p-img-count" class="form-label">Images Count</label>
-      <input type="number" class="form-control" id="p-img-count" />
+    <div class="col-sm-12 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text col-sm-12">Posts</span>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Images count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Videos count</label>
+        </div>
+      </div>
     </div>
 
-    <div class="col-md-3 mt-0">
-      <label for="p-vid-count" class="form-floating  form-label">Videos Count</label>
-      <input type="number" class="form-control" id="p-vid-count"/>
+    <div class="col-sm-12 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text col-sm-12">Stories</span>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Images count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Videos count</label>
+        </div>
+      </div>
     </div>
 
-<h5>Stories</h5>
-    <div class="col-md-3 mt-0">
-      <label for="s-img-count" class="form-label">Images Count</label>
-      <input type="number" class="form-control" id="s-img-count" />
+    <div class="col-sm-12 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text col-sm-12">Reels</span>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Duration</label>
+          <br>
+        </div>
+
+      </div>
     </div>
 
-    <div class="col-md-3 mt-0">
-      <label for="s-vid-count" class="form-floating  form-label">Videos Count</label>
-      <input type="number" class="form-control" id="s-vid-count"/>
-    </div>
 
-    <div class="col-md-3 mt-0">
-      <label for="hashtags" class="form-floating  form-label">Hashtags</label>
-      <input type="text" class="form-control" id="hashtags"/>
-    </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="input-group">
+          <span class="input-group-text col-sm-12">Hashtags</span>
+          <div class="">
+            <textarea class="form-control" id="idetails" cols=200 rows=6 placeholder="Enter hashtages here..."></textarea>
+            <label for="floatingInput"></label>
+            <br> <br>
+          </div>
+        </div>
+      </div>
 
-    <div class="col-md-3 mt-0">
-      <label for="tags" class="form-floating  form-label">Tags</label>
-      <input type="text" class="form-control" id="tags"/>
-    </div>
-
-    <div class="col-md-6 me-2">
-      <label for="details" class="form-label">Description</label>
-      <textarea class="form-control" id="idetails" cols=200 rows=6></textarea>
-    </div>
-
+      <div class="col-sm-12 col-lg-6">
+        <div class="input-group">
+          <span class="input-group-text col-sm-12">Tags</span>
+          <div class="">
+            <textarea class="form-control" id="idetails" cols=200 rows=6 placeholder="Enter tags here..."></textarea>
+            <label for="floatingInput"></label>
+          </div>
+        </div>
+      </div>
 
 
   </form>
+
+
 </div>
+</body>
+</html>
+
+
+
+
+
