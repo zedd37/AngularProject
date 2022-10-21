@@ -1,1 +1,123 @@
-<p>my-campaigns works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="create-campaign-container">
+      <div class="title">CAMPAIGNS</div>
+
+      <div class="d-flex row">
+        <div class="campaigns-tabs nav nav-tabs flex-column align-items-end gap-3 col col-12 col-sm-12 flex-md-10 col-lg-2"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <button
+            class="nav-link col-sm-12 col-md-10  active"
+            id="v-pills-current-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-current"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-current"
+            aria-selected="true"
+          >
+          <a href="#v-pills-current" class="floatTitle">CURRENT</a>
+
+          </button>
+
+          <button
+            class="nav-link col-sm-12 col-md-10"
+            id="v-pills-pending-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-pending"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-pending"
+            aria-selected="false"
+          >
+          <a href="#v-pills-pending">PENDING</a>
+          </button>
+
+          <button
+            class="nav-link col-sm-12 col-md-10"
+            id="v-pills-completed-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-completed"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-completed"
+            aria-selected="false"
+          >
+          <a href="#v-pills-completed">COMPLETED</a>
+          </button>
+
+          <button
+          class="nav-link col-sm-12 col-md-10"
+          id="v-pills-drafts-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#v-pills-drafts"
+          type="button"
+          role="tab"
+          aria-controls="v-pills-drafts"
+          aria-selected="false"
+        >
+        <a href="#v-pills-drafts">DRAFTS</a>
+        </button>
+
+
+        </div>
+        <div class="tab-content col-12 col-sm-12 col-md-12 col-lg-10" id="v-pills-tabContent">
+          <div
+            class="tab-pane active"
+            id="v-pills-current"
+            role="tabpanel"
+            aria-labelledby="v-pills-current-tab"
+            tabindex="1"
+          >
+            <app-current-campaigns></app-current-campaigns>
+          </div>
+
+          <div
+            class="tab-pane"
+            id="v-pills-pending"
+            role="tabpanel"
+            aria-labelledby="v-pills-pending-tab"
+            tabindex="2"
+          >
+            <app-pending-campaigns></app-pending-campaigns>
+          </div>
+
+
+          <div
+            class="tab-pane"
+            id="v-pills-completed"
+            role="tabpanel"
+            aria-labelledby="v-pills-completed-tab"
+            tabindex="3"
+          >
+            <app-completed-campaigns></app-completed-campaigns>
+          </div>
+
+          <div
+            class="tab-pane"
+            id="v-pills-drafts"
+            role="tabpanel"
+            aria-labelledby="v-pills-drafts-tab"
+            tabindex="3"
+          >
+            <app-drafts></app-drafts>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
