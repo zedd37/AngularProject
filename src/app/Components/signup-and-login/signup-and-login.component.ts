@@ -73,4 +73,10 @@ export class SignupAndLoginComponent implements OnInit {
     swtch.classList.remove('active');
     title.classList.remove('active');
   }
+  switchToSignup(Container: any) {
+    Container.classList.remove('switch-mode');
+  }
+  switchToLogin(Container: any) {
+    Container.classList.add('switch-mode');
+  }
 }
