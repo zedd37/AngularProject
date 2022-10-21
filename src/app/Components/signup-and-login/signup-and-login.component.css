@@ -237,6 +237,10 @@ form .input-field:last-of-type {
   font-weight: 600px;
   text-transform: uppercase;
   margin: 10px auto;
+  transition: 0.5s;
+}
+.submit-btn:hover {
+  background-color: #032539;
 }
 .login {
   /* flex: 1; */
