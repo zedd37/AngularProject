@@ -1,0 +1,25 @@
+.navbar{
+    background-color: #032539;
+}
+.navbar-brand{
+    font-family: 'Oswald', sans-serif;
+    color: #fa991c;
+} 
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: #fa991c !important;
+}
+.dropdown-menu{
+    background-color: #032539;
+}
+
+.dropdown-item{
+    color: white;
+}
+
+.dropdown-item:hover{
+    color: #fa991c;
+    background-color: transparent ;
+}
