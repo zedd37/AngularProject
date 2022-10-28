@@ -16,6 +16,7 @@ import { PaymentsMethodComponent } from './Components/payments/payments-method/p
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { BrowseInfluencersComponent } from './Components/browse-influencers/browse-influencers.component';
 import { SignupAndLoginComponent } from './Components/signup-and-login/signup-and-login.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { SignupAndLoginComponent } from './Components/signup-and-login/signup-an
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSliderModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
