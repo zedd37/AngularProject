@@ -1,7 +1,7 @@
 <div class="body">
   <div class="container" #container>
     <div class="login-signup">
-      <div class="brand-influencer-signup">
+      <div #signContainer class="brand-influencer-signup">
         <h2 class="title" #title>Sign up</h2>
         <div #switch class="switch btn-group">
           <button
@@ -94,6 +94,12 @@
             <i></i>
           </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
+          <p class="account-text">
+            Already have account?
+            <a href="#" id="switch-to-login" (click)="switchToLogin(container)"
+              >Log in</a
+            >
+          </p>
         </form>
         <form action="" #influnser class="influencer">
           <div class="input-field">
@@ -152,9 +158,15 @@
             <i></i>
           </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
+          <p class="account-text">
+            Already have account?
+            <a href="#" id="switch-to-login" (click)="switchToLogin(container)"
+              >Log in</a
+            >
+          </p>
         </form>
       </div>
-      <div class="login">
+      <div class="login" #loginContainer>
         <h2 class="title">Log in</h2>
         <form action="">
           <div class="input-field">
@@ -168,6 +180,15 @@
             <i></i>
           </div>
           <input type="submit" value="Log In" class="submit-btn" />
+          <p class="account-text">
+            You Don't have account?
+            <a
+              href="#"
+              id="switch-to-signup"
+              (click)="switchToSignup(container)"
+              >Sign up</a
+            >
+          </p>
         </form>
       </div>
     </div>
@@ -175,12 +196,25 @@
       <div class="panel left-panel">
         <div class="content">
           <h3>New To The Site?</h3>
-          <button class="submit-btn" (click)="loginSwitch(container,brand,influnser,brandBtn,influencerBtn,switch,title)">
+          <button
+            class="submit-btn"
+            (click)="
+              loginSwitch(
+                container,
+                brand,
+                influnser,
+                brandBtn,
+                influencerBtn,
+                switch,
+                title
+              )
+            "
+          >
             Sign up
           </button>
         </div>
         <img
-          src="../../../assets/images/signupAndLogin/signin.svg"
+          src="../../../assets/images/signupAndLogin/signup.png"
           alt=""
           class="image"
         />
@@ -188,13 +222,25 @@
       <div class="panel right-panel">
         <div class="content">
           <h3>Member Of The Site?</h3>
-          <button class="submit-btn" (click)="signSwitch(container,brand,influnser,brandBtn,influencerBtn,switch,title)">
+          <button
+            class="submit-btn"
+            (click)="
+              signSwitch(
+                container,
+                brand,
+                influnser,
+                brandBtn,
+                influencerBtn,
+                switch,
+                title
+              )
+            "
+          >
             Log In
           </button>
         </div>
         <img
-          src="../../../assets/images/signupAndLogin/signup.svg"
-          alt=""
+          src="../../../assets/images/signupAndLogin/signin.png"
           class="image"
         />
       </div>
