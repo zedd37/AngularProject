@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -25,6 +26,7 @@ import { CurrentCampaignsComponent } from './Components/campaigns/my-campaigns/c
 import { PendingCampaignsComponent } from './Components/campaigns/my-campaigns/pending-campaigns/pending-campaigns.component';
 import { CompletedCampaignsComponent } from './Components/campaigns/my-campaigns/completed-campaigns/completed-campaigns.component';
 import { DraftsComponent } from './Components/campaigns/my-campaigns/drafts/drafts.component';
+import { ErrorComponentComponent } from './Components/error-component/error-component.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +50,14 @@ import { DraftsComponent } from './Components/campaigns/my-campaigns/drafts/draf
     CurrentCampaignsComponent,
     PendingCampaignsComponent,
     CompletedCampaignsComponent,
-    DraftsComponent
+    DraftsComponent,
+    ErrorComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

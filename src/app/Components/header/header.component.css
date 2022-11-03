@@ -4,7 +4,7 @@
 .navbar-brand{
     font-family: 'Oswald', sans-serif;
     color: #fa991c;
-} 
+}
 .nav-link{
     color: white;
 }
@@ -23,3 +23,16 @@
     color: #fa991c;
     background-color: transparent ;
 }
+
+.iconColor {
+  color: #9933CC!important;
+}
+
+.navbar .navbar-toggler[aria-expanded="true"] {
+  color: #fa991c!important;
+  }
+
+.navbar .navbar-toggler:hover{
+  color: white;
+  }
+
