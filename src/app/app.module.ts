@@ -27,6 +27,7 @@ import { PendingCampaignsComponent } from './Components/campaigns/my-campaigns/p
 import { CompletedCampaignsComponent } from './Components/campaigns/my-campaigns/completed-campaigns/completed-campaigns.component';
 import { DraftsComponent } from './Components/campaigns/my-campaigns/drafts/drafts.component';
 import { ErrorComponentComponent } from './Components/error-component/error-component.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ErrorComponentComponent } from './Components/error-component/error-comp
     PendingCampaignsComponent,
     CompletedCampaignsComponent,
     DraftsComponent,
-    ErrorComponentComponent
+    ErrorComponentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

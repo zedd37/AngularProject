@@ -166,7 +166,7 @@
           </p>
         </form>
       </div>
-      <div class="login" #loginContainer>
+      <div class="login" #loginContainer id="logIn">
         <h2 class="title">Log in</h2>
         <form action="">
           <div class="input-field">
@@ -194,10 +194,16 @@
     </div>
     <div class="panels-container">
       <div class="panel left-panel">
-        <div class="content">
+        <!-- <img
+        src="assets/images/signupAndLogin/signup.png"
+        alt=""
+        class="image w-75 mb-4"
+      /> -->
+        <div class="content mb-5">
           <h3>New To The Site?</h3>
+
           <button
-            class="submit-btn"
+            class="submit-btn "
             (click)="
               loginSwitch(
                 container,
@@ -213,13 +219,13 @@
             Sign up
           </button>
         </div>
-        <img
-          src="../../../assets/images/signupAndLogin/signup.png"
-          alt=""
-          class="image"
-        />
+
       </div>
       <div class="panel right-panel">
+        <!-- <img
+        src="assets/images/signupAndLogin/signin.png"
+        class="image"
+      /> -->
         <div class="content">
           <h3>Member Of The Site?</h3>
           <button
@@ -239,10 +245,7 @@
             Log In
           </button>
         </div>
-        <img
-          src="../../../assets/images/signupAndLogin/signin.png"
-          class="image"
-        />
+
       </div>
     </div>
   </div>

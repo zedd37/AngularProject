@@ -3,25 +3,17 @@
 }
 .footer-container{
     width: 70%;
-    margin: 50px auto;
-    padding: 100px 50px;
+    margin: 0px auto;
+    padding: 80px 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.footer-content{
-    margin-right: 50px;
-    text-align: center;
+
+.footer-image  img{
+  margin-bottom: 25px;
 }
 
-.footer-image{
-    height: 80%;
-}
-
-.footer-image img{
-    width: 100%;
-    height: 100%;
-}
 .footer-content h1{
     color: #fff;
     width: 100%;
@@ -30,29 +22,21 @@
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+
 .footer-content p {
     color: #fff;
-    width: 70%;
-    margin: 20px auto;
-    text-align: center;
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 1;
-}
+  }
 
 .social-media-item{
-   width: 70%;
-   margin: 40px auto;
+   margin: 0px auto;
+   margin-top:30px;
    display: flex;
    justify-content: space-between;
 }
 
 .social-media-item a {
-    display: block;
-    width: 70px;
-    height: 70px;
+    width: 35px;
     cursor: pointer;
-    border-radius: 10px;
 }
 
 .social-media-item a:hover {
@@ -65,30 +49,26 @@
 }
 
 .footer-tabs{
-    display: flex;
-    justify-content: space-between;
     margin-top: 50px;
-    width: 100%;
 }
 
 .footer-tabs ul{
-    width: 20%;
     color: white;
 }
+
 .footer-tabs ul li{
     list-style: none;
     margin: 10px 0;
-}   
+}
+
 .footer-tabs ul li:first-of-type{
-    margin-left: -15px;
     font-size: larger;
     font-weight: bold;
 }
 
 .footer-tabs ul li a{
     text-decoration: none;
-    color: white;
-    font-size: large;
+    color: whitesmoke;
 }
 
 .footer-tabs ul li a:hover {
@@ -106,8 +86,7 @@ transform: translateX(2px);
 
 .footer-end{
     width: 100%;
-    margin-top: 50px;
-    flex-wrap: nowrap;
+    margin-top: 30px;
     color: white;
-    justify-content: space-between;
+    justify-content: space-around;
 }

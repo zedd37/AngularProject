@@ -5,6 +5,7 @@ import { CampaignsComponent } from './Components/campaigns/campaigns.component';
 import { CreateCampaignComponent } from './Components/campaigns/create-campaign/create-campaign.component';
 import { MyCampaignsComponent } from './Components/campaigns/my-campaigns/my-campaigns.component';
 import { ErrorComponentComponent } from './Components/error-component/error-component.component';
+import { HomeComponent } from './Components/home/home.component';
 import { InfluencersPaymentsComponent } from './Components/payments/influencers-payments/influencers-payments.component';
 import { PaymentsMethodComponent } from './Components/payments/payments-method/payments-method.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -12,7 +13,7 @@ import { SignupAndLoginComponent } from './Components/signup-and-login/signup-an
 
 const routes: Routes = [
 
-  // {path:" ", component:Home},
+  {path:"", component:HomeComponent},
   {path:"auth", component:SignupAndLoginComponent},
   {path:"profile", component:ProfileComponent},
   {path:"browse-influencers", component:BrowseInfluencersComponent},
