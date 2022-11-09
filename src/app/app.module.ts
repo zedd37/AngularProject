@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -20,13 +19,15 @@ import { CreateCampaignOneComponent } from './Components/campaigns/create-campai
 import { CreateCampaignTwoComponent } from './Components/campaigns/create-campaign/create-campaign-two/create-campaign-two.component';
 import { CreateCampaignThreeComponent } from './Components/campaigns/create-campaign/create-campaign-three/create-campaign-three.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCampaignFourComponent } from './Components/campaigns/create-campaign/create-campaign-four/create-campaign-four.component';
 import { CurrentCampaignsComponent } from './Components/campaigns/my-campaigns/current-campaigns/current-campaigns.component';
 import { PendingCampaignsComponent } from './Components/campaigns/my-campaigns/pending-campaigns/pending-campaigns.component';
 import { CompletedCampaignsComponent } from './Components/campaigns/my-campaigns/completed-campaigns/completed-campaigns.component';
 import { DraftsComponent } from './Components/campaigns/my-campaigns/drafts/drafts.component';
 import { ErrorComponentComponent } from './Components/error-component/error-component.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SignupAndLoginService } from './Components/Services/signup-and-login.service';
 
 @NgModule({
   declarations: [
@@ -51,15 +52,17 @@ import { ErrorComponentComponent } from './Components/error-component/error-comp
     PendingCampaignsComponent,
     CompletedCampaignsComponent,
     DraftsComponent,
-    ErrorComponentComponent
+    ErrorComponentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [SignupAndLoginService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
