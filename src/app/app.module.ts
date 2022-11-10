@@ -79,6 +79,10 @@ import { SignupAndLoginService } from './Components/Services/signup-and-login.se
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [BrandService,
+
   ],
   providers: [CampaignsService, SignupAndLoginService],
   bootstrap: [AppComponent],
