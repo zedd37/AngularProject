@@ -7,6 +7,7 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
   templateUrl: './current-campaigns.component.html',
   styleUrls: ['./current-campaigns.component.css'],
 })
+
 export class CurrentCampaignsComponent implements OnInit {
   constructor(private campaignService: CampaignsService) {}
 

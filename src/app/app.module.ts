@@ -18,7 +18,7 @@ import { CreateCampaignOneComponent } from './Components/campaigns/create-campai
 import { CreateCampaignTwoComponent } from './Components/campaigns/create-campaign/create-campaign-two/create-campaign-two.component';
 import { CreateCampaignThreeComponent } from './Components/campaigns/create-campaign/create-campaign-three/create-campaign-three.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateCampaignFourComponent } from './Components/campaigns/create-campaign/create-campaign-four/create-campaign-four.component';
 import { CurrentCampaignsComponent } from './Components/campaigns/my-campaigns/current-campaigns/current-campaigns.component';
@@ -36,7 +36,7 @@ import { UpdateCampaignFourComponent } from './Components/campaigns/update-campa
 import { CampaignsService } from './Services/campaigns.service';
 import { CreateCampaignIgTtComponent } from './Components/campaigns/create-campaign/create-campaign-ig-tt/create-campaign-ig-tt.component';
 import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campaign/update-campaign-ig-tt/update-campaign-ig-tt.component';
-
+import { SignupAndLoginService } from './Components/Services/signup-and-login.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +70,7 @@ import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campa
     UpdateCampaignThreeComponent,
     UpdateCampaignFourComponent,
     CreateCampaignIgTtComponent,
-    UpdateCampaignIgTtComponent,
+    UpdateCampaignIgTtComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +80,7 @@ import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campa
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [CampaignsService],
+  providers: [CampaignsService, SignupAndLoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

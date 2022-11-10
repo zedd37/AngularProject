@@ -1,38 +1,54 @@
-.navbar{
-    background-color: #032539;
+.navbar {
+  background-color: #032539;
 }
-.navbar-brand{
-    font-family: 'Oswald', sans-serif;
-    color: #fa991c;
+.navbar-brand {
+  font-family: "Oswald", sans-serif;
+  color: #fa991c;
 }
-.nav-link{
-    color: white;
+.nav-link {
+  color: white;
 }
-.nav-link:hover{
-    color: #fa991c !important;
+.nav-link:hover {
+  color: #fa991c !important;
 }
-.dropdown-menu{
-    background-color: #032539;
-}
-
-.dropdown-item{
-    color: white;
+.dropdown-menu {
+  background-color: #032539;
 }
 
-.dropdown-item:hover{
-    color: #fa991c;
-    background-color: transparent ;
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  color: #fa991c;
+  background-color: transparent;
 }
 
 .iconColor {
-  color: #9933CC!important;
+  color: #9933cc !important;
 }
 
 .navbar .navbar-toggler[aria-expanded="true"] {
-  color: #fa991c!important;
-  }
+  color: #fa991c !important;
+}
 
-.navbar .navbar-toggler:hover{
+.navbar .navbar-toggler:hover {
   color: white;
-  }
+}
 
+.login-btn {
+  color: #fa991c;
+  border-color: #fa991c;
+}
+.login-btn:hover {
+  background-color: #fa991c;
+  color: #fff;
+}
+.sign-btn {
+  color: #fa991c;
+  border-color: #fa991c;
+}
+.sign-btn:hover {
+  background-color: #fa991c;
+  color: #fff;
+}
