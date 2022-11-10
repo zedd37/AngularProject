@@ -37,6 +37,7 @@ import { CampaignsService } from './Services/campaigns.service';
 import { CreateCampaignIgTtComponent } from './Components/campaigns/create-campaign/create-campaign-ig-tt/create-campaign-ig-tt.component';
 import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campaign/update-campaign-ig-tt/update-campaign-ig-tt.component';
 import { SignupAndLoginService } from './Components/Services/signup-and-login.service';
+import { BrandService } from './brand.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { SignupAndLoginService } from './Components/Services/signup-and-login.se
     UpdateCampaignThreeComponent,
     UpdateCampaignFourComponent,
     CreateCampaignIgTtComponent,
-    UpdateCampaignIgTtComponent
+    UpdateCampaignIgTtComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,10 +82,8 @@ import { SignupAndLoginService } from './Components/Services/signup-and-login.se
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [BrandService,
 
-  ],
-  providers: [CampaignsService, SignupAndLoginService],
+  providers: [BrandService, CampaignsService, SignupAndLoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
