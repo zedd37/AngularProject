@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SignupAndLoginService } from '../Services/signup-and-login.service';
+import { BrandService } from '../Services/brand.service';
 
 @Component({
   selector: 'app-profile',

@@ -79,8 +79,7 @@ import { BrandService } from './brand.service';
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
 
   providers: [BrandService, CampaignsService, SignupAndLoginService],
