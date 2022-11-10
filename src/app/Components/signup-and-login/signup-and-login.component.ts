@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginAuthService } from '../Services/login-auth.service';
 import { SignupAndLoginService } from '../Services/signup-and-login.service';
 
 @Component({
@@ -7,7 +9,11 @@ import { SignupAndLoginService } from '../Services/signup-and-login.service';
   styleUrls: ['./signup-and-login.component.css'],
 })
 export class SignupAndLoginComponent implements OnInit {
-  constructor(private myService: SignupAndLoginService) {}
+  constructor(
+    private storeService: SignupAndLoginService,
+    private authService: LoginAuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
   /*
@@ -128,7 +134,7 @@ export class SignupAndLoginComponent implements OnInit {
     hear_about_us: any,
     instagram: any
   ) {
-    this.myService
+    this.storeService
       .addNewBrand({
         fname: fname,
         lname: lname,
@@ -155,7 +161,7 @@ export class SignupAndLoginComponent implements OnInit {
     inf_password: any,
     inf_conf_password: any
   ) {
-    this.myService
+    this.storeService
       .addNewInfluencer({
         fname: inf_fname,
         lname: inf_lname,
@@ -172,38 +178,17 @@ export class SignupAndLoginComponent implements OnInit {
   private influencer: any;
   checkUser(log_email: any, log_password: any) {
     let that = this;
-
-    this.myService.getBrand(log_email).subscribe({
-      next(data) {
-        // console.log(data);
-        that.brand = data;
-        // console.log(that.brand);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
-    this.myService.getInfluencer(log_email).subscribe({
-      next(data) {
-        // console.log(data);
-
-        that.influencer = data;
-
-        // console.log(that.brand);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
-    setTimeout(function () {
-      if (that.brand) {
-        console.log('brand');
-      } else if (that.influencer) {
-        console.log('influencer');
-      } else {
-        console.log("sign up you don't have account");
-      }
-      // console.log(that.brand);
-    }, 1000);
+    this.authService
+      .brandAuth({ email: log_email, password: log_password })
+      .subscribe({
+        next(data: any) {
+          // console.log(data['access_token']);
+          sessionStorage.setItem('token', data.access_token);
+          that.router.navigate(['/profile']);
+        },
+        error(err) {
+          console.log(err);
+        },
+      });
   }
 }

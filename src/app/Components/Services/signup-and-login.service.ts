@@ -14,10 +14,4 @@ export class SignupAndLoginService {
   addNewInfluencer(newInfluencer: any) {
     return this.client.post(this.influencerBaseUrl, newInfluencer);
   }
-  getBrand(brandEmail: any) {
-    return this.client.get(`${this.brandBaseUrl}/${brandEmail}`);
-  }
-  getInfluencer(influencerEmail: any) {
-    return this.client.get(`${this.influencerBaseUrl}/${influencerEmail}`);
-  }
 }

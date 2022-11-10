@@ -194,7 +194,10 @@
       </div>
       <div class="login" #loginContainer>
         <h2 class="title">Log in</h2>
-        <form action="" (ngSubmit)="checkUser(log_email.value,log_password.value)">
+        <form
+          action=""
+          (ngSubmit)="checkUser(log_email.value, log_password.value)"
+        >
           <div class="input-field">
             <input #log_email type="email" required />
             <span>Email</span>
