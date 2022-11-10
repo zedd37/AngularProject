@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrandService } from '../Services/brand.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public brand:BrandService) { }
 
   ngOnInit(): void {
+    this.brand.getBrandInfo(1).subscribe({
+      next(data){
+        console.log(data);
+      },
+      error(err){
+        console.log(err);
+      }
+    })
   }
 
 }

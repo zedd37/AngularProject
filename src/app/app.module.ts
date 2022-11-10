@@ -28,6 +28,7 @@ import { CompletedCampaignsComponent } from './Components/campaigns/my-campaigns
 import { DraftsComponent } from './Components/campaigns/my-campaigns/drafts/drafts.component';
 import { ErrorComponentComponent } from './Components/error-component/error-component.component';
 import { HomeComponent } from './Components/home/home.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { HomeComponent } from './Components/home/home.component';
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
