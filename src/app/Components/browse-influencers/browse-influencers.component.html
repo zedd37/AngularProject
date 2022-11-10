@@ -7,21 +7,22 @@
       style="flex-wrap: wrap; align-items: center; font-weight: 600"
     >
       <label class="h4 d-block m-3 w-100" for="">Age</label>
-      <div class="d-flex ">
-
-      From<input
-        class="form-control mx-2"
-        value="12"
-        style="height: 40px; width: 50px"
-        type="number"
-      />To
-      <input
-        class="form-control mx-2"
-        value="60"
-        style="height: 40px; width: 50px"
-        type="number"
-      />
-    </div>
+      <div class="d-flex">
+        From<input
+          class="form-control mx-2"
+          value="12"
+          style="height: 40px; width: 50px"
+          type="number"
+          #minAge
+        />To
+        <input
+          class="form-control mx-2"
+          value="60"
+          style="height: 40px; width: 50px"
+          type="number"
+          #maxAge
+        />
+      </div>
     </div>
 
     <div
@@ -32,15 +33,17 @@
 
       From<input
         class="form-control mx-2"
-        value="12"
+        value="0"
         style="height: 40px; width: 50px"
         type="number"
+        #minPrice
       />To
       <input
         class="form-control mx-2"
         value="60"
         style="height: 40px; width: 50px"
         type="number"
+        #maxPrice
       />
     </div>
 
@@ -52,15 +55,17 @@
 
       From<input
         class="form-control mx-2"
-        value="12"
+        value="0"
         style="height: 40px; width: 50px"
         type="number"
+        #minEngagementRate
       />To
       <input
         class="form-control mx-2"
         value="60"
         style="height: 40px; width: 50px"
         type="number"
+        #maxEngagementRate
       />
     </div>
 
@@ -72,15 +77,17 @@
 
       From<input
         class="form-control mx-2"
-        value="12"
+        value="0"
         style="height: 40px; width: 50px"
         type="number"
+        #minFollowers
       />To
       <input
         class="form-control mx-2"
         value="60"
         style="height: 40px; width: 50px"
         type="number"
+        #maxFollowers
       />
     </div>
   </div>
@@ -91,10 +98,11 @@
       <select
         class="form-select border-0 bg-light"
         aria-label="Default select example"
+        #gender
       >
-        <option selected></option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
+        <option selected>All</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
       </select>
     </div>
 
@@ -103,10 +111,11 @@
       <select
         class="form-select border-0 bg-light"
         aria-label="Default select example"
+        #maritalStatus
       >
-        <option selected></option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
+        <option selected>All</option>
+        <option value="single">Single</option>
+        <option value="married">Married</option>
       </select>
     </div>
     <div class="col text-center">
@@ -114,10 +123,11 @@
       <select
         class="form-select border-0 bg-light"
         aria-label="Default select example"
+        #children
       >
-        <option selected></option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
+        <option selected>All</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
       </select>
     </div>
     <div class="col text-center">
@@ -125,10 +135,11 @@
       <select
         class="form-select border-0 bg-light"
         aria-label="Default select example"
+        #pets
       >
-        <option selected></option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
+        <option selected>All</option>
+        <option value="dogs">Dogs</option>
+        <option value="cats">Cats</option>
       </select>
     </div>
     <div class="col text-center">
@@ -136,28 +147,55 @@
       <select
         class="form-select border-0 bg-light"
         aria-label="Default select example"
+        #country
       >
-        <option selected></option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
+        <option selected>Egypt</option>
+        <!-- <option value="1">One</option> -->
+        <!-- <option value="2">Two</option> -->
       </select>
     </div>
   </div>
-  <div class="row m-3 mt-5">
-    <div class="col-2">
-      <span style="color: #032539;" class="h2">Search</span>
+  <div class="row m-3 mt-4">
+    <div class="col-3">
+      <span style="color: #032539" class="h2">Search</span>
     </div>
-    <div class="col">
+    <div class="col-8">
       <input
         class="form-control"
         placeholder="By name or username"
         type="text"
       />
     </div>
+    <div class="col-1">
+      <button
+        type="button"
+        class="btn btn-dark btn-lg"
+        style=" background-color: #032539"
+        (click)="
+          filter(
+            minAge.value,
+            maxAge.value,
+            minPrice.value,
+            maxPrice.value,
+            minEngagementRate.value,
+            maxEngagementRate.value,
+            minFollowers.value,
+            maxFollowers.value,
+            gender.value,
+            maritalStatus.value,
+            children.value,
+            pets.value,
+            country.value
+          )
+        "
+      >
+        Filter
+      </button>
+    </div>
   </div>
 </div>
 
-<div class="container-fluid w-75 m-auto my-5">
+<div class="container w-75 m-auto my-5">
   <!-- <div class="col-4 mb-2">
       <div class="card shadow">
         <img src="assets/images/1.jpg" class="card-img" alt="card-grid-image">
@@ -168,83 +206,31 @@
       </div>
     </div> -->
 
-  <div class="card-group">
-    <div class="card m-2 shadow">
+  <div class="d-flex justify-content-between flex-wrap w-100">
+    <div class="card col-3 shadow mt-2 col-sm-12 col-lg-4 col-md-6" style="width:24%" *ngFor="let influencer of filteredInfluencers">
       <img
-        src="assets/images/1.jpg"
+        src="assets/images/{{ influencer.id }}.png"
         class="card-img-top"
         alt="card-group-image"
       />
       <div class="card-body" style="position: relative">
-        <h5 class="card-title">Julia Adam</h5>
+        <h5 class="card-title">
+          {{ influencer.fname }} {{ influencer.lname }}
+        </h5>
         <span class="d-block"><i class="bi bi-heart-fill"></i></span>
-        <p class="card-text">@julz007</p>
+        <p class="card-text">{{ influencer.instagram }}</p>
       </div>
-      <div class="card-footer" style="text-align: center">
-        <small class="text-muted">
-          <a href=""> <i class="bi bi-instagram my-0 mx-2"></i></a>
-          <a href=""> <i class="bi bi-snapchat my-0 mx-3"></i></a>
-          <a href=""> <i class="bi bi-facebook my-0 mx-2"></i></a>
-        </small>
-      </div>
-    </div>
-
-    <div class="card m-2 shadow">
-      <img
-        src="assets/images/1.jpg"
-        class="card-img-top"
-        alt="card-group-image"
-      />
-      <div class="card-body" style="position: relative">
-        <h5 class="card-title">Julia Adam</h5>
-        <span class="d-block"><i class="bi bi-heart-fill"></i></span>
-        <p class="card-text">@julz007</p>
-      </div>
-      <div class="card-footer" style="text-align: center">
-        <small class="text-muted">
-          <a href=""> <i class="bi bi-instagram my-0 mx-2"></i></a>
-          <a href=""> <i class="bi bi-snapchat my-0 mx-3"></i></a>
-          <a href=""> <i class="bi bi-facebook my-0 mx-2"></i></a>
-        </small>
-      </div>
-    </div>
-
-    <div class="card m-2 shadow">
-      <img
-        src="assets/images/1.jpg"
-        class="card-img-top"
-        alt="card-group-image"
-      />
-      <div class="card-body" style="position: relative">
-        <h5 class="card-title">Julia Adam</h5>
-        <span class="d-block"><i class="bi bi-heart-fill"></i></span>
-        <p class="card-text">@julz007</p>
-      </div>
-      <div class="card-footer" style="text-align: center">
-        <small class="text-muted">
-          <a href=""> <i class="bi bi-instagram my-0 mx-2"></i></a>
-          <a href=""> <i class="bi bi-snapchat my-0 mx-3"></i></a>
-          <a href=""> <i class="bi bi-facebook my-0 mx-2"></i></a>
-        </small>
-      </div>
-    </div>
-
-    <div class="card m-2 shadow">
-      <img
-        src="assets/images/1.jpg"
-        class="card-img-top"
-        alt="card-group-image"
-      />
-      <div class="card-body" style="position: relative">
-        <h5 class="card-title">Julia Adam</h5>
-        <span class="d-block"><i class="bi bi-heart-fill"></i></span>
-        <p class="card-text">@julz007</p>
-      </div>
-      <div class="card-footer" style="text-align: center">
-        <small class="text-muted">
-          <a href=""> <i class="bi bi-instagram my-0 mx-2"></i></a>
-          <a href=""> <i class="bi bi-snapchat my-0 mx-3"></i></a>
-          <a href=""> <i class="bi bi-facebook my-0 mx-2"></i></a>
+      <div class="card-footer justify-content-between" style="text-align: center">
+        <small class="text-muted justify-content-between">
+          <a href="https://www.instagram.com/" target="_blank">
+            <i class="bi bi-instagram my-0 "></i
+          ></a>
+          <a href="https://www.tiktok.com/" target="_blank">
+            <i class="bi bi-snapchat my-0 mx-3"></i
+          ></a>
+          <a href="https://www.facebook.com/" target="_blank">
+            <i class="bi bi-facebook my-0 "></i
+          ></a>
         </small>
       </div>
     </div>
