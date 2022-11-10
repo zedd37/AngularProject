@@ -12,22 +12,22 @@
 <div class="body">
     <div class="create-campaign-container">
       <div class="title">NEW CAMPAIGN</div>
-      <div class="subtitle">TIKTOK</div>
+      <div class="subtitle">INSTAGRAM</div>
       <hr>
-
 <div class="createCampaignContainer">
 
-  <form class="row" (ngSubmit)="AddTTDet(tt_posts_imgs.value, tt_posts_vids.value, tt_stories_imgs.value, tt_stories_vids.value, tt_vids.value, tt_vids_duration.value, tt_hashtags.value, tt_tags.value)">
+  <form class="row" (ngSubmit)="AddIgDet(ig_posts_imgs.value, ig_posts_vids.value, ig_stories_imgs.value, ig_stories_vids.value, ig_reels.value, ig_reel_duration.value, ig_hashtags.value, ig_tags.value)">
 
+    <!-- <input #campaign_id class="form-control" id="floatingInput" placeholder=" "> -->
     <div class="col-sm-12 col-lg-4">
       <div class="input-group">
         <span class="input-group-text col-sm-12">Posts</span>
         <div class="form-floating mb-3">
-          <input #tt_posts_imgs type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input #ig_posts_imgs class="form-control" id="floatingInput" placeholder=" ">
           <label for="floatingInput">Images count</label>
         </div>
         <div class="form-floating mb-3">
-          <input #tt_posts_vids type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input #ig_posts_vids class="form-control" id="floatingInput" placeholder=" ">
           <label for="floatingInput">Videos count</label>
         </div>
       </div>
@@ -37,11 +37,11 @@
       <div class="input-group">
         <span class="input-group-text col-sm-12">Stories</span>
         <div class="form-floating mb-3">
-          <input #tt_stories_imgs type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input #ig_stories_imgs class="form-control" id="floatingInput" placeholder=" ">
           <label for="floatingInput">Images count</label>
         </div>
         <div class="form-floating mb-3">
-          <input #tt_stories_vids type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input #ig_stories_vids class="form-control" id="floatingInput" placeholder=" ">
           <label for="floatingInput">Videos count</label>
         </div>
       </div>
@@ -49,13 +49,13 @@
 
     <div class="col-sm-12 col-lg-4">
       <div class="input-group">
-        <span class="input-group-text col-sm-12">Videos</span>
+        <span class="input-group-text col-sm-12">Reels</span>
         <div class="form-floating mb-3">
-          <input #tt_vids type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input #ig_reels class="form-control" id="floatingInput" placeholder=" ">
           <label for="floatingInput">Count</label>
         </div>
         <div class="form-floating mb-3">
-          <input #tt_vids_duration type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input #ig_reel_duration class="form-control" id="floatingInput" placeholder=" ">
           <label for="floatingInput">Duration</label>
           <br>
         </div>
@@ -68,7 +68,7 @@
         <div class="input-group">
           <span class="input-group-text col-sm-12">Hashtags</span>
           <div class="">
-            <textarea #tt_hashtags class="form-control" id="idetails" cols=200 rows=6 placeholder="Enter hashtages here..."></textarea>
+            <textarea #ig_hashtags class="form-control" id="details" cols=200 rows=6 placeholder="Enter hashtages here..."></textarea>
             <label for="floatingInput"></label>
             <br> <br>
           </div>
@@ -79,12 +79,11 @@
         <div class="input-group">
           <span class="input-group-text col-sm-12">Tags</span>
           <div class="">
-            <textarea #tt_tags class="form-control" id="idetails" cols=200 rows=6 placeholder="Enter tags here..."></textarea>
+            <textarea #ig_tags class="form-control" id="details" cols=200 rows=6 placeholder="Enter tags here..."></textarea>
             <label for="floatingInput"></label>
           </div>
         </div>
       </div>
-
 
       <div class="form-group">
         <div >
@@ -93,17 +92,12 @@
         </div>
 
   </form>
-
 </div>
 </div>
 
 </div>
 
 <app-footer></app-footer>
+
 </body>
 </html>
-
-
-
-
-

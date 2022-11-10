@@ -51,6 +51,7 @@ hr {
   margin-top: 0px;
 }
 
+
 .form-control, .form-select{
   border:none;
   background-color: hsl(0, 0%, 96%,0.8);
@@ -71,30 +72,30 @@ hr {
 }
 
 .input-group label{
+
 padding:5px;
 font-size:13px;
 }
 
 .input-group input{
   height:40px;
-  color:#1c768f;
+  color:#a3a3a3;
   border-right: 2px solid #1c768f;
   }
 
   .input-group input:focus{
     height:40px;
-    color:#1c768f;
     background-color: #e0f2f7;
     border-right: 2px solid #1c768f;
     transition: 1s;
     }
 
 textarea{
-  height:120px;
+  height:60px;
   }
 
     textarea:focus{
-      height:200px;
+      height:100px;
       color:#1c768f;
       background-color: #e0f2f7;
       border-right: 2px solid #1c768f;
@@ -109,19 +110,37 @@ textarea{
     .input-group-text {
       width:100%;
     }
-
     .subtitle {
       text-align: center;
     }
-  
+
     hr {
       border: none;
     }
-  
+
     .title {
       font-size: 25px;
       letter-spacing: 5px;
       margin-bottom: 10px;
     }
+
   }
 
+  .submitOne {
+    border-radius: 50px;
+    border: none;
+    background-color: #fa991c;
+    color: #fff;
+    font-weight: 600px;
+    text-align: center;
+    position:relative;
+    left:50%;
+    transform: translateX(-50%);
+    width:200px;
+    margin: 30px auto;
+    transition: 0.5s;
+  }
+
+  .submitOne:hover {
+    background-color: #c4750f;
+  }

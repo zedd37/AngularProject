@@ -25,14 +25,14 @@ a:hover {
   color: #fa991c;
 }
 
-.create-campaign-container {
+.campaign-details-container {
   position: relative;
   width: 93%;
   border-radius: 20px 0px 0px 20px;
   box-shadow: 3px 4px 10px 3px rgb(150, 150, 150);
-  padding: 40px;
+  /* padding: 40px; */
   margin:35px 0px;
-  background: #032539;
+  /* background: #032539; */
 }
 
 .title {

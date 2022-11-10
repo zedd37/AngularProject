@@ -11,16 +11,17 @@
   <app-header></app-header>
 <div class="body">
     <div class="create-campaign-container">
-      <div class="title">NEW CAMPAIGN</div>
+      <div class="title">UPDATE YOUR CAMPAIGN</div>
       <div class="subtitle">OVERVIEW</div>
       <hr>
     <div class="createCampaignContainer">
-      <form class="row" [formGroup]="platforms" (ngSubmit)="AddCampaign(title.value, type.value, start_date.value, country.value, details.value, image.value, instagram, tiktok)" >
+      <!-- <form class="row" [formGroup]="platforms" (ngSubmit)="AddCampaign(title.value, type.value, start_date.value, country.value, details.value, image.value, instagram, tiktok)" > -->
+        <form class="row" [formGroup]="platforms" >
         <div class="col-sm-12 col-lg-6">
           <div class="input-group">
             <span class="input-group-text col-sm-12">Campaign Title</span>
 
-            <input #title type="text" class="form-control" placeholder="Type" />
+            <input #title type="text" class="form-control" placeholder="Type" value=""/>
           </div>
           <br />
         </div>
@@ -102,7 +103,7 @@
               <input type="checkbox"
               formArrayName="selectedPlatforms" [value]="p.value" (change)="onCheckboxChange($event)"
               />
-              <label for="platforms" class="checkboxLabels px-2 fs-6">{{ p.name}}</label>
+              <label for="platforms" class="checkboxLabels px-2 fs-6">{{p.name}}</label>
             </div>
           </div>
           </div>
@@ -111,13 +112,13 @@
 
        <div class="form-group">
 
-        <div *ngIf="!instagram && !tiktok; else case">
-          <input type="submit" value="Continue" class="btn submitOne" disabled>
-        </div>
+        <!-- <div *ngIf="!instagram && !tiktok; else case">
+          <input type="submit" value="SaveChanges" class="btn submitOne" disabled>
+        </div> -->
 
-        <ng-template #case >
-          <input type="submit" value="Continue" class="btn submitOne">
-         </ng-template>
+        <div >
+          <input type="submit" value="Save Changes" class="btn submitOne">
+         </div>
 
        </div>
 

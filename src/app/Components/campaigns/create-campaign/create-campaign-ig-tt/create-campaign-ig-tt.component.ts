@@ -4,11 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
-  selector: 'app-create-campaign-two',
-  templateUrl: './create-campaign-two.component.html',
-  styleUrls: ['./create-campaign-two.component.css'],
+  selector: 'app-create-campaign-ig-tt',
+  templateUrl: './create-campaign-ig-tt.component.html',
+  styleUrls: ['./create-campaign-ig-tt.component.css']
 })
-export class CreateCampaignTwoComponent implements OnInit {
+export class CreateCampaignIgTtComponent implements OnInit {
+
   campaignId = 0;
   constructor(
     private campaignsService: CampaignsService,
@@ -46,8 +47,10 @@ export class CreateCampaignTwoComponent implements OnInit {
         ig_hashtags: ig_hashtags,
         ig_tags: ig_tags,
       })
-      .subscribe(() => {
-        {this.router.navigateByUrl('/profile');}
+      .subscribe((campaign:any) => {
+        {this.router.navigateByUrl(`/create-campaign/tiktok/${campaign.campaign_id}`);}
       });
   }
 }
+
+

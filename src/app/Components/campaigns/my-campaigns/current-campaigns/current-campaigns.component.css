@@ -24,6 +24,10 @@ tbody {
   color: #032539;
 }
 
+td{
+text-transform:capitalize;
+}
+
 .table-group-divider {
   border-color: #032539;
 }
@@ -65,7 +69,8 @@ tbody {
 .bi-three-dots {
   font-size: 17px;
   text-align: center;
-  background: #fa991c;
+  text-shadow: 0.5px 0.5px 0px #032539;
+  background: #ccc;
   padding: 3px 6px;
   border-radius: 6px;
   color: white;
@@ -74,9 +79,10 @@ tbody {
 
 .bi-three-dots:hover {
   color: #032539;
+  text-shadow: none;
   background-color: white;
   box-shadow: 1px 1px 3px 1px lightgrey;
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: 0.1s;
   font-weight: bold;
 }

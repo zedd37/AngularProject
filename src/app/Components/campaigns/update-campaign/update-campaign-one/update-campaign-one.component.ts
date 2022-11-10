@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
-  selector: 'app-create-campaign-one',
-  templateUrl: './create-campaign-one.component.html',
-  styleUrls: ['./create-campaign-one.component.css'],
+  selector: 'app-update-campaign-one',
+  templateUrl: './update-campaign-one.component.html',
+  styleUrls: ['./update-campaign-one.component.css']
 })
-export class CreateCampaignOneComponent implements OnInit {
+export class UpdateCampaignOneComponent implements OnInit {
 
   instagram = 0;
   tiktok = 0;
@@ -55,7 +55,7 @@ export class CreateCampaignOneComponent implements OnInit {
     }
   }
 
-  AddCampaign(
+  UpdateCampaign(
     title: string,
     type: string,
     start_date: any,
@@ -66,27 +66,20 @@ export class CreateCampaignOneComponent implements OnInit {
     tiktok: number
   ) {
 
-    // console.log(
-    //   country,instagram, title
-    // )
-
-      this.campaignsService.addNewCampaign({
-        title: title,
-        type: type,
-        start_date: start_date,
-        country: country,
-        details: details,
-        image: instagram,
-        instagram: instagram,
-        tiktok: tiktok
-      }).subscribe((campaign:any) => {
-        if (instagram && !tiktok){this.router.navigateByUrl(`/create-campaign/instagram/${campaign.id}`);}
-        if (tiktok && !instagram){this.router.navigateByUrl(`/create-campaign/tiktok/${campaign.id}`);}
-      if (instagram && tiktok){this.router.navigateByUrl(`/create-campaign/instagram-tiktok/${campaign.id}`);}
-      });
-
-
-
+      // this.campaignsService.updateCampaign({
+      //   title: title,
+      //   type: type,
+      //   start_date: start_date,
+      //   country: country,
+      //   details: details,
+      //   image: instagram,
+      //   instagram: instagram,
+      //   tiktok: tiktok
+      // }).subscribe((campaign:any) => {
+      //   if (instagram && !tiktok){this.router.navigateByUrl(`/update-campaign/instagram/${campaign.id}`);}
+      //   if (tiktok && !instagram){this.router.navigateByUrl(`/update-campaign/tiktok/${campaign.id}`);}
+      // if (instagram && tiktok){this.router.navigateByUrl(`/update-campaign/instagram-tiktok/${campaign.id}`);}
+      // });
 
   }
 }
