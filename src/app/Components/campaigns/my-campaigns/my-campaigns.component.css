@@ -1,10 +1,18 @@
-body {
+.body {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   color: white;
-  background-color: #032539;
+  background-color: #ddd;
   min-height: 100vh;
+}
+
+.nav-a{
+  color:#1c768f
+}
+
+.nav-a:hover{
+color:#fa991c
 }
 
 a {
@@ -19,10 +27,12 @@ a:hover {
 
 .create-campaign-container {
   position: relative;
-  width: 88%;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-  padding: 30px;
+  width: 93%;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 3px 4px 10px 3px rgb(150, 150, 150);
+  padding: 40px;
+  margin:35px 0px;
+  background: #032539;
 }
 
 .title {
@@ -82,3 +92,4 @@ transform: translate(0%);
     margin-bottom: 10px;
   }
 }
+

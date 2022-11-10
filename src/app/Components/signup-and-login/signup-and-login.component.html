@@ -10,7 +10,7 @@
             (click)="
               switchToBrand(
                 brand,
-                influnser,
+                influencer,
                 brandBtn,
                 influencerBtn,
                 switch,
@@ -24,9 +24,9 @@
             class="influencer-btn"
             #influencerBtn
             (click)="
-              switchToInfluncer(
+              switchToInfluencer(
                 brand,
-                influnser,
+                influencer,
                 brandBtn,
                 influencerBtn,
                 switch,
@@ -37,59 +37,78 @@
             Influencer
           </button>
         </div>
-        <form action="" #brand class="brand">
+        <form
+          action=""
+          #brand
+          class="brand"
+          (ngSubmit)="
+            newBrand(
+              fname.value,
+              lname.value,
+              email.value,
+              conf_email.value,
+              phone.value,
+              password.value,
+              conf_password.value,
+              brand_name.value,
+              job_title.value,
+              hear_about_us.value,
+              instagram.value
+            )
+          "
+        >
           <div class="input-field">
-            <input type="text" placeholder="" required />
+            <input #fname type="text" placeholder="" required />
             <span>First Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" placeholder="" required />
+            <input #lname type="text" placeholder="" required />
             <span>Last Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="email" placeholder="" required />
+            <input #email type="email" placeholder="" required />
             <span>Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="email" placeholder="" required />
+            <input #conf_email type="email" placeholder="" required />
             <span>Confirm Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="tel" placeholder="" required />
+            <input #phone type="tel" placeholder="" required />
             <span>Contact Number</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
+            <input #brand_name type="text" required />
             <span>Brand Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
+            <input #job_title type="text" required />
             <span>Jop Title</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
+            <input #hear_about_us type="text" required />
             <span>Where did you hear about us ?</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="password" required />
+            <input #password type="password" required />
             <span>Password</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="password" required />
+            <input #conf_password type="password" required />
             <span>Confirm Password</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
+            <input #instagram type="text" required />
             <span>Brand Instagram UserName</span>
             <i></i>
           </div>
@@ -101,60 +120,67 @@
             >
           </p>
         </form>
-        <form action="" #influnser class="influencer">
+        <form
+          action=""
+          #influencer
+          class="influencer"
+          (ngSubmit)="
+            newInfluencer(
+              inf_fname.value,
+              inf_lname.value,
+              inf_email.value,
+              inf_conf_email.value,
+              inf_phone.value,
+              inf_occupation.value,
+              inf_hear.value,
+              inf_password.value,
+              inf_conf_password.value
+            )
+          "
+        >
           <div class="input-field">
-            <input type="text" required />
+            <input #inf_fname type="text" required />
             <span>First Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
+            <input #inf_lname type="text" required />
             <span>Last Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="email" required />
+            <input #inf_email type="email" required />
             <span>Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="email" required />
+            <input #inf_conf_email type="email" required />
             <span>Confirm Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="tel" required />
-            <span>Contact Number</span>
+            <input #inf_phone type="tel" required />
+            <span>Phone Number</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
-            <span>Brand Name</span>
+            <input #inf_occupation type="text" required />
+            <span>Occupation</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="text" required />
-            <span>Jop Title</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input type="text" required />
+            <input #inf_hear type="text" required />
             <span>Where did you hear about us?</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="password" required />
+            <input #inf_password type="password" required />
             <span>Password</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="password" required />
+            <input #inf_conf_password type="password" required />
             <span>Confirm Password</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input type="text" required />
-            <span>Brand Instagram UserName</span>
             <i></i>
           </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
@@ -166,16 +192,19 @@
           </p>
         </form>
       </div>
-      <div class="login" #loginContainer>
+      <div class="login" #loginContainer id="logIn">
         <h2 class="title">Log in</h2>
-        <form action="">
+        <form
+          action=""
+          (ngSubmit)="checkUser(log_email.value, log_password.value)"
+        >
           <div class="input-field">
-            <input type="email" required />
+            <input #log_email type="email" required />
             <span>Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input type="password" required />
+            <input #log_password type="password" required />
             <span>Password</span>
             <i></i>
           </div>
@@ -194,15 +223,21 @@
     </div>
     <div class="panels-container">
       <div class="panel left-panel">
-        <div class="content">
+        <!-- <img
+        src="assets/images/signupAndLogin/signup.png"
+        alt=""
+        class="image w-75 mb-4"
+      /> -->
+        <div class="content mb-5">
           <h3>New To The Site?</h3>
+
           <button
-            class="submit-btn"
+            class="submit-btn "
             (click)="
               loginSwitch(
                 container,
                 brand,
-                influnser,
+                influencer,
                 brandBtn,
                 influencerBtn,
                 switch,
@@ -213,13 +248,13 @@
             Sign up
           </button>
         </div>
-        <img
-          src="../../../assets/images/signupAndLogin/signup.png"
-          alt=""
-          class="image"
-        />
+
       </div>
       <div class="panel right-panel">
+        <!-- <img
+        src="assets/images/signupAndLogin/signin.png"
+        class="image"
+      /> -->
         <div class="content">
           <h3>Member Of The Site?</h3>
           <button
@@ -228,7 +263,7 @@
               signSwitch(
                 container,
                 brand,
-                influnser,
+                influencer,
                 brandBtn,
                 influencerBtn,
                 switch,
@@ -239,10 +274,7 @@
             Log In
           </button>
         </div>
-        <img
-          src="../../../assets/images/signupAndLogin/signin.png"
-          class="image"
-        />
+
       </div>
     </div>
   </div>

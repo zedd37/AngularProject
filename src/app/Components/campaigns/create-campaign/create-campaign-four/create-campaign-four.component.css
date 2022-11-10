@@ -1,13 +1,54 @@
-body{
-  background-color: #1c768f;
-  /* overflow: hidden; */
-
+body {
+  border-radius: 0px 20px 20px 0px;
 }
-.createCampaignContainer{
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #032539;
+  min-height: 100vh;
+}
+
+.create-campaign-container {
+  position: relative;
+  width: 93%;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  margin:35px 0px;
+  /* background-color: #032539; */
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.createCampaignContainer {
   padding: 45px 45px 45px 45px;
   background-color: white;
-  border-radius: 15px 15px 15px 15px;
-  color:#1c768f;
+  border-radius: 0px 20px 20px 0px;
+  color: #1c768f;
+}
+
+.subtitle {
+  font-size: 19px;
+  color: rgb(182, 182, 182);
+  letter-spacing: 3px;
+}
+
+hr {
+  color: transparent;
+  position: relative;
+  border-bottom: 3px solid white;
+  height: 5px;
+  width: 50%;
+  margin-top: 0px;
 }
 
 .form-control, .form-select{
@@ -69,8 +110,18 @@ textarea{
       width:100%;
     }
 
-    .createCampaignContainer{
-      border-radius: 15px;
+    .subtitle {
+      text-align: center;
+    }
+  
+    hr {
+      border: none;
+    }
+  
+    .title {
+      font-size: 25px;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
     }
   }
 

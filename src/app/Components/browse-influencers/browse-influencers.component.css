@@ -1,10 +1,11 @@
-i{
-  width:200px;
-  font-size:23px;
+i {
+  width: 200px;
+  font-size: 23px;
   font-weight: bold;
   transition: 0.4s;
 }
-.card-body span{
+
+.card-body span {
   position: absolute;
   top: -21px;
   right: 11px;
@@ -19,21 +20,24 @@ i{
   font-weight: 600px;
   cursor: pointer;
 }
-p{
-  width:100%;
-  height:50px;
+
+p {
+  width: 100%;
+  height: 50px;
 }
-.card-body span:hover i{
-  color:#FA991C;
+
+.card-body span:hover i {
+  color: #FA991C;
 }
-.card-footer i{
-  color:white;
-  font-size: 30px;
+
+.card-footer i {
+  color: white;
+  /* font-size: 25px; */
 }
 
 
-.card-footer i:hover{
-  color:#FA991C;
+.card-footer i:hover {
+  color: #FA991C;
 }
 
 input::-webkit-outer-spin-button,
@@ -41,11 +45,15 @@ input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
 }
-.card-footer{
+
+.card-footer {
   background-color: #032539;
+  height: 50px;
 }
 
-label{
+label {
   color: #032539;
 }
-
+img{
+  height:190px;
+}

@@ -1,0 +1,91 @@
+<app-header></app-header>
+
+<div class="body">
+    <div class="campaign-details-container col-lg-12 col-sm-12">
+
+      <div class="card text-bg-light">
+        <img src="https://www.technopat.net/wp-content/uploads/2022/09/amazon-kindle-2022-tanitildi-iste-ozellikleri.jpg" class="card-img" alt="campaignImage">
+        <div class="card-img-overlay">
+          <h5 class="card-title text-light fs-1 fw-light p-3">Title: {{campaign.data.title}}</h5>
+          <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+        </div>
+
+
+        <div class="row p-4">
+        <div class="card-body col-lg-12">
+          <h5 class="card-title">Details</h5>
+          <p class="card-text">{{campaign.data.details}}</p>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        </div>
+
+        <div class="card-body col-lg-4 col-md-4 col-sm-12">
+          <h5 class="card-title">Campaign Type</h5>
+          <p class="card-text">{{campaign.data.type}}</p>
+        </div>
+
+        <div class="card-body col-lg-4 col-md-4 col-sm-12">
+          <h5 class="card-title">Start Date</h5>
+          <p class="card-text">{{campaign.data.start_date}}</p>
+        </div>
+
+      <div class="card-body col-lg-4 col-md-4 col-sm-12">
+        <h5 class="card-title">Country</h5>
+        <p class="card-text">{{campaign.data.country}}</p>
+      </div>
+
+      <div class="card-body col-lg-4 col-md-4 col-sm-12">
+        <h5 class="card-title">Payment</h5>
+        <p class="card-text">300 EGP</p>
+      </div>
+
+    <div class="card-body col-lg-8 col-md-8 col-sm-12">
+      <h5 class="card-title">Payment Details</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quidem aspernatur sunt. Officiis doloremque quam fuga. Id voluptatum iste nostrum asperiores minus accusamus sequi hic, consequuntur tempora, doloribus perspiciatis adipisci.</p>
+    </div>
+
+      <div class="card-body col-lg-12" *ngIf="campaign.data.instagram">
+        <h5 class="card-title">Instagram</h5>
+        <div class="instagramInfo row">
+          <p class="card-text col-lg-2 col-sm-2">Posts Images | {{campaign.data.instagram_info.ig_posts_imgs}}</p>
+          <p class="card-text col-lg-2 col-sm-2">Posts Videos | {{campaign.data.instagram_info.ig_posts_vids}}</p>
+          <p class="card-text col-lg-2 col-sm-2">Stories Images | {{campaign.data.instagram_info.ig_stories_imgs}}</p>
+          <p class="card-text col-lg-2 col-sm-2">Stories Videos | {{campaign.data.instagram_info.ig_stories_vids}}</p>
+          <p class="card-text col-lg-3 col-sm-2">Reels-Duration | {{campaign.data.instagram_info.ig_reels}}-{{campaign.data.instagram_info.ig_reel_duration}} sec</p>
+        </div>
+        <hr>
+        <div class="instagramInfo row">
+          <p class="card-text col-lg-6 col-sm-6">Hashtags | {{campaign.data.instagram_info.ig_hashtags}} </p>
+          <p class="card-text col-lg-6 col-sm-6">Tags | {{campaign.data.instagram_info.ig_tags}} </p>
+          <hr>
+        </div>
+      </div>
+
+
+
+      <div class="card-body col-lg-12" *ngIf="campaign.data.tiktok">
+        <h5 class="card-title">TikTok</h5>
+        <div class="tiktokInfo row">
+          <p class="card-text col-lg-2 col-sm-2">Posts Images | {{campaign.data.tiktok_info.tt_posts_imgs}}</p>
+          <p class="card-text col-lg-2 col-sm-2">Posts Videos | {{campaign.data.tiktok_info.tt_posts_vids}}</p>
+          <p class="card-text col-lg-2 col-sm-2">Stories Images | {{campaign.data.tiktok_info.tt_stories_imgs}}</p>
+          <p class="card-text col-lg-2 col-sm-2">Stories Videos | {{campaign.data.tiktok_info.tt_stories_vids}}</p>
+          <p class="card-text col-lg-3 col-sm-2">Videos-Duration | {{campaign.data.tiktok_info.tt_vids}}-{{campaign.data.tiktok_info.tt_vids_duration}} sec</p>
+        </div>
+        <hr>
+        <div class="tiktokInfo row">
+          <p class="card-text col-lg-6 col-sm-6">Hashtags | {{campaign.data.tiktok_info.tt_hashtags}} </p>
+          <p class="card-text col-lg-6 col-sm-6">Tags | {{campaign.data.tiktok_info.tt_tags}} </p>
+          <hr>
+        </div>
+      </div>
+
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+
+ <app-footer></app-footer>
