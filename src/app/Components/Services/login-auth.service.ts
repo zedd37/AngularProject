@@ -10,4 +10,7 @@ export class LoginAuthService {
   brandAuth(brandData: any) {
     return this.client.post(this.brandBaseUrl, brandData);
   }
+  isLoggedIn(){
+    return !! sessionStorage.getItem('token');
+  }
 }

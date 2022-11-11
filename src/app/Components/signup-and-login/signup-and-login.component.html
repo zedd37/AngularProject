@@ -78,26 +78,6 @@
             <i></i>
           </div>
           <div class="input-field">
-            <input #phone type="tel" placeholder="" required />
-            <span>Contact Number</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input #brand_name type="text" required />
-            <span>Brand Name</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input #job_title type="text" required />
-            <span>Jop Title</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input #hear_about_us type="text" required />
-            <span>Where did you hear about us ?</span>
-            <i></i>
-          </div>
-          <div class="input-field">
             <input #password type="password" required />
             <span>Password</span>
             <i></i>
@@ -108,8 +88,28 @@
             <i></i>
           </div>
           <div class="input-field">
+            <input #phone type="tel" placeholder="" required />
+            <span>Contact Number</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input #brand_name type="text" required />
+            <span>Brand Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
             <input #instagram type="text" required />
             <span>Brand Instagram UserName</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input #job_title type="text" required />
+            <span>Jop Title</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input #hear_about_us type="text" required />
+            <span>Where did you hear about us ?</span>
             <i></i>
           </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
@@ -169,11 +169,6 @@
             <i></i>
           </div>
           <div class="input-field">
-            <input #inf_hear type="text" required />
-            <span>Where did you hear about us?</span>
-            <i></i>
-          </div>
-          <div class="input-field">
             <input #inf_password type="password" required />
             <span>Password</span>
             <i></i>
@@ -181,6 +176,11 @@
           <div class="input-field">
             <input #inf_conf_password type="password" required />
             <span>Confirm Password</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input #inf_hear type="text" required />
+            <span>Where did you hear about us?</span>
             <i></i>
           </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
@@ -208,7 +208,20 @@
             <span>Password</span>
             <i></i>
           </div>
-          <input type="submit" value="Log In" class="submit-btn" />
+          <div
+            *ngIf="loginError"
+            style="width: 80%; margin: 10px auto; text-align: center"
+          >
+            <p style="color: red; width: 100%; font-size: 16px">
+              {{ loginError }}
+            </p>
+          </div>
+          <input
+            type="submit"
+            value="Log In"
+            class="submit-btn"
+            style="margin-top: 0"
+          />
           <p class="account-text">
             You Don't have account?
             <a
@@ -232,7 +245,7 @@
           <h3>New To The Site?</h3>
 
           <button
-            class="submit-btn "
+            class="submit-btn"
             (click)="
               loginSwitch(
                 container,
@@ -248,7 +261,6 @@
             Sign up
           </button>
         </div>
-
       </div>
       <div class="panel right-panel">
         <!-- <img
@@ -274,7 +286,6 @@
             Log In
           </button>
         </div>
-
       </div>
     </div>
   </div>

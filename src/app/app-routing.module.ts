@@ -22,46 +22,84 @@ import { InfluencersPaymentsComponent } from './Components/payments/influencers-
 import { PaymentsMethodComponent } from './Components/payments/payments-method/payments-method.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { SignupAndLoginComponent } from './Components/signup-and-login/signup-and-login.component';
+import { AuthGuard } from './Guard/auth.guard';
+import { RoleGuard } from './Guard/role.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'browse-influencers', component: BrowseInfluencersComponent },
-  { path: 'create-campaign', component: CreateCampaignOneComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'browse-influencers',
+    component: BrowseInfluencersComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'create-campaign',
+    component: CreateCampaignOneComponent,
+    canActivate: [AuthGuard, RoleGuard],
+  },
   {
     path: 'create-campaign/instagram/:campaignId',
     component: CreateCampaignTwoComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
   {
     path: 'create-campaign/tiktok/:campaignId',
     component: CreateCampaignThreeComponent,
+    canActivate: [AuthGuard,RoleGuard],
+
   },
   {
     path: 'create-campaign/instagram-tiktok/:campaignId',
     component: CreateCampaignIgTtComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
-  { path: 'create-campaign/payment', component: CreateCampaignFourComponent },
-  { path: 'campaigns', component: MyCampaignsComponent },
-  { path: 'campaigns/:campaignId', component: CampaignDetailsComponent },
+  {
+    path: 'create-campaign/payment',
+    component: CreateCampaignFourComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+  {
+    path: 'campaigns',
+    component: MyCampaignsComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+  {
+    path: 'campaigns/:campaignId',
+    component: CampaignDetailsComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
   {
     path: 'update-campaign/:campaignId',
     component: UpdateCampaignOneComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
   {
     path: 'update-campaign/instagram/:campaignId',
     component: UpdateCampaignTwoComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
   {
     path: 'update-campaign/tiktok/:campaignId',
     component: UpdateCampaignThreeComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
   {
     path: 'update-campaign/instagram-tiktok/:campaignId',
     component: UpdateCampaignIgTtComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
-  { path: 'influencers-payment', component: InfluencersPaymentsComponent },
-  { path: 'payment-method', component: PaymentsMethodComponent },
+  {
+    path: 'influencers-payment',
+    component: InfluencersPaymentsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'payment-method',
+    component: PaymentsMethodComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
   { path: '**', component: ErrorComponentComponent },
 ];
 

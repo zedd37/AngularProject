@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RoleGuard } from 'src/app/Guard/role.guard';
 import { LoginAuthService } from '../Services/login-auth.service';
 import { SignupAndLoginService } from '../Services/signup-and-login.service';
 
@@ -12,6 +13,7 @@ export class SignupAndLoginComponent implements OnInit {
   constructor(
     private storeService: SignupAndLoginService,
     private authService: LoginAuthService,
+
     private router: Router
   ) {}
 
@@ -176,6 +178,7 @@ export class SignupAndLoginComponent implements OnInit {
   // ------- When login check if user is brand or influencer in database ---------
   private brand: any;
   private influencer: any;
+ loginError: any = null;
   checkUser(log_email: any, log_password: any) {
     let that = this;
     this.authService
@@ -184,10 +187,12 @@ export class SignupAndLoginComponent implements OnInit {
         next(data: any) {
           // console.log(data['access_token']);
           sessionStorage.setItem('token', data.access_token);
+          sessionStorage.setItem('isAdmin', data.isAdmin);
           that.router.navigate(['/profile']);
         },
         error(err) {
-          console.log(err);
+          console.log(err.error.message);
+          that.loginError = err.error.message;
         },
       });
   }
