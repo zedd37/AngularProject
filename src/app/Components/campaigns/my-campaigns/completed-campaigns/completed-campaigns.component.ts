@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
   selector: 'app-completed-campaigns',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompletedCampaignsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private campaigns: CampaignsService) {
   }
-
+  completedCampaigns: any;
+  ngOnInit(): void {
+    this.completedCampaigns = this.campaigns.getCompleted().subscribe(Response => {
+      this.completedCampaigns = Response;
+        console.log(Response);
+    })
+  }
 }

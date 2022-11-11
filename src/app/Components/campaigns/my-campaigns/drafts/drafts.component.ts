@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
   selector: 'app-drafts',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DraftsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private campaigns: CampaignsService) {
+  }
+  draftsCampaigns: any;
+  
   ngOnInit(): void {
+    this.draftsCampaigns = this.campaigns.getDrafts().subscribe(Response => {
+      this.draftsCampaigns = Response;
+      console.log(Response);
+    })
   }
 
 }

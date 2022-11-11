@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
   selector: 'app-pending-campaigns',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pending-campaigns.component.css']
 })
 export class PendingCampaignsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private campaigns: CampaignsService) {
   }
-
+  pendingCampaigns: any;
+  
+  ngOnInit(): void {
+    this.pendingCampaigns = this.campaigns.getPending().subscribe(Response => {
+      this.pendingCampaigns = Response;
+      console.log(Response);
+    })
+  }
 }

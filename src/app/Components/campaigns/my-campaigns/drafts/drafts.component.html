@@ -1,211 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="campaignsContainer">
-      <table
-        class="table table-hover">
-        <thead>
-          <tr >
-            <th class="Cname">Campaign</th>
-            <th >Type</th>
-            <th >Privacy</th>
-            <th >Start Date</th>
-            <th >Country</th>
-            <th >Actions</th>
-          </tr>
-        </thead>
 
-        <tbody class="table-group-divider">
-          <tr>
-            <td>Name1</td>
-            <td>Paid</td>
-            <td>Public</td>
-            <td>11/11/2011</td>
-            <td>Egypt</td>
-            <td class="actions">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn">D</button>
-            </td>
+<body>
+  <div class="campaignsContainer">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="Cname">Campaign</th>
+          <th>Type</th>
+          <th>Privacy</th>
+          <th>Start Date</th>
+          <th>Country</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let draftsCampaign of draftsCampaigns.data">
+          <td>{{draftsCampaign.title}}</td>
+          <td>{{draftsCampaign.type}}</td>
+          <td>{{draftsCampaign.privacy}}</td>
+          <td>{{draftsCampaign.created_at}}</td>
+          <td>{{draftsCampaign.country}}</td>
+          <td class="actions">
 
-          </tr>
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn">D</button>
+          </td>
 
-          <tr>
-            <td>Name2</td>
-            <td>Affiliate</td>
-            <td>Public</td>
-            <td>11/11/2022</td>
-            <td>Turkey</td>
-            <td class="actions">
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn">D</button>
-            </td>
+        </tr>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+        <tr>
+          <td>Name2</td>
+          <td>Affiliate</td>
+          <td>Public</td>
+          <td>11/11/2022</td>
+          <td>Turkey</td>
+          <td class="actions">
 
-          </tr>
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn">D</button>
+          </td>
 
-          <tr>
-            <td>Name3</td>
-            <td>Product</td>
-            <td>Private</td>
-            <td>19/11/2011</td>
-            <td>Lebanon</td>
-            <td class="actions">
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn">D</button>
-            </td>
+        </tr>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+        <tr>
+          <td>Name3</td>
+          <td>Product</td>
+          <td>Private</td>
+          <td>19/11/2011</td>
+          <td>Lebanon</td>
+          <td class="actions">
 
-          </tr>
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn">D</button>
+          </td>
 
-          <tr>
-            <td>Name4</td>
-            <td>Paid</td>
-            <td>Public</td>
-            <td>11/11/2011</td>
-            <td>Egypt</td>
-            <td class="actions">
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn">D</button>
-            </td>
+        </tr>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+        <tr>
+          <td>Name4</td>
+          <td>Paid</td>
+          <td>Public</td>
+          <td>11/11/2011</td>
+          <td>Egypt</td>
+          <td class="actions">
 
-          </tr>
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn">D</button>
+          </td>
 
-          <tr>
-            <td>Name5</td>
-            <td>Affiliate</td>
-            <td>Public</td>
-            <td>11/11/2022</td>
-            <td>Turkey</td>
-            <td class="actions">
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn">D</button>
-            </td>
+        </tr>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
+        <tr>
+          <td>Name5</td>
+          <td>Affiliate</td>
+          <td>Public</td>
+          <td>11/11/2022</td>
+          <td>Turkey</td>
+          <td class="actions">
 
-          <tr>
-            <td>Name6</td>
-            <td>Product</td>
-            <td>Private</td>
-            <td>19/11/2011</td>
-            <td>Lebanon</td>
-            <td class="actions">
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn">D</button>
+          </td>
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn">D</button>
-            </td>
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+        <tr>
+          <td>Name6</td>
+          <td>Product</td>
+          <td>Private</td>
+          <td>19/11/2011</td>
+          <td>Lebanon</td>
+          <td class="actions">
 
-          </tr>
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn">D</button>
+          </td>
+
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
+
+        </tr>
 
 
-          <tr>
-            <td>Name7</td>
-            <td>Product</td>
-            <td>Private</td>
-            <td>19/11/2011</td>
-            <td>Lebanon</td>
-            <td class="actions">
+        <tr>
+          <td>Name7</td>
+          <td>Product</td>
+          <td>Private</td>
+          <td>19/11/2011</td>
+          <td>Lebanon</td>
+          <td class="actions">
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">M</button>
-              <button class="iconBtn ">D</button>
-            </td>
+            <button class="iconBtn"><b>i</b></button>
+            <button class="iconBtn">M</button>
+            <button class="iconBtn ">D</button>
+          </td>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </td>
 
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </body>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
 </html>
-
