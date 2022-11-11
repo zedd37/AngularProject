@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
   styleUrls: ['./update-campaign-one.component.css']
 })
 export class UpdateCampaignOneComponent implements OnInit {
-
+  campaignId=0;
   instagram = 0;
   tiktok = 0;
   platforms: FormGroup;
@@ -18,14 +18,27 @@ export class UpdateCampaignOneComponent implements OnInit {
     { name: 'TikTok', value: 'tiktok' },
   ];
 
-  constructor(private campaignsService: CampaignsService, fb: FormBuilder, private router:Router) {
-
+  constructor(private campaignsService: CampaignsService, fb: FormBuilder, private activated:ActivatedRoute, private router:Router) {
+    this.campaignId = activated.snapshot.params['campaignId'];
     this.platforms = fb.group({
       selectedPlatforms: new FormArray([]),
     });
   }
 
-  ngOnInit(): void {}
+  campaign: any;
+
+  ngOnInit(): void {
+    let that = this;
+    this.campaignsService.getCampaign(this.campaignId).subscribe({
+      next(data) {
+        that.campaign = data;
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+  }
+
 
   addCampaignValidator = new FormGroup({});
 
@@ -66,20 +79,20 @@ export class UpdateCampaignOneComponent implements OnInit {
     tiktok: number
   ) {
 
-      // this.campaignsService.updateCampaign({
-      //   title: title,
-      //   type: type,
-      //   start_date: start_date,
-      //   country: country,
-      //   details: details,
-      //   image: instagram,
-      //   instagram: instagram,
-      //   tiktok: tiktok
-      // }).subscribe((campaign:any) => {
-      //   if (instagram && !tiktok){this.router.navigateByUrl(`/update-campaign/instagram/${campaign.id}`);}
-      //   if (tiktok && !instagram){this.router.navigateByUrl(`/update-campaign/tiktok/${campaign.id}`);}
-      // if (instagram && tiktok){this.router.navigateByUrl(`/update-campaign/instagram-tiktok/${campaign.id}`);}
-      // });
+      this.campaignsService.updateCampaign(this.campaignId,{
+        title: title,
+        type: type,
+        start_date: start_date,
+        country: country,
+        details: details,
+        // image: instagram,
+        instagram: instagram,
+        tiktok: tiktok
+      }).subscribe((campaign:any) => {
+        if (instagram && !tiktok){this.router.navigateByUrl(`/update-campaign/instagram/${campaign.id}`);}
+        if (tiktok && !instagram){this.router.navigateByUrl(`/update-campaign/tiktok/${campaign.id}`);}
+      if (instagram && tiktok){this.router.navigateByUrl(`/update-campaign/instagram-tiktok/${campaign.id}`);}
+      });
 
   }
 }

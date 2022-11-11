@@ -35,7 +35,7 @@ text-transform:capitalize;
 .campaignsContainer {
   padding: 50px 45px 45px 45px;
   background-color: #ffffff;
-  border-radius: 0px 15px 15px 15px;
+  border-radius: 0px 15px 15px 0px;
 }
 
 .iconBtn {
@@ -124,6 +124,19 @@ ul.dropdown-menu.show {
   th {
     font-size: smaller;
     border: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .campaignsContainer {
+    min-height: 300px;
+  }
+}
+
+
+@media screen and (min-width: 991px) {
+  .campaignsContainer {
+    min-height: 300px;
   }
 }
 

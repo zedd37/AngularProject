@@ -1,1 +1,109 @@
-<p>update-campaign-three works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <app-header></app-header>
+<div class="body">
+    <div class="create-campaign-container">
+      <div class="title">UPDATE YOUR CAMPAIGN</div>
+      <div class="subtitle">TIKTOK</div>
+      <hr>
+
+<div class="createCampaignContainer">
+
+  <form class="row" (ngSubmit)="UpdateTTDet(tt_posts_imgs.value, tt_posts_vids.value, tt_stories_imgs.value, tt_stories_vids.value, tt_vids.value, tt_vids_duration.value, tt_hashtags.value, tt_tags.value)">
+
+    <div class="col-sm-12 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text col-sm-12">Posts</span>
+        <div class="form-floating mb-3">
+          <input #tt_posts_imgs class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_posts_imgs}}">
+          <label for="floatingInput">Images count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input #tt_posts_vids class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_posts_vids}}" >
+          <label for="floatingInput">Videos count</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text col-sm-12">Stories</span>
+        <div class="form-floating mb-3">
+          <input #tt_stories_imgs class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_stories_imgs}}">
+          <label for="floatingInput">Images count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input #tt_stories_vids class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_stories_vids}}">
+          <label for="floatingInput">Videos count</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text col-sm-12">Videos</span>
+        <div class="form-floating mb-3">
+          <input #tt_vids class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_vids}}">
+          <label for="floatingInput">Count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input #tt_vids_duration class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_vids_duration}}" >
+          <label for="floatingInput">Duration</label>
+          <br>
+        </div>
+
+      </div>
+    </div>
+
+
+      <div class="col-sm-12 col-lg-6">
+        <div class="input-group">
+          <span class="input-group-text col-sm-12">Hashtags</span>
+          <div class="">
+            <textarea #tt_hashtags class="form-control" id="idetails" cols=200 rows=6 placeholder="Enter hashtages here..." value="{{campaign.data.tiktok_info.tt_hashtags}}"></textarea>
+            <label for="floatingInput"></label>
+            <br> <br>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-lg-6">
+        <div class="input-group">
+          <span class="input-group-text col-sm-12">Tags</span>
+          <div class="">
+            <textarea #tt_tags class="form-control" id="idetails" cols=200 rows=6 placeholder="Enter tags here..." value="{{campaign.data.tiktok_info.tt_tags}}"></textarea>
+            <label for="floatingInput"></label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div >
+          <input type="submit" value="Save Changes" class="btn submitOne" >
+        </div>
+        </div>
+
+  </form>
+
+</div>
+</div>
+
+</div>
+
+<app-footer></app-footer>
+</body>
+</html>
+
+
+
+
+

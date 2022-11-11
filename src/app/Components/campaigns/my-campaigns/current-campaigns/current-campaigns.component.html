@@ -32,8 +32,8 @@
           <div class="btn-group dropstart">
               <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" >Info</a></li>
-              <li><a class="dropdown-item" href="#">Edit</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}">Info</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{c.id}}">Edit</a></li>
               <li><a class="dropdown-item" href="#">Move</a></li>
             </ul>
           </div>

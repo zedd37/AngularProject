@@ -35,4 +35,16 @@ export class CampaignsService {
   updateCampaign(id:number, updatedCampaign:any){
     return this.CampaignClient.put(`${this.Campaigns_Base_URL}/${id}`, updatedCampaign);
   }
+
+  updateIG(id:number, updatedIg:any){
+    return this.CampaignClient.put(`${this.Campaigns_Base_URL}/instagram/${id}`, updatedIg);
+  }
+
+  updateTT(id:number, updatedTT:any){
+    return this.CampaignClient.put(`${this.Campaigns_Base_URL}/tiktok/${id}`, updatedTT);
+  }
+
+  deleteCampaign(id:number){
+    return this.CampaignClient.delete(`${this.Campaigns_Base_URL}/${id}`);
+  }
 }

@@ -76,7 +76,7 @@ export class CreateCampaignOneComponent implements OnInit {
         start_date: start_date,
         country: country,
         details: details,
-        image: instagram,
+        // image: instagram,
         instagram: instagram,
         tiktok: tiktok
       }).subscribe((campaign:any) => {

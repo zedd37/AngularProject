@@ -11,6 +11,7 @@ import { CreateCampaignThreeComponent } from './Components/campaigns/create-camp
 import { CreateCampaignTwoComponent } from './Components/campaigns/create-campaign/create-campaign-two/create-campaign-two.component';
 import { CreateCampaignComponent } from './Components/campaigns/create-campaign/create-campaign.component';
 import { MyCampaignsComponent } from './Components/campaigns/my-campaigns/my-campaigns.component';
+import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campaign/update-campaign-ig-tt/update-campaign-ig-tt.component';
 import { UpdateCampaignOneComponent } from './Components/campaigns/update-campaign/update-campaign-one/update-campaign-one.component';
 import { UpdateCampaignThreeComponent } from './Components/campaigns/update-campaign/update-campaign-three/update-campaign-three.component';
 import { UpdateCampaignTwoComponent } from './Components/campaigns/update-campaign/update-campaign-two/update-campaign-two.component';
@@ -48,7 +49,7 @@ const routes: Routes = [
     component: UpdateCampaignOneComponent,
   },
   {
-    path: 'update-campaign/Instagram/:campaignId',
+    path: 'update-campaign/instagram/:campaignId',
     component: UpdateCampaignTwoComponent,
   },
   {
@@ -57,7 +58,7 @@ const routes: Routes = [
   },
   {
     path: 'update-campaign/instagram-tiktok/:campaignId',
-    component: UpdateCampaignComponent,
+    component: UpdateCampaignIgTtComponent,
   },
   { path: 'influencers-payment', component: InfluencersPaymentsComponent },
   { path: 'payment-method', component: PaymentsMethodComponent },
@@ -66,7 +67,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
 export class AppRoutingModule {}
