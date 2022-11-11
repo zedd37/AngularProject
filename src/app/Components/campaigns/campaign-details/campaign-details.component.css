@@ -1,0 +1,108 @@
+.body {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  color: white;
+  background-color: #ddd;
+  min-height: 100vh;
+}
+
+.img-gradient {
+  position:relative;
+}
+
+
+.img-gradient::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, #032539,transparent, transparent);
+}
+
+.nav-a{
+  color:#1c768f
+}
+
+.nav-a:hover{
+color:#fa991c
+}
+
+a {
+  text-decoration: none;
+  color: #1c768f;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fa991c;
+}
+
+.campaign-details-container {
+  position: relative;
+  width: 93%;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 3px 4px 10px 3px rgb(150, 150, 150);
+  /* padding: 40px; */
+  margin:35px 0px;
+  /* background: #032539; */
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.nav-link {
+  height: 50px;
+  border-radius: 50px 0px 0px 50px;
+  border: none;
+  text-transform: uppercase;
+  text-align: end;
+  font-weight: 600;
+}
+
+.nav-tabs {
+  border: none;
+  margin-bottom: 20px;
+  padding: 0px;
+}
+
+
+.tab-content {
+  padding: 0px;
+}
+
+.floatTitle::before{
+transform: translate(0%);
+}
+
+.floatTitle::after{
+  transform: translate(50%);
+  }
+
+
+@media screen and (max-width: 991px) {
+  .nav-link:hover {
+    background-color: rgb(241, 232, 232, 0.2);
+    transition: 0.3s;
+  }
+
+  .nav-link {
+    width: 100%;
+    transition: 0.3s;
+    background-color: rgba(54, 150, 177, 0.2);
+    text-align: center;
+    border-radius: 50px 0px 0px 50px;
+
+  }
+  .title {
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+  }
+}
+
