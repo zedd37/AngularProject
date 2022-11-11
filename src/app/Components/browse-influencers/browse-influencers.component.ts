@@ -25,15 +25,17 @@ export class BrowseInfluencersComponent implements OnInit {
     this.influencers = this.influencerService.listInfluencers().subscribe(influencer => {
       this.influencers = influencer;
       this.filteredInfluencers = influencer;
-      console.log(this.influencers);
+      // console.log(this.influencers);
     })
   }
 
   search(word: any) {
     this.filteredInfluencers = [];
     for (let i = 0; i < this.influencers.length; i++) {
-      if (this.influencers[i].fname == word) {
+      if (this.influencers[i].fname.toLowerCase() == word.toLowerCase()) {
         this.filteredInfluencers.push(this.influencers[i]);
+      }else if(word == "") {
+        this.showInfluencers();
       }
     }
   }
