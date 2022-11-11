@@ -1,48 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="campaignsContainer">
-  <table 
-    class="table table-hover">
-    <thead>
-      <tr >
-        <th class="Cname">Campaign</th>
-        <th >Type</th>
-        <th >Privacy</th>
-        <th >Start Date</th>
-        <th >Country</th>
-        <th >Actions</th>
-      </tr>
-    </thead>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-    <tbody class="table-group-divider">
+<body>
+  <div class="campaignsContainer">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="Cname">Campaign</th>
+          <th>Type</th>
+          <th>Privacy</th>
+          <th>Start Date</th>
+          <th>Country</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-      <tr *ngFor="let c of draftCampaigns.data">
-        <td>{{c.title}}</td>
-        <td>{{c.type}}</td>
-        <td>{{c.privacy}}</td>
-        <td>{{c.start_date}}</td>
-        <td>{{c.country}}</td>
-        <td class="actions">
+      <tbody class="table-group-divider">
+        <tr *ngFor="let draftsCampaign of draftsCampaigns.data">
+          <td>{{draftsCampaign.title}}</td>
+          <td>{{draftsCampaign.type}}</td>
+          <td>{{draftsCampaign.privacy}}</td>
+          <td>{{draftsCampaign.created_at}}</td>
+          <td>{{draftsCampaign.country}}</td>
+          <td class="actions">
 
-          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}"><b>i</b></button>
-          <button class="iconBtn">M</button>
-          <button class="iconBtn" (click)="DeleteCampaign(c.id)">D</button>
-        </td>
+            <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{draftsCampaign.id}}"><b>i</b></button>
+            <button class="iconBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal3">M</button>
+            <button class="iconBtn" (click)="DeleteCampaign(draftsCampaign.id)">D</button>
+          </td>
 
-        <td class="actionsCollapse">
-          <div class="btn-group dropstart">
+          <td class="actionsCollapse">
+            <div class="btn-group dropstart">
               <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}">Info</a></li>
-              <li><a class="dropdown-item" href="#">Move</a></li>
-              <li><button class="dropdown-item" (click)="DeleteCampaign(c.id)">Delete</button></li>
-            </ul>
-          </div>
-        </td>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{draftsCampaign.id}}">Info</a></li>
+                <li><a class="dropdown-item" href="#">Move</a></li>
+                <li><button class="dropdown-item" (click)="DeleteCampaign(draftsCampaign.id)">Delete</button></li>
+              </ul>
+            </div>
+          </td>
 
-      </tr>
+        </tr>
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Move Campaign</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Choose your Campaign Status.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Pending</button>
+        <button type="button" class="btn btn-primary">Completed</button>
+        <button type="button" class="btn btn-primary">Drafts</button>
 
-    </tbody>
-  </table>
+      </div>
+    </div>
+  </div>
 </div>
 
+      </tbody>
+    </table>
+  </div>
+</body>
 
+</html>

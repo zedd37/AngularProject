@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
   selector: 'app-my-campaigns',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCampaignsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private campaigns: CampaignsService) {
+  }
+
+  pendingCampaigns: any;
 
   ngOnInit(): void {
   }
-
+  getPending() {
+  }
+  getCompleted() {
+  }
+  getDrafts() {
+  }
 }

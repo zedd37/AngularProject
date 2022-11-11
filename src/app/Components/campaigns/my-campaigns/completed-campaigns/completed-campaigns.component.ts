@@ -9,20 +9,14 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
 })
 export class CompletedCampaignsComponent implements OnInit {
 
-  constructor(private campaignService: CampaignsService) {}
-
+  constructor(private campaigns: CampaignsService) {
+  }
   completedCampaigns: any;
-
   ngOnInit(): void {
-    let that = this;
-    this.campaignService.getAllCampaigns().subscribe({
-      next(data) {
-        that.completedCampaigns = data;
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    this.completedCampaigns = this.campaigns.getCompleted().subscribe(Response => {
+      this.completedCampaigns = Response;
+        console.log(Response);
+    })
   }
 }
 

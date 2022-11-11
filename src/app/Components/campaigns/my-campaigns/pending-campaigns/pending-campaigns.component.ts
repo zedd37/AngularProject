@@ -8,20 +8,14 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
   styleUrls: ['./pending-campaigns.component.css']
 })
 export class PendingCampaignsComponent implements OnInit {
-
-  constructor(private campaignService: CampaignsService) {}
-
+  constructor(private campaigns: CampaignsService) {
+  }
   pendingCampaigns: any;
 
   ngOnInit(): void {
-    let that = this;
-    this.campaignService.getAllCampaigns().subscribe({
-      next(data) {
-        that.pendingCampaigns = data;
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    this.pendingCampaigns = this.campaigns.getPending().subscribe(Response => {
+      this.pendingCampaigns = Response;
+      console.log(Response);
+    })
   }
 }
