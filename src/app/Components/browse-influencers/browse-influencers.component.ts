@@ -8,7 +8,9 @@ import { InfluencerService } from 'src/app/services/influencer.service';
 })
 export class BrowseInfluencersComponent implements OnInit {
 
-  constructor(private influencerService: InfluencerService) { }
+  constructor(private influencerService: InfluencerService) {
+
+  }
 
   influencers: any;
   filteredInfluencers: any = [];
@@ -16,20 +18,25 @@ export class BrowseInfluencersComponent implements OnInit {
 
   ngOnInit(): void {
     this.showInfluencers();
-    this.filter(0,60,0,500,0,500,0,500,'male','married','yes','dogs','USA');
   }
 
 
   showInfluencers() {
     this.influencers = this.influencerService.listInfluencers().subscribe(influencer => {
       this.influencers = influencer;
-
-
-      // console.log(this.influencers);
+      this.filteredInfluencers = influencer;
+      console.log(this.influencers);
     })
   }
 
-
+  search(word: any) {
+    this.filteredInfluencers = [];
+    for (let i = 0; i < this.influencers.length; i++) {
+      if (this.influencers[i].fname == word) {
+        this.filteredInfluencers.push(this.influencers[i]);
+      }
+    }
+  }
 
   filter(minAge: any,
     maxAge: any,
@@ -42,7 +49,6 @@ export class BrowseInfluencersComponent implements OnInit {
     gender: any,
     maritalStatus: any,
     children: any,
-    pets: any,
     country: any) {
     this.filteredInfluencers = [];
 
@@ -52,14 +58,20 @@ export class BrowseInfluencersComponent implements OnInit {
       if (this.influencers[i].age > minAge && this.influencers[i].age < maxAge && this.influencers[i].price > minPrice && this.influencers[i].price < maxPrice) {
         if (this.influencers[i].engagement_rate > minEngagementRate && this.influencers[i].engagement_rate < maxEngagementRate) {
           if (this.influencers[i].followers > minFollowers && this.influencers[i].followers < maxFollowers) {
-
-            this.filteredInfluencers.push(this.influencers[i]);
+            if (this.influencers[i].gender == gender) {
+              if (this.influencers[i].marital_status == maritalStatus) {
+                if (this.influencers[i].children == children) {
+                  this.filteredInfluencers.push(this.influencers[i]);
+                }
+              }
+            }
           }
         }
       }
     }
 
-    console.log(this.filteredInfluencers);
+    // console.log(this.filteredInfluencers);
+
 
 
 
