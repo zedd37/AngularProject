@@ -27,6 +27,19 @@ export class ProfileComponent implements OnInit {
     }).subscribe({
       next(data) {
         that.brand = data;
+        console.log(data);
+      },
+      error(err) {
+        console.log(err);
+      },
+    }); 
+    this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
+      headers: header,
+    }).subscribe({
+
+      next(data) {
+        // that.brand = data;
+        console.log(data);
       },
       error(err) {
         console.log(err);
@@ -34,4 +47,5 @@ export class ProfileComponent implements OnInit {
     });
     
   }
+  
 }
