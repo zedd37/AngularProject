@@ -21,9 +21,6 @@
     <div class="container button-container col-6 ">
       <div class="row">
         <div class=" button">
-          About
-        </div>
-        <div class=" button">
           Connections
         </div>
         <div class=" button">
@@ -31,77 +28,19 @@
         </div>
       </div>
     </div>
-
-    <div class="card text-center my-3 box-shadow">
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">Industries</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body" id="about">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-
-    <div class="card text-center my-3 box-shadow">
-      <div class="card-header">
-        <b class="float-start">Information</b>
-      </div>
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#about">Location</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">Phone Number</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">E-mail</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">Facebook</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">Instagram</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">Tik Tok</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="true" href="#Industry">Youtube</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body" id="about">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-    <div>
+  </div>
+    <!-- <div>
       <div class="row d-flex justify-content-center mt-3 ">
         <div class="col-md-10 col-xl-8 text-center">
-          <!-- <div *ngIf="brands">
+         <div *ngIf="brands">
             <div *ngFor="let brand of brands">
-              {{ brand.fname }}
+              {{brand.fname}}
             </div>
-          </div> -->
-          <div>
-
-            <input #brandId type="number" name="" id="">
-            <!-- <input type="submit" value="submit" (click)="getBrand(brandId.value)"> -->
-            <p></p>
           </div>
-          <h3 class="mb-1">Reviews</h3>
-        </div>
+       </div>
       </div>
-
-      <div class="row text-center d-flex align-items-stretch mt-3 ">
+    </div> -->
+      <!-- <div class="row text-center d-flex align-items-stretch mt-3 ">
         <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
           <div class="card testimonial-card box-shadow2">
             <div class="card-up" style="background-color: #1C768F;"></div>
@@ -153,9 +92,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <nav aria-label="..." >
+      <!-- <nav aria-label="..." >
         <ul class="pagination justify-content-center my-4">
           <li class="page-item disabled">
             <a class="page-link">Previous</a>
@@ -169,11 +108,211 @@
             <a class="page-link" href="#">Next</a>
           </li>
         </ul>
-      </nav>
+      </nav> -->
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<div>
+  <div>
+    <div class="brandinfo mt-5 mb-3 fs-3 fw-bold">Brand Information</div>
+    <div class="row ">
+      <div class="brand-tabs w-100 justify-content-between nav nav-tabs "
+        id="pills-tab"
+        role="tablist"
+      >
+          <button
+          class="nav-link  active"
+          id="pills-about-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-about"
+          type="button"
+          role="tab"
+          aria-controls="pills-about"
+          aria-selected="true"
+          >
+          <a class="nav-a">About Us</a>
+
+          </button>
+          <button
+            class="nav-link"
+            id="pills-industries-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-industries"
+            type="button"
+            role="tab"
+            aria-controls="pills-industries"
+            aria-selected="true"
+            >
+            <a class="nav-a">Industries</a>
+
+          </button>
+
+          <button
+            class="nav-link "
+            id="pills-location-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-location"
+            type="button"
+            role="tab"
+            aria-controls="pills-location"
+            aria-selected="false"
+            >
+            <a class="nav-a">Location</a>
+            </button>
+
+          <button
+            class="nav-link "
+            id="pills-phone-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-phone"
+            type="button"
+            role="tab"
+            aria-controls="pills-phone"
+            aria-selected="false"
+            >
+            <a class="nav-a">Phone Number</a>
+            </button>
+
+          <button
+          class="nav-link "
+          id="pills-facebook-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-facebook"
+          type="button"
+          role="tab"
+          aria-controls="pills-facebook"
+          aria-selected="false"
+          >
+          <a class="nav-a">Facebook</a>
+          </button>
+
+          <button
+          class="nav-link "
+          id="pills-instagram-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-instagram"
+          type="button"
+          role="tab"
+          aria-controls="pills-instagram"
+          aria-selected="false"
+          >
+          <a class="nav-a">Instagram</a>
+          </button>
+
+          <button
+          class="nav-link "
+          id="pills-tiktok-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-tiktok"
+          type="button"
+          role="tab"
+          aria-controls="pills-tiktok"
+          aria-selected="false"
+          >
+          <a class="nav-a">TikTok</a>
+          </button>
+
+          <button
+          class="nav-link "
+          id="pills-youtube-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-youtube"
+          type="button"
+          role="tab"
+          aria-controls="pills-youtube"
+          aria-selected="false"
+          >
+          <a class="nav-a">Youtube</a>
+          </button>
+
+        </div>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane active"
+            id="pills-about"
+            role="tabpanel"
+            aria-labelledby="pills-about-tab"
+            tabindex="1">
+            {{brand.data.brand_info.about}}
+          </div>
+
+          <div
+            class="tab-pane"
+            id="pills-industries"
+            role="tabpanel"
+            aria-labelledby="pills-industries-tab"
+            tabindex="2"
+          >
+          {{brand.data.brand_info.industries}}
+          </div>
+
+          <div
+            class="tab-pane"
+            id="pills-location"
+            role="tabpanel"
+            aria-labelledby="pills-location-tab"
+            tabindex="3"
+          >
+          {{brand.data.brand_info.location}}
+          </div>
+
+          <div
+            class="tab-pane"
+            id="pills-phone"
+            role="tabpanel"
+            aria-labelledby="pills-phone-tab"
+            tabindex="4"
+          >
+          {{brand.data.phone}}
+          </div>
+
+          <div
+          class="tab-pane"
+          id="pills-facebook"
+          role="tabpanel"
+          aria-labelledby="pills-facebook-tab"
+          tabindex="5"
+          >
+          {{brand.data.brand_info.facebook}}
+          </div>
+          <div
+          class="tab-pane"
+          id="pills-instagram"
+          role="tabpanel"
+          aria-labelledby="pills-instagram-tab"
+          tabindex="6"
+          >
+          {{brand.data.instagram}}
+          </div>
+
+          <div
+          class="tab-pane"
+          id="pills-tiktok"
+          role="tabpanel"
+          aria-labelledby="pills-tiktok-tab"
+          tabindex="7"
+          >
+          {{brand.data.brand_info.tiktok}}
+          </div>
+          <div
+          class="tab-pane"
+          id="pills-youtube"
+          role="tabpanel"
+          aria-labelledby="pills-youtube-tab"
+          tabindex="8"
+          >
+          {{brand.data.brand_info.youtube}}
+          </div>
+
+      </div>
     </div>
   </div>
+
 </div>
 
+</div>
 <app-footer></app-footer>
 
 
