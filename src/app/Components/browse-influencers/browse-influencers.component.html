@@ -3,12 +3,37 @@
 <div class="container-fluid shadow w-75 m-auto mt-3 p-4">
   <div class="row">
     <div
-      class="col col-lg-3 text-center mb-3 d-flex"
+      class="col col-lg-3col-sm-12 text-center mb-3 d-flex"
       style="flex-wrap: wrap; align-items: center; font-weight: 600"
     >
-      <label class="h4 d-block m-3 w-100" for="">Age</label>
-      <div class="d-flex">
-        From<input
+      <h3 class="h4 d-block m-3 w-100" for="">Age</h3>
+      <!-- <div class="d-flex"> -->
+      From
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #minAge
+      >
+        <option value=0 selected>12</option>
+        <option value=18>18</option>
+        <option value=25>25</option>
+        <option value=35>35</option>
+        <option value=45>45</option>
+
+      </select>
+      To
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #maxAge
+      >
+        <option value=18>18</option>
+        <option value=25>25</option>
+        <option value=35>35</option>
+        <option value=45>45</option>
+        <option value=60 selected>60</option>
+      </select>
+      <!-- From<input
           class="form-control mx-2"
           value="12"
           style="height: 40px; width: 50px"
@@ -21,8 +46,58 @@
           style="height: 40px; width: 50px"
           type="number"
           #maxAge
-        />
-      </div>
+        /> -->
+      <!-- </div> -->
+    </div>
+
+    <div
+      class="col col-lg-3 text-center mb-3 d-flex"
+      style="flex-wrap: wrap; align-items: center; font-weight: 600"
+    >
+      <label class="h4 m-0 d-block m-3 w-100" for="">Followers</label>
+
+      From
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #minFollowers
+      >
+        <option value=0 selected>0</option>
+        <option value=10000>10K</option>
+        <option value=50000>50K</option>
+        <option value=100000>100K</option>
+        <option value=250000>250K</option>
+        <option value=500000>500K</option>
+        <option value=1000000>1M</option>
+      </select>
+      <!-- <input
+        class="form-control mx-2"
+        value="0"
+        style="height: 40px; width: 50px"
+        type="number"
+        #minFollowers
+      /> -->
+      To
+      <!-- <input
+        class="form-control mx-2"
+        value="60"
+        style="height: 40px; width: 50px"
+        type="number"
+        #maxFollowers
+      /> -->
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #maxFollowers
+      >
+        <option  value=10000>10K</option>
+        <option value=50000>50K</option>
+        <option value=100000>100K</option>
+        <option value=250000>250K</option>
+        <option value=500000>500K</option>
+        <option value=1000000>1M</option>
+        <option value=500000000 selected>5M+</option>
+      </select>
     </div>
 
     <div
@@ -31,7 +106,36 @@
     >
       <label class="h4 m-0 d-block m-3 w-100" for="">Price</label>
 
-      From<input
+      From
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #minPrice
+      >
+      <option value=0 selected>0</option>
+      <option value=1000>1K</option>
+      <option value=5000>5K</option>
+      <option value=10000>10K</option>
+      <option value=25000>25K</option>
+      <option value=50000>50K</option>
+      <option value=100000>100K</option>
+      </select>
+      To
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #maxPrice
+      >
+      <option  value=10000>10K</option>
+      <option value=1000>1K</option>
+      <option value=5000>5K</option>
+      <option value=10000>10K</option>
+      <option value=25000>25K</option>
+      <option value=50000>50K</option>
+      <option value=100000>100K</option>
+      <option value=50000000 selected>500K+</option>
+      </select>
+      <!-- From<input
         class="form-control mx-2"
         value="0"
         style="height: 40px; width: 50px"
@@ -44,16 +148,36 @@
         style="height: 40px; width: 50px"
         type="number"
         #maxPrice
-      />
+      /> -->
     </div>
 
     <div
       class="col col-lg-3 text-center mb-3 d-flex"
       style="flex-wrap: wrap; align-items: center; font-weight: 600"
     >
-      <label class="h4 m-0 d-block m-3 w-100" for="">Engagement Rate</label>
+      <label class="h5 m-0 d-block m-3 w-100" for="">Engagement Rate</label>
 
-      From<input
+      From
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #minEngagementRate
+      >
+        <option value=0 selected>0</option>
+        <option value=1 >1</option>
+        <option value=2 >2</option>
+      </select>
+      To
+      <select
+        class="form-select border-0 mx-3 text-center bg-light"
+        aria-label="Default select example"
+        #maxEngagementRate
+      >
+      <option value=1 >1</option>
+      <option value=2 >2</option>
+      <option value=3 selected>3</option>
+      </select>
+      <!-- From<input
         class="form-control mx-2"
         value="0"
         style="height: 40px; width: 50px"
@@ -66,29 +190,7 @@
         style="height: 40px; width: 50px"
         type="number"
         #maxEngagementRate
-      />
-    </div>
-
-    <div
-      class="col col-lg-3 text-center mb-3 d-flex"
-      style="flex-wrap: wrap; align-items: center; font-weight: 600"
-    >
-      <label class="h4 m-0 d-block m-3 w-100" for="">Followers</label>
-
-      From<input
-        class="form-control mx-2"
-        value="0"
-        style="height: 40px; width: 50px"
-        type="number"
-        #minFollowers
-      />To
-      <input
-        class="form-control mx-2"
-        value="60"
-        style="height: 40px; width: 50px"
-        type="number"
-        #maxFollowers
-      />
+      /> -->
     </div>
   </div>
 
@@ -100,7 +202,7 @@
         aria-label="Default select example"
         #gender
       >
-        <option selected>All</option>
+        <!-- <option value='{"foo":"bar","one":"two"}' selected>All</option> -->
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
@@ -113,7 +215,7 @@
         aria-label="Default select example"
         #maritalStatus
       >
-        <option selected>All</option>
+        <!-- <option selected>All</option> -->
         <option value="single">Single</option>
         <option value="married">Married</option>
       </select>
@@ -125,12 +227,12 @@
         aria-label="Default select example"
         #children
       >
-        <option selected>All</option>
+        <!-- <option selected>All</option> -->
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
     </div>
-    <div class="col text-center">
+    <!-- <div class="col text-center">
       <label class="h5 m-2" for="">Pets</label>
       <select
         class="form-select border-0 bg-light"
@@ -141,10 +243,10 @@
         <option value="dogs">Dogs</option>
         <option value="cats">Cats</option>
       </select>
-    </div>
+    </div> -->
     <div class="col text-center">
       <label class="h5 m-2" for="">Country</label>
-      <select
+      <select disabled
         class="form-select border-0 bg-light"
         aria-label="Default select example"
         #country
@@ -155,22 +257,38 @@
       </select>
     </div>
   </div>
-  <div class="row m-3 mt-4">
-    <div class="col-3">
-      <span style="color: #032539" class="h2">Search</span>
+  <div class="row m-2 mt-4">
+
+    <div class="col">
+      <span style="color: #032539" class="h3">Search</span>
     </div>
-    <div class="col-8">
+    <div class="col-8 col-sm-7">
       <input
-        class="form-control"
+        class="form-control "
         placeholder="By name or username"
         type="text"
+        #word
       />
     </div>
-    <div class="col-1">
+    <div class="col my-2">
       <button
         type="button"
-        class="btn btn-dark btn-lg"
-        style=" background-color: #032539"
+        class="btn btn-dark "
+        style="background-color: #032539"
+        (click)="
+          search(
+            word.value
+          )
+        "
+      >
+        Search
+      </button>
+    </div>
+    <div class="col my-2">
+      <button
+        type="button"
+        class="btn btn-dark float-end"
+        style="background-color: #032539"
         (click)="
           filter(
             minAge.value,
@@ -184,12 +302,11 @@
             gender.value,
             maritalStatus.value,
             children.value,
-            pets.value,
             country.value
           )
         "
       >
-        Filter
+        Apply Filter
       </button>
     </div>
   </div>
@@ -206,8 +323,12 @@
       </div>
     </div> -->
 
-  <div class="d-flex justify-content-between flex-wrap w-100">
-    <div class="card col-3 shadow mt-2 col-sm-12 col-lg-4 col-md-6" style="width:24%" *ngFor="let influencer of filteredInfluencers">
+  <div class="d-flex justify-content-around flex-wrap w-100">
+    <div
+      class="card col-3 shadow mt-2 col-sm-12 col-lg-4 col-md-6"
+      style="width: 24%"
+      *ngFor="let influencer of filteredInfluencers"
+    >
       <img
         src="assets/images/{{ influencer.id }}.png"
         class="card-img-top"
@@ -220,16 +341,19 @@
         <span class="d-block"><i class="bi bi-heart-fill"></i></span>
         <p class="card-text">{{ influencer.instagram }}</p>
       </div>
-      <div class="card-footer justify-content-between" style="text-align: center">
+      <div
+        class="card-footer justify-content-between"
+        style="text-align: center"
+      >
         <small class="text-muted justify-content-between">
           <a href="https://www.instagram.com/" target="_blank">
-            <i class="bi bi-instagram my-0 "></i
+            <i class="bi bi-instagram my-0"></i
           ></a>
           <a href="https://www.tiktok.com/" target="_blank">
             <i class="bi bi-snapchat my-0 mx-3"></i
           ></a>
           <a href="https://www.facebook.com/" target="_blank">
-            <i class="bi bi-facebook my-0 "></i
+            <i class="bi bi-facebook my-0"></i
           ></a>
         </small>
       </div>
