@@ -28,7 +28,10 @@ import { RoleGuard } from './Guard/role.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: ProfileComponent,canActivate: [AuthGuard],
+  },
   {
     path: 'browse-influencers',
     component: BrowseInfluencersComponent,
@@ -42,53 +45,52 @@ const routes: Routes = [
   {
     path: 'create-campaign/instagram/:campaignId',
     component: CreateCampaignTwoComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'create-campaign/tiktok/:campaignId',
     component: CreateCampaignThreeComponent,
-    canActivate: [AuthGuard,RoleGuard],
-
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'create-campaign/instagram-tiktok/:campaignId',
     component: CreateCampaignIgTtComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'create-campaign/payment',
     component: CreateCampaignFourComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'campaigns',
     component: MyCampaignsComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'campaigns/:campaignId',
     component: CampaignDetailsComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'update-campaign/:campaignId',
     component: UpdateCampaignOneComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'update-campaign/instagram/:campaignId',
     component: UpdateCampaignTwoComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'update-campaign/tiktok/:campaignId',
     component: UpdateCampaignThreeComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'update-campaign/instagram-tiktok/:campaignId',
     component: UpdateCampaignIgTtComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'influencers-payment',
@@ -98,7 +100,7 @@ const routes: Routes = [
   {
     path: 'payment-method',
     component: PaymentsMethodComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
   },
   { path: '**', component: ErrorComponentComponent },
 ];
