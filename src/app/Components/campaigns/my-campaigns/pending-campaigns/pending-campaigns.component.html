@@ -1,200 +1,63 @@
+
 <div class="campaignsContainer">
-      <table
-        class="table table-hover">
-        <thead>
-          <tr >
-            <th class="Cname">Campaign</th>
-            <th >Type</th>
-            <th >Privacy</th>
-            <th >Start Date</th>
-            <th >Country</th>
-            <th >Actions</th>
-          </tr>
-        </thead>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="Cname">Campaign</th>
+        <th>Type</th>
+        <th>Privacy</th>
+        <th>Start Date</th>
+        <th>Country</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-        <tbody class="table-group-divider">
-          <tr>
-            <td>Name1</td>
-            <td>Paid</td>
-            <td>Public</td>
-            <td>11/11/2011</td>
-            <td>Egypt</td>
-            <td class="actions">
+    <tbody class="table-group-divider">
+      <tr *ngFor="let pendingCampaign of pendingCampaigns.data">
+        <td>{{pendingCampaign.title}}</td>
+        <td>{{pendingCampaign.type}}</td>
+        <td>{{pendingCampaign.privacy}}</td>
+        <td>{{pendingCampaign.created_at}}</td>
+        <td>{{pendingCampaign.country}}</td>
+        <td class="actions">
 
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
+          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{pendingCampaign.id}}"><b>i</b></button>
+          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{pendingCampaign.id}}">E</button>
+          <button class="iconBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">M</button>
+        </td>
 
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
+        <td class="actionsCollapse">
+          <div class="btn-group dropstart">
+            <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{pendingCampaign.id}}">Info</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{pendingCampaign.id}}">Edit</a></li>
+              <li><a class="dropdown-item" href="#">Move</a></li>
+            </ul>
+          </div>
+        </td>
 
-          </tr>
+      </tr>
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Move Campaign</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Choose your Campaign Status.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Pending</button>
+              <button type="button" class="btn btn-primary">Completed</button>
+              <button type="button" class="btn btn-primary">Drafts</button>
 
-          <tr>
-            <td>Name2</td>
-            <td>Affiliate</td>
-            <td>Public</td>
-            <td>11/11/2022</td>
-            <td>Turkey</td>
-            <td class="actions">
-
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
-
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
-
-          </tr>
-
-          <tr>
-            <td>Name3</td>
-            <td>Product</td>
-            <td>Private</td>
-            <td>19/11/2011</td>
-            <td>Lebanon</td>
-            <td class="actions">
-
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
-
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
-
-          </tr>
-
-          <tr>
-            <td>Name4</td>
-            <td>Paid</td>
-            <td>Public</td>
-            <td>11/11/2011</td>
-            <td>Egypt</td>
-            <td class="actions">
-
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
-
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
-
-          </tr>
-
-          <tr>
-            <td>Name5</td>
-            <td>Affiliate</td>
-            <td>Public</td>
-            <td>11/11/2022</td>
-            <td>Turkey</td>
-            <td class="actions">
-
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
-
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
-
-          </tr>
-
-          <tr>
-            <td>Name6</td>
-            <td>Product</td>
-            <td>Private</td>
-            <td>19/11/2011</td>
-            <td>Lebanon</td>
-            <td class="actions">
-
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
-
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
-
-          </tr>
-          <tr>
-            <td>Name7</td>
-            <td>Product</td>
-            <td>Private</td>
-            <td>19/11/2011</td>
-            <td>Lebanon</td>
-            <td class="actions">
-
-              <button class="iconBtn"><b>i</b></button>
-              <button class="iconBtn">E</button>
-              <button class="iconBtn">M</button>
-            </td>
-
-            <td class="actionsCollapse">
-              <div class="btn-group dropstart">
-                  <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Info</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Move</a></li>
-                </ul>
-              </div>
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-
+            </div>
+          </div>
+        </div>
+      </div>
+    </tbody>
+  </table>
+</div>

@@ -57,3 +57,12 @@ label {
 img{
   height:190px;
 }
+
+
+@media screen and (max-width: 991px) {
+  .card {
+    width: 100% !important;
+  }
+
+
+  }

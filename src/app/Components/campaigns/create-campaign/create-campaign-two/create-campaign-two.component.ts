@@ -32,7 +32,6 @@ export class CreateCampaignTwoComponent implements OnInit {
     ig_hashtags: any,
     ig_tags: any
   ) {
-    console.log({ ig_posts_imgs, ig_reels });
 
     this.campaignsService
       .addNewIG(this.campaignId,{

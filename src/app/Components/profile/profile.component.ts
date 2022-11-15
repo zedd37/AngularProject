@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SignupAndLoginService } from '../Services/signup-and-login.service';
 import { BrandService } from '../Services/brand.service';
+import { RoleGuard } from 'src/app/Guard/role.guard';
 
 @Component({
   selector: 'app-profile',
@@ -11,18 +12,19 @@ import { BrandService } from '../Services/brand.service';
 export class ProfileComponent implements OnInit {
   constructor(
     private Http: HttpClient,
+
     private BrandService: SignupAndLoginService
   ) {}
-brand:any;
+  brand: any;
+
   ngOnInit(): void {
     const header = new HttpHeaders({
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
     });
-    let that=this
+    let that = this;
     this.Http.get('http://localhost:8000/api/brand', {
       headers: header,
     }).subscribe({
-
       next(data) {
         that.brand = data;
         console.log(data);
@@ -43,6 +45,7 @@ brand:any;
         console.log(err);
       },
     });
+    
   }
   
 }
