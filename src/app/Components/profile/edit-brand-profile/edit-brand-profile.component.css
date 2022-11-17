@@ -1,0 +1,70 @@
+.form-header{
+    width: 100%;
+}
+
+h2{
+    text-align: center;
+    padding-top: 30px;
+    font-weight: 700;   
+}
+h5{
+    text-align: center;
+}
+
+.form-container{
+    width: 100%;
+    padding: 30px;
+}
+.profile-form{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 30px;
+    border: 3px solid rgb(6, 0, 54);
+    border-radius: 50px;
+    background-color: #032539;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+label{
+    width: 35%;
+    text-align: left;
+    color: #fd7e14;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #1c768f;
+    color: #fff;
+    font-weight: 600px;
+    text-transform: uppercase;
+    margin: 10px auto;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  .button:hover {
+    background-color: #032539;
+  }
+  .button-container .row{
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  textarea {
+    resize: none;
+  }

@@ -33,18 +33,18 @@ export class ProfileComponent implements OnInit {
         console.log(err);
       },
     }); 
-    this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
-      headers: header,
-    }).subscribe({
+    // this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
+    //   headers: header,
+    // }).subscribe({
 
-      next(data) {
-        // that.brand = data;
-        console.log(data);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    //   next(data) {
+    //     // that.brand = data;
+    //     console.log(data);
+    //   },
+    //   error(err) {
+    //     console.log(err);
+    //   },
+    // });
     
   }
   

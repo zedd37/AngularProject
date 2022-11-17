@@ -24,7 +24,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { SignupAndLoginComponent } from './Components/signup-and-login/signup-and-login.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { RoleGuard } from './Guard/role.guard';
-
+import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
+import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
@@ -100,6 +101,19 @@ const routes: Routes = [
     component: PaymentsMethodComponent,
     canActivate: [AuthGuard,RoleGuard],
   },
+
+  {
+    path: 'edit-brand-profile',
+    component: EditBrandProfileComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+
+  {
+    path: 'change-brand-password',
+    component: ChangeBrandPasswordComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+
   { path: '**', component: ErrorComponentComponent },
 ];
 
