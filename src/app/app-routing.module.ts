@@ -18,6 +18,8 @@ import { UpdateCampaignTwoComponent } from './Components/campaigns/update-campai
 import { UpdateCampaignComponent } from './Components/campaigns/update-campaign/update-campaign.component';
 import { ErrorComponentComponent } from './Components/error-component/error-component.component';
 import { HomeComponent } from './Components/home/home.component';
+import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
+import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { InfluencersPaymentsComponent } from './Components/payments/influencers-payments/influencers-payments.component';
 import { PaymentsMethodComponent } from './Components/payments/payments-method/payments-method.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'influencer-page', component: InfluencerPageComponent, canActivate: [AuthGuard] },
+  { path: 'edit-influencer', component: EditInfluencerComponent, canActivate: [AuthGuard] },
   {
     path: 'browse-influencers',
     component: BrowseInfluencersComponent,
