@@ -105,6 +105,63 @@ textarea{
     color: transparent;
   }
 
+  p::first-letter{
+    text-transform:capitalize;
+  }
+
+  .curr{
+    width:3rem;
+    background-color: rgb(228, 228, 228);
+    color:grey;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+
+  .submitOne {
+    border-radius: 50px;
+    border: none;
+    background-color: #fa991c;
+    color: #fff;
+    font-weight: 600px;
+    text-align: center;
+    width:200px;
+    margin: 30px auto;
+    transition: 0.5s;
+  }
+
+  .submitOne:hover {
+    background-color: #c4750f;
+  }
+
+
+  .btns{
+    margin: 0px auto;
+    text-align: center;
+  }
+
+  .btn {
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: #fa991c;
+    color: #fff;
+    font-weight: 600px;
+    width:200px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  .backBtn{
+    width:90px;
+    background-color: #ddd;
+    color:black;
+  }
+
+  .backBtn{
+    border-radius: 20px 0 0 20px;
+  }
+
   @media screen and (max-width: 991px) {
     .input-group-text {
       width:100%;
@@ -113,11 +170,11 @@ textarea{
     .subtitle {
       text-align: center;
     }
-  
+
     hr {
       border: none;
     }
-  
+
     .title {
       font-size: 25px;
       letter-spacing: 5px;

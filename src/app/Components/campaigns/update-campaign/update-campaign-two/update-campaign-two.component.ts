@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
@@ -26,6 +26,12 @@ export class UpdateCampaignTwoComponent implements OnInit {
     this.campaignsService.getCampaign(this.campaignId).subscribe({
       next(data) {
         that.campaign = data;
+        that.instagram.controls.postImgs.setValue(that.campaign.data.instagram_info.ig_posts_imgs);
+        that.instagram.controls.postVids.setValue(that.campaign.data.instagram_info.ig_posts_vids);
+        that.instagram.controls.storyImgs.setValue(that.campaign.data.instagram_info.ig_stories_imgs);
+        that.instagram.controls.storyVids.setValue(that.campaign.data.instagram_info.ig_stories_vids);
+        that.instagram.controls.reels.setValue(that.campaign.data.instagram_info.ig_reels);
+        that.instagram.controls.duration.setValue(that.campaign.data.instagram_info.ig_reel_duration);
       },
       error(err) {
         console.log(err);
@@ -33,7 +39,39 @@ export class UpdateCampaignTwoComponent implements OnInit {
     });
   }
 
-  addInstagramValidator = new FormGroup({});
+  instagram = new FormGroup({
+    postImgs: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    postVids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    storyImgs: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    storyVids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    reels: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    duration: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+  });
+
+
+  get postImgs(){
+    return this.instagram.controls.postImgs.valid
+  }
+
+  get postVids(){
+    return this.instagram.controls.postVids.valid
+  }
+
+  get storyImgs(){
+    return this.instagram.controls.storyImgs.valid
+  }
+
+  get storyVids(){
+    return this.instagram.controls.storyVids.valid
+  }
+
+  get reels(){
+    return this.instagram.controls.reels.valid
+  }
+
+  get duration(){
+    return this.instagram.controls.duration.valid
+  }
 
   UpdateIgDet(
     ig_posts_imgs: any,
@@ -59,7 +97,7 @@ export class UpdateCampaignTwoComponent implements OnInit {
         ig_tags: ig_tags,
       })
       .subscribe(() => {
-        {this.router.navigateByUrl('/profile');}
+        {this.router.navigateByUrl(`/update-campaign/influencer-fees/${this.campaignId}`);}
       });
   }
 }

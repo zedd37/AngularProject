@@ -106,6 +106,71 @@ textarea{
     color: transparent;
   }
 
+  p::first-letter{
+    text-transform:capitalize;
+  }
+
+
+  .submitOne {
+    border-radius: 50px;
+    border: none;
+    background-color: #fa991c;
+    color: #fff;
+    font-weight: 600px;
+    text-align: center;
+    width:200px;
+    margin: 30px auto;
+    transition: 0.5s;
+  }
+
+  .submitOne:hover {
+    background-color: #c4750f;
+  }
+
+  .btns{
+    margin: 0px auto;
+    text-align: center;
+  }
+
+  .btn {
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: #fa991c;
+    color: #fff;
+    font-weight: 600px;
+    width:200px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  .goToCampaignsBtn{
+    background-color: #044469;
+  }
+
+  .goToCampaignsBtn:hover {
+    background-color: #032539;
+  }
+
+  .backBtn, .nextBtn{
+    width:90px;
+    background-color: #ddd;
+    color:black;
+  }
+
+  .backBtn{
+    border-radius: 20px 0 0 20px;
+  }
+
+  .nextBtn{
+    border-radius: 0 20px 20px 0;
+  }
+
+  .backBtn:hover, .nextBtn:hover {
+    background-color: #b6b6b6;
+  }
+
   @media screen and (max-width: 991px) {
     .input-group-text {
       width:100%;
@@ -124,23 +189,4 @@ textarea{
       margin-bottom: 10px;
     }
 
-  }
-
-  .submitOne {
-    border-radius: 50px;
-    border: none;
-    background-color: #fa991c;
-    color: #fff;
-    font-weight: 600px;
-    text-align: center;
-    position:relative;
-    left:50%;
-    transform: translateX(-50%);
-    width:200px;
-    margin: 30px auto;
-    transition: 0.5s;
-  }
-
-  .submitOne:hover {
-    background-color: #c4750f;
   }

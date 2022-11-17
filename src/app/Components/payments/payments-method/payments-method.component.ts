@@ -9,6 +9,12 @@ export class PaymentsMethodComponent implements OnInit {
 
   constructor() { }
 
+  payCardDiv = true;
+
+  toggleDisplayDiv() {
+    this.payCardDiv = !this.payCardDiv;
+  }
+
   ngOnInit(): void {
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { platformBrowser } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({
@@ -9,14 +11,15 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
   styleUrls: ['./update-campaign-one.component.css']
 })
 export class UpdateCampaignOneComponent implements OnInit {
-  campaignId=0;
+  campaignId= 0;
   instagram = 0;
   tiktok = 0;
   platforms: FormGroup;
   platformOptions: Array<any> = [
-    { name: 'Instagram', value: 'instagram' },
-    { name: 'TikTok', value: 'tiktok' },
+    { name: 'Instagram', value: 'instagram'},
+    { name: 'TikTok', value: 'tiktok'},
   ];
+
 
   constructor(private campaignsService: CampaignsService, fb: FormBuilder, private activated:ActivatedRoute, private router:Router) {
     this.campaignId = activated.snapshot.params['campaignId'];
@@ -24,7 +27,6 @@ export class UpdateCampaignOneComponent implements OnInit {
       selectedPlatforms: new FormArray([]),
     });
   }
-
   campaign: any;
 
   ngOnInit(): void {
@@ -38,7 +40,6 @@ export class UpdateCampaignOneComponent implements OnInit {
       },
     });
   }
-
 
   addCampaignValidator = new FormGroup({});
 
@@ -68,9 +69,13 @@ export class UpdateCampaignOneComponent implements OnInit {
     }
   }
 
+  titleError:any=null;
+  privacyError:any=null;
+
   UpdateCampaign(
     title: string,
     type: string,
+    privacy:string,
     start_date: any,
     country: string,
     details: any,
@@ -78,16 +83,23 @@ export class UpdateCampaignOneComponent implements OnInit {
     instagram: number,
     tiktok: number
   ) {
-
+    if (title==""){
+      this.titleError='Title field is required.'
+    }
+    if (privacy==""){
+      this.privacyError='Privacy field is required.'
+    }
       this.campaignsService.updateCampaign(this.campaignId,{
         title: title,
         type: type,
+        privacy: privacy,
         start_date: start_date,
         country: country,
         details: details,
-        // image: instagram,
+        // image: image,
         instagram: instagram,
-        tiktok: tiktok
+        tiktok: tiktok,
+        pending:1
       }).subscribe((campaign:any) => {
         if (instagram && !tiktok){this.router.navigateByUrl(`/update-campaign/instagram/${campaign.id}`);}
         if (tiktok && !instagram){this.router.navigateByUrl(`/update-campaign/tiktok/${campaign.id}`);}

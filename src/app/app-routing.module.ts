@@ -11,6 +11,7 @@ import { CreateCampaignThreeComponent } from './Components/campaigns/create-camp
 import { CreateCampaignTwoComponent } from './Components/campaigns/create-campaign/create-campaign-two/create-campaign-two.component';
 import { CreateCampaignComponent } from './Components/campaigns/create-campaign/create-campaign.component';
 import { MyCampaignsComponent } from './Components/campaigns/my-campaigns/my-campaigns.component';
+import { UpdateCampaignFourComponent } from './Components/campaigns/update-campaign/update-campaign-four/update-campaign-four.component';
 import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campaign/update-campaign-ig-tt/update-campaign-ig-tt.component';
 import { UpdateCampaignOneComponent } from './Components/campaigns/update-campaign/update-campaign-one/update-campaign-one.component';
 import { UpdateCampaignThreeComponent } from './Components/campaigns/update-campaign/update-campaign-three/update-campaign-three.component';
@@ -56,7 +57,7 @@ const routes: Routes = [
     canActivate: [AuthGuard,RoleGuard],
   },
   {
-    path: 'create-campaign/payment',
+    path: 'create-campaign/influencer-fees/:campaignId',
     component: CreateCampaignFourComponent,
     canActivate: [AuthGuard,RoleGuard],
   },
@@ -88,6 +89,11 @@ const routes: Routes = [
   {
     path: 'update-campaign/instagram-tiktok/:campaignId',
     component: UpdateCampaignIgTtComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+  {
+    path: 'update-campaign/influencer-fees/:campaignId',
+    component: UpdateCampaignFourComponent,
     canActivate: [AuthGuard,RoleGuard],
   },
   {

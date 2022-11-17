@@ -134,6 +134,9 @@ textarea:focus::placeholder {
   background-color: #c4750f;
 }
 
+p::first-letter{
+  text-transform:capitalize;
+}
 
 @media screen and (max-width: 991px) {
   .input-group-text {

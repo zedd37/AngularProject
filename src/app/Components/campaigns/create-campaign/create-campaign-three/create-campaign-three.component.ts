@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
@@ -23,7 +23,40 @@ export class CreateCampaignThreeComponent implements OnInit {
   }
 
 
-  addTikTokValidator = new FormGroup({});
+  tiktok = new FormGroup({
+    postImgs: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    postVids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    storyImgs: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    storyVids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    vids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    duration: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+  });
+
+
+  get postImgs(){
+    return this.tiktok.controls.postImgs.valid
+  }
+
+  get postVids(){
+    return this.tiktok.controls.postVids.valid
+  }
+
+  get storyImgs(){
+    return this.tiktok.controls.storyImgs.valid
+  }
+
+  get storyVids(){
+    return this.tiktok.controls.storyVids.valid
+  }
+
+  get vids(){
+    return this.tiktok.controls.vids.valid
+  }
+
+  get duration(){
+    return this.tiktok.controls.duration.valid
+  }
+
 
   AddTTDet(
     tt_posts_imgs: any,
@@ -35,8 +68,6 @@ export class CreateCampaignThreeComponent implements OnInit {
     tt_hashtags: any,
     tt_tags: any
   ) {
-    console.log({ tt_posts_imgs, tt_vids});
-
     this.campaignsService
       .addNewTT(this.campaignId,{
         campaign_id: this.campaignId,
@@ -50,9 +81,10 @@ export class CreateCampaignThreeComponent implements OnInit {
         tt_tags: tt_tags,
       })
       .subscribe(() => {
-        {this.router.navigateByUrl('/profile');}
+        {this.router.navigateByUrl(`/create-campaign/influencer-fees/${this.campaignId}`);}
       });
   }
+
 }
 
 
