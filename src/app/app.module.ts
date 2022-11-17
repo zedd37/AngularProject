@@ -47,6 +47,8 @@ import { AdminInfluencersComponent } from './Components/admin-influencers/admin-
 
 import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
 import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
+import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
+import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-
     AdminInfluencersComponent,
     EditBrandProfileComponent,
     ChangeBrandPasswordComponent,
+    InfluencerPageComponent,
+    EditInfluencerComponent,
   ],
   imports: [
     BrowserModule,
