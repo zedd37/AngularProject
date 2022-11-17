@@ -22,6 +22,9 @@ import { InfluencersPaymentsComponent } from './Components/payments/influencers-
 import { PaymentsMethodComponent } from './Components/payments/payments-method/payments-method.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { SignupAndLoginComponent } from './Components/signup-and-login/signup-and-login.component';
+import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
+import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
+import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { RoleGuard } from './Guard/role.guard';
 
@@ -101,6 +104,21 @@ const routes: Routes = [
     path: 'payment-method',
     component: PaymentsMethodComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-panel/campaigns',
+    component: AdminCampaignsComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+  {
+    path: 'admin-panel/brands',
+    component: AdminBrandsComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+  {
+    path: 'admin-panel/influencers',
+    component: AdminInfluencersComponent,
+    canActivate: [AuthGuard,RoleGuard],
   },
   { path: '**', component: ErrorComponentComponent },
 ];

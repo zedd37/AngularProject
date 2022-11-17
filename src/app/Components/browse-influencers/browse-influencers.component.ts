@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { InfluencerService } from 'src/app/Services/influencer.service';
+import { InfluencerService } from 'src/app/services/influencer.service';
+
 
 @Component({
   selector: 'app-browse-influencers',
@@ -88,7 +89,14 @@ export class BrowseInfluencersComponent implements OnInit {
             this.influencers[i].followers > minFollowers &&
             this.influencers[i].followers < maxFollowers
           ) {
-            if (this.influencers[i].gender == gender) {
+            if (this.influencers[i].gender == gender && gender != 'all') {
+              if (this.influencers[i].marital_status == maritalStatus ) {
+                if (this.influencers[i].children == children) {
+                  this.filteredInfluencers.push(this.influencers[i]);
+                }
+              }
+            }
+            else if (gender == 'all') {
               if (this.influencers[i].marital_status == maritalStatus) {
                 if (this.influencers[i].children == children) {
                   this.filteredInfluencers.push(this.influencers[i]);

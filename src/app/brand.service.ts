@@ -10,7 +10,7 @@ export class BrandService {
   constructor(private brand: HttpClient) {
 
   }
-  private baseBrandURL = "http://localhost:8000/api/brands";
+  private baseBrandURL = "http://localhost:8000/api/brands/";
 
   getAllBrands() {
     // console.log(this.brand.get(this.baseBrandURL));

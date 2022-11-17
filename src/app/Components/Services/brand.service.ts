@@ -12,4 +12,10 @@ export class BrandService {
   getBrandInfo(ID:any) {
    return this.brandhttp.get(`${this.baseurl}/${ID}`);
   }
+  getAllBrands() {
+    return this.brandhttp.get(this.baseurl);
+  }
+  deleteBrand(id:number){
+    return this.brandhttp.delete(`${this.baseurl}/${id}`);
+  }
 }

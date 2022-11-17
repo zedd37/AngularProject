@@ -41,6 +41,10 @@ import { BrandService } from './brand.service';
 import { BrandAdminHeaderComponent } from './Components/brand-admin-header/brand-admin-header.component';
 // import { BrandAdminHeaderComponent } from './Components/header/brand-admin-header/brand-admin-header.component';
 // import { InfluencerHeaderComponent } from './Components/header/influencer-header/influencer-header.component';
+import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
+import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
+import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
+
 
 @NgModule({
   declarations: [
@@ -77,6 +81,9 @@ import { BrandAdminHeaderComponent } from './Components/brand-admin-header/brand
     UpdateCampaignIgTtComponent,
     BrandAdminHeaderComponent,
     // InfluencerHeaderComponent,
+    AdminCampaignsComponent,
+    AdminBrandsComponent,
+    AdminInfluencersComponent,
   ],
   imports: [
     BrowserModule,
