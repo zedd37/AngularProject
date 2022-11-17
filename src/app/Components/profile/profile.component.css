@@ -1,4 +1,5 @@
 .body {
+  width: 100%;
   background-color: #fff;
 }
 
@@ -63,7 +64,7 @@
 }
 
 .button {
-  width: 150px;
+  width: 200px;
   height: 50px;
   border-radius: 50px;
   border: none;
@@ -111,7 +112,7 @@
 
 
 .nav-link{
-  padding: 10px;
+  padding: 5px ;
   width: 12%;
   border-radius: 25px;
   background-color: #032539;
@@ -125,7 +126,7 @@
 }
 
 .nav-link a{
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
   font-weight: bold;
   color: white;

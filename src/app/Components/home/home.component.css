@@ -229,14 +229,14 @@ form .input-field:last-of-type {
 }
 
 .team div p{
-  text-align:left;
+  text-align:center;
   text-indent: 10px;
   font-weight:bold;
   color:#ffffff;
   padding:3px;
   background-color:#1c768f;
   border-radius: 20px;
-  width:80%;
+  width:60%;
   position: relative;
   top:-13px;
 }
