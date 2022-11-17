@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
@@ -21,7 +21,39 @@ export class CreateCampaignIgTtComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addInstagramValidator = new FormGroup({});
+  instagram = new FormGroup({
+    postImgs: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    postVids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    storyImgs: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    storyVids: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    reels: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    duration: new FormControl('',[Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+  });
+
+
+  get postImgs(){
+    return this.instagram.controls.postImgs.valid
+  }
+
+  get postVids(){
+    return this.instagram.controls.postVids.valid
+  }
+
+  get storyImgs(){
+    return this.instagram.controls.storyImgs.valid
+  }
+
+  get storyVids(){
+    return this.instagram.controls.storyVids.valid
+  }
+
+  get reels(){
+    return this.instagram.controls.reels.valid
+  }
+
+  get duration(){
+    return this.instagram.controls.duration.valid
+  }
 
   AddIgDet(
     ig_posts_imgs: any,

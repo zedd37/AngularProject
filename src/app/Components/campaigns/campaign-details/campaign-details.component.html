@@ -1,95 +1,128 @@
-<!-- <app-header></app-header> -->
 
 <div class="body">
     <div class="campaign-details-container col-lg-12 col-sm-12">
 
       <div class="card text-bg-light">
+
         <div class="img-gradient">
-             <img src="https://www.technopat.net/wp-content/uploads/2022/09/amazon-kindle-2022-tanitildi-iste-ozellikleri.jpg" class="card-img" alt="campaignImage"></div>
+             <img src="https://www.technopat.net/wp-content/uploads/2022/09/amazon-kindle-2022-tanitildi-iste-ozellikleri.jpg" class="card-img" alt="campaignImage">
+        </div>
 
         <div class="card-img-overlay">
-
-          <h5 class="card-title text-light fs-1 fw-light p-3">{{campaign.data.title}}</h5>
-          <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+          <h5 class="card-title title text-light fs-1 fw-light px-3 ">{{campaign.data.title}}</h5>
+          <p class="card-text subtitle px-3 text-light">Campaign details</p>
         </div>
 
 
 
-        <div class="row p-4">
-        <div class="card-body col-lg-12">
+<div class="row p-4">
+
+        <div class="card-body col-lg-12" *ngIf="campaign.data.details">
           <h5 class="card-title">Details</h5>
           <p class="card-text">{{campaign.data.details}}</p>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         </div>
 
-        <div class="card-body col-lg-4 col-md-4 col-sm-12">
+
+        <div class="card-body col-lg-3 col-md-3 col-sm-12" *ngIf="campaign.data.type">
           <h5 class="card-title">Campaign Type</h5>
           <p class="card-text">{{campaign.data.type}}</p>
         </div>
 
-        <div class="card-body col-lg-4 col-md-4 col-sm-12">
+        <div class="card-body col-lg-3 col-md-3 col-sm-12" *ngIf="campaign.data.privacy">
+          <h5 class="card-title">Privacy</h5>
+          <p class="card-text">{{campaign.data.privacy}}</p>
+        </div>
+
+        <div class="card-body col-lg-3 col-md-3 col-sm-12" *ngIf="campaign.data.start_date">
           <h5 class="card-title">Start Date</h5>
           <p class="card-text">{{campaign.data.start_date}}</p>
         </div>
 
-      <div class="card-body col-lg-4 col-md-4 col-sm-12">
+      <div class="card-body col-lg-3 col-md-3 col-sm-12" *ngIf="campaign.data.country">
         <h5 class="card-title">Country</h5>
         <p class="card-text">{{campaign.data.country}}</p>
       </div>
 
-      <div class="card-body col-lg-4 col-md-4 col-sm-12">
+      <div class="card-body col-lg-3 col-md-3 col-sm-12" *ngIf="campaign.data.fees_info">
         <h5 class="card-title">Payment</h5>
-        <p class="card-text">300 EGP</p>
+        <p class="card-text">EGP {{campaign.data.fees_info.fees_amount}}</p>
       </div>
 
-    <div class="card-body col-lg-8 col-md-8 col-sm-12">
+      <div class="card-body col-lg-9 col-md-9 col-sm-12" *ngIf="campaign.data.fees_info.fees_details">
       <h5 class="card-title">Payment Details</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quidem aspernatur sunt. Officiis doloremque quam fuga. Id voluptatum iste nostrum asperiores minus accusamus sequi hic, consequuntur tempora, doloribus perspiciatis adipisci.</p>
+      <p class="card-text">{{campaign.data.fees_info.fees_details}}</p>
+      </div>
+
+
+    <!-- -------------INSTAGRAM---------------->
+
+      <div class="card-body col-lg-12" *ngIf="campaign.data.instagram && campaign.data.instagram_info !== null">
+      <h5 class="card-title">Instagram</h5>
+      <div class="row" >
+        <p class="card-text col-lg-2 col-sm-4">Posts Images | {{campaign.data.instagram_info.ig_posts_imgs}}</p>
+        <p class="card-text col-lg-2 col-sm-4">Posts Videos | {{campaign.data.instagram_info.ig_posts_vids}}</p>
+        <p class="card-text col-lg-2 col-sm-4">Stories Images | {{campaign.data.instagram_info.ig_stories_imgs}}</p>
+        <p class="card-text col-lg-2 col-sm-4">Stories Videos | {{campaign.data.instagram_info.ig_stories_vids}}</p>
+        <p class="card-text col-lg-1 col-sm-4">Reels | {{campaign.data.instagram_info.ig_reels}}</p>
+        <p class="card-text col-lg-3 col-sm-4">Reel Duration | {{campaign.data.instagram_info.ig_reel_duration}} s</p>
+        <hr>
+      </div>
+
+    <div>
+        <p class="card-text col-lg-6 col-sm-12"><b>Tags</b> | {{campaign.data.instagram_info.ig_tags}} </p>
+        <p class="card-text col-lg-6 col-sm-12"><b>Hashtags</b> | {{campaign.data.instagram_info.ig_hashtags}} </p>
+        <hr>
+      </div>
+
+      </div>
+
+
+      <div *ngIf="campaign.data.instagram &&campaign.data.instagram_info == null">
+      <h5 class="card-title">Instagram</h5>
+      <div>
+      <p class="text-muted">Details yet to be clarified.</p>
+      <p><small class="text-muted">Please note that your campaign won't be progressed before this section is completed. Click on the edit icon to update your information.</small></p>
+       </div>
+      </div>
+
+
+     <!-- -------------TIKTOK---------------->
+    <div class="card-body col-lg-12" *ngIf="campaign.data.tiktok && campaign.data.tiktok_info !== null elseIf displayTT">
+
+      <h5 class="card-title">TikTok</h5>
+      <div class="row" >
+        <p class="card-text col-lg-2 col-sm-4">Posts Images | {{campaign.data.tiktok_info.tt_posts_imgs}}</p>
+        <p class="card-text col-lg-2 col-sm-4">Posts Videos | {{campaign.data.tiktok_info.tt_posts_vids}}</p>
+        <p class="card-text col-lg-2 col-sm-4">Stories Images | {{campaign.data.tiktok_info.tt_stories_imgs}}</p>
+        <p class="card-text col-lg-2 col-sm-4">Stories Videos | {{campaign.data.tiktok_info.tt_stories_vids}}</p>
+        <p class="card-text col-lg-1 col-sm-4">Vid | {{campaign.data.tiktok_info.tt_vids}}</p>
+        <p class="card-text col-lg-3 col-sm-4">Vid Duration | {{campaign.data.tiktok_info.tt_vids_duration}} s</p>
+        <hr>
+      </div>
+
+      <div>
+        <p class="card-text col-lg-6 col-sm-12"><b>Tags</b> | {{campaign.data.tiktok_info.tt_tags}} </p>
+        <p class="card-text col-lg-6 col-sm-12"><b>Hashtags</b> | {{campaign.data.tiktok_info.tt_hashtags}} </p>
+        <hr>
+      </div>
     </div>
 
-      <div class="card-body col-lg-12" *ngIf="campaign.data.instagram">
-        <h5 class="card-title">Instagram</h5>
-        <div class="instagramInfo row">
-          <p class="card-text col-lg-2 col-sm-2">Posts Images | {{campaign.data.instagram_info.ig_posts_imgs}}</p>
-          <p class="card-text col-lg-2 col-sm-2">Posts Videos | {{campaign.data.instagram_info.ig_posts_vids}}</p>
-          <p class="card-text col-lg-2 col-sm-2">Stories Images | {{campaign.data.instagram_info.ig_stories_imgs}}</p>
-          <p class="card-text col-lg-2 col-sm-2">Stories Videos | {{campaign.data.instagram_info.ig_stories_vids}}</p>
-          <p class="card-text col-lg-3 col-sm-2">Reels-Duration | {{campaign.data.instagram_info.ig_reels}}-{{campaign.data.instagram_info.ig_reel_duration}} sec</p>
-        </div>
-        <hr>
-        <div class="instagramInfo row">
-          <p class="card-text col-lg-6 col-sm-6">Hashtags | {{campaign.data.instagram_info.ig_hashtags}} </p>
-          <p class="card-text col-lg-6 col-sm-6">Tags | {{campaign.data.instagram_info.ig_tags}} </p>
-          <hr>
-        </div>
-      </div>
 
-
-
-      <div class="card-body col-lg-12" *ngIf="campaign.data.tiktok">
-        <h5 class="card-title">TikTok</h5>
-        <div class="tiktokInfo row">
-          <p class="card-text col-lg-2 col-sm-2">Posts Images | {{campaign.data.tiktok_info.tt_posts_imgs}}</p>
-          <p class="card-text col-lg-2 col-sm-2">Posts Videos | {{campaign.data.tiktok_info.tt_posts_vids}}</p>
-          <p class="card-text col-lg-2 col-sm-2">Stories Images | {{campaign.data.tiktok_info.tt_stories_imgs}}</p>
-          <p class="card-text col-lg-2 col-sm-2">Stories Videos | {{campaign.data.tiktok_info.tt_stories_vids}}</p>
-          <p class="card-text col-lg-3 col-sm-2">Videos-Duration | {{campaign.data.tiktok_info.tt_vids}}-{{campaign.data.tiktok_info.tt_vids_duration}} sec</p>
-        </div>
-        <hr>
-        <div class="tiktokInfo row">
-          <p class="card-text col-lg-6 col-sm-6">Hashtags | {{campaign.data.tiktok_info.tt_hashtags}} </p>
-          <p class="card-text col-lg-6 col-sm-6">Tags | {{campaign.data.tiktok_info.tt_tags}} </p>
-          <hr>
-        </div>
-      </div>
-
-      </div>
+    <div *ngIf="campaign.data.tiktok  && campaign.data.tiktok_info == null">
+      <h5 class="card-title">TikTok</h5>
+      <p class="text-muted">Details yet to be clarified.</p>
+      <p><small class="text-muted">Please note that your campaign won't be progressed before this section is completed. Click on the edit icon to update your information.</small></p>
     </div>
+
+    <div class="card-body btns col-lg-12" >
+        <button class="btn btn-primary goToCampaignsBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns">Back to campaigns</button>
+        <button class="btn btn-primary editBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{campaignId}}">Edit</button>
+    </div>
+
+
+
 </div>
 </div>
-
-
-
-
- <app-footer></app-footer>
+</div>
+</div>
+<app-footer></app-footer>

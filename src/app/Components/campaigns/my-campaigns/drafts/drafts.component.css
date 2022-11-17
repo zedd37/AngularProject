@@ -36,6 +36,9 @@ text-transform:capitalize;
   padding: 50px 45px 45px 45px;
   background-color: #ffffff;
   border-radius: 0px 15px 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .iconBtn {
@@ -49,7 +52,7 @@ text-transform:capitalize;
 }
 
 .iconBtn:hover {
-  color: #032539;
+  color: grey;
   background-color: white;
   box-shadow: 1px 1px 3px 1px lightgrey;
   transform: scale(1.2);
@@ -64,6 +67,10 @@ text-transform:capitalize;
 .dropdown-item:active {
   background-color: #fa991c;
   color: white;
+}
+
+.move{
+  cursor: pointer;
 }
 
 .bi-three-dots {
@@ -99,12 +106,52 @@ ul.dropdown-menu.show {
   color: white;
 }
 
-@media screen and (min-width: 991px) {
-  .campaignsContainer {
-    min-height: 300px;
-  }
+.noRecords{
+  padding-top: 10px;
+  text-align: center;
 }
 
+.noRecords p{
+  color: rgb(156, 156, 156);
+  vertical-align: middle;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.noRecords p{
+  color: rgb(156, 156, 156);
+  vertical-align: middle;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.statusBtn{
+  outline: 0.5px darkgrey solid;
+  }
+
+.statusBtn:hover{
+  outline: none;
+  transform: scale(1.1);
+  background-color: rgb(228, 228, 228);
+  color: #032539;
+  }
+
+.pendingBtn{
+  outline: 0.5px #fa991c solid;
+  }
+
+.pendingBtn:hover{
+  outline: none;
+  transform: scale(1.1);
+  background-color: #fa991c;
+  color: white;
+  }
+
+  p::first-letter{
+    text-transform:capitalize;
+  }
 
 @media screen and (max-width: 991px) {
   .campaignsContainer {
@@ -130,6 +177,19 @@ ul.dropdown-menu.show {
   th {
     font-size: smaller;
     border: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .campaignsContainer {
+    min-height: 300px;
+  }
+}
+
+
+@media screen and (min-width: 991px) {
+  .campaignsContainer {
+    min-height: 300px;
   }
 }
 

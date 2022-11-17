@@ -50,6 +50,14 @@ hr {
   margin-top: 0px;
 }
 
+input, textarea{
+  text-transform: capitalize;
+}
+
+p:first-letter{
+  text-transform:capitalize;
+}
+
 .form-control,
 .form-select {
   border: none;
