@@ -47,7 +47,7 @@ export class CampaignsService {
   deleteCampaign(id:number){
     return this.CampaignClient.delete(`${this.Campaigns_Base_URL}/${id}`);
   }
-  
+
   getPending() {
     return this.CampaignClient.get("http://127.0.0.1:8000/api/pending")
   }
