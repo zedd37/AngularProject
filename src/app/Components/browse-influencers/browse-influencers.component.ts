@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { InfluencerService } from 'src/app/Services/influencer.service';
 
@@ -7,7 +8,8 @@ import { InfluencerService } from 'src/app/Services/influencer.service';
   styleUrls: ['./browse-influencers.component.css'],
 })
 export class BrowseInfluencersComponent implements OnInit {
-  constructor(private influencerService: InfluencerService) {}
+  brand: any;
+  constructor(private influencerService: InfluencerService, private Http: HttpClient,) {}
 
   influencers: any;
   filteredInfluencers: any = [];
@@ -15,6 +17,21 @@ export class BrowseInfluencersComponent implements OnInit {
 
   ngOnInit(): void {
     this.showInfluencers();
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    });
+    let that = this;
+    this.Http.get('http://localhost:8000/api/brand', {
+      headers: header,
+    }).subscribe({
+      next(data) {
+        that.brand = data;
+        console.log(data);
+      },
+      error(err) {
+        console.log(err);
+      },
+    }); 
   }
 
   showInfluencers() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
@@ -9,24 +9,31 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
   styleUrls: ['./create-campaign-one.component.css'],
 })
 export class CreateCampaignOneComponent implements OnInit {
-
   instagram = 0;
   tiktok = 0;
   platforms: FormGroup;
+  file: any;
   platformOptions: Array<any> = [
     { name: 'Instagram', value: 'instagram' },
     { name: 'TikTok', value: 'tiktok' },
   ];
 
-  constructor(private campaignsService: CampaignsService, fb: FormBuilder, private router:Router) {
-
+  constructor(
+    private campaignsService: CampaignsService,
+    fb: FormBuilder,
+    private router: Router
+  ) {
     this.platforms = fb.group({
       selectedPlatforms: new FormArray([]),
+      image:[null,Validators.required]
     });
   }
 
   ngOnInit(): void {}
-
+  uploadImage(event: any) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+  }
   addCampaignValidator = new FormGroup({});
 
   onCheckboxChange(event: any) {
@@ -45,13 +52,13 @@ export class CreateCampaignOneComponent implements OnInit {
     if (selectedPlatforms.value.includes('instagram')) {
       this.instagram = 1;
     } else {
-      this.instagram = 0
+      this.instagram = 0;
     }
 
     if (selectedPlatforms.value.includes('tiktok')) {
       this.tiktok = 1;
     } else {
-      this.tiktok=0
+      this.tiktok = 0;
     }
   }
 
@@ -65,28 +72,35 @@ export class CreateCampaignOneComponent implements OnInit {
     instagram: number,
     tiktok: number
   ) {
-
     // console.log(
     //   country,instagram, title
     // )
-
-      this.campaignsService.addNewCampaign({
+const formData = new FormData();
+formData.append("image",this.file,this.file)
+    this.campaignsService
+      .addNewCampaign({
         title: title,
         type: type,
         start_date: start_date,
         country: country,
         details: details,
-        // image: instagram,
+        image: this.file.name,
         instagram: instagram,
-        tiktok: tiktok
-      }).subscribe((campaign:any) => {
-        if (instagram && !tiktok){this.router.navigateByUrl(`/create-campaign/instagram/${campaign.id}`);}
-        if (tiktok && !instagram){this.router.navigateByUrl(`/create-campaign/tiktok/${campaign.id}`);}
-      if (instagram && tiktok){this.router.navigateByUrl(`/create-campaign/instagram-tiktok/${campaign.id}`);}
+        tiktok: tiktok,
+      }).subscribe((campaign: any) => {
+        if (instagram && !tiktok) {
+          this.router.navigateByUrl(
+            `/create-campaign/instagram/${campaign.id}`
+          );
+        }
+        if (tiktok && !instagram) {
+          this.router.navigateByUrl(`/create-campaign/tiktok/${campaign.id}`);
+        }
+        if (instagram && tiktok) {
+          this.router.navigateByUrl(
+            `/create-campaign/instagram-tiktok/${campaign.id}`
+          );
+        }
       });
-
-
-
-
   }
 }

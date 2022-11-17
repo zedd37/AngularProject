@@ -38,6 +38,9 @@ import { CreateCampaignIgTtComponent } from './Components/campaigns/create-campa
 import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campaign/update-campaign-ig-tt/update-campaign-ig-tt.component';
 import { SignupAndLoginService } from './Components/Services/signup-and-login.service';
 import { BrandService } from './brand.service';
+import { BrandAdminHeaderComponent } from './Components/brand-admin-header/brand-admin-header.component';
+// import { BrandAdminHeaderComponent } from './Components/header/brand-admin-header/brand-admin-header.component';
+// import { InfluencerHeaderComponent } from './Components/header/influencer-header/influencer-header.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +75,8 @@ import { BrandService } from './brand.service';
     UpdateCampaignFourComponent,
     CreateCampaignIgTtComponent,
     UpdateCampaignIgTtComponent,
+    BrandAdminHeaderComponent,
+    // InfluencerHeaderComponent,
   ],
   imports: [
     BrowserModule,

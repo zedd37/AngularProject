@@ -40,57 +40,57 @@ const routes: Routes = [
   {
     path: 'create-campaign',
     component: CreateCampaignOneComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/instagram/:campaignId',
     component: CreateCampaignTwoComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/tiktok/:campaignId',
     component: CreateCampaignThreeComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/instagram-tiktok/:campaignId',
     component: CreateCampaignIgTtComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/payment',
     component: CreateCampaignFourComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'campaigns',
     component: MyCampaignsComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'campaigns/:campaignId',
     component: CampaignDetailsComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/:campaignId',
     component: UpdateCampaignOneComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/instagram/:campaignId',
     component: UpdateCampaignTwoComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/tiktok/:campaignId',
     component: UpdateCampaignThreeComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/instagram-tiktok/:campaignId',
     component: UpdateCampaignIgTtComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'influencers-payment',
@@ -100,7 +100,7 @@ const routes: Routes = [
   {
     path: 'payment-method',
     component: PaymentsMethodComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   { path: '**', component: ErrorComponentComponent },
 ];
