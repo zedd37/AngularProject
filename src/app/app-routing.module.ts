@@ -30,6 +30,8 @@ import { AuthGuard } from './Guard/auth.guard';
 import { RoleGuard } from './Guard/role.guard';
 import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
 import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
+import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
+import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
@@ -100,7 +102,7 @@ const routes: Routes = [
   {
     path: 'update-campaign/influencer-fees/:campaignId',
     component: UpdateCampaignFourComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'influencers-payment',
@@ -115,31 +117,32 @@ const routes: Routes = [
   {
     path: 'admin-panel/campaigns',
     component: AdminCampaignsComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin-panel/brands',
     component: AdminBrandsComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin-panel/influencers',
     component: AdminInfluencersComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
 
   {
     path: 'edit-brand-profile',
     component: EditBrandProfileComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
 
   {
     path: 'change-brand-password',
     component: ChangeBrandPasswordComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
-
+{path:'influencer-page',component: InfluencerPageComponent},
+{path:'edit-influencer', component:EditInfluencerComponent},
   { path: '**', component: ErrorComponentComponent },
 ];
 

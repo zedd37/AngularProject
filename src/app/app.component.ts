@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
     public isAdmin:LoginAuthService
   
   ) {}
-  brandAdmin: any= this.isAdmin.isAdmin;
+  brandAdmin: any= this.isAdmin.isadmin();
 
   ngOnInit(): void {
-    console.log(this.isAdmin.isAdmin)
+    console.log(this.isAdmin.isadmin())
   }
 
   title = 'AngularProject';

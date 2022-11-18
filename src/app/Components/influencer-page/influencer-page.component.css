@@ -1,0 +1,202 @@
+.body {
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Main container Section */
+.containerColor {
+  width: 80%;
+}
+
+/* Header Section */
+.header-details {
+  position: relative;
+}
+
+.coverPhoto-cont {
+  width: 95%;
+  height: 250px;
+}
+
+.profilePhoto-cont {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* Header Section */
+.contents {
+  width: 15%;
+  height: 200px;
+  position: absolute;
+  bottom: -146px;
+  left: 3%;
+  transition: 0.5s;
+}
+
+.contents:hover .profile-content {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.profilePhoto-cont img {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 3%;
+}
+
+.box-margin-top {
+  margin-top: 15%;
+}
+
+.profile-content h3 {
+  font-size: 20px;
+}
+
+.primary-button {
+  width: 215px;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  background-color: #1c768f;
+  color: #fff;
+  font-weight: 600px;
+  text-transform: uppercase;
+  margin: 10px auto;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+  position: absolute;
+  top: 69%;
+  left: 64%;
+}
+
+.primary-button:hover {
+  background-color: #032539;
+}
+.primary-button-container .row {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Cards Section */
+#features {
+  position: relative;
+}
+.feature-box {
+  padding: 1%;
+}
+
+.info {
+  margin-top: 250px;
+}
+
+.testimonial-card .card-up {
+  height: 120px;
+  overflow: hidden;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.testimonial-card .avatar {
+  width: 110px;
+  margin-top: -60px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.switch {
+  display: none;
+}
+
+.card-header-style {
+  color: white;
+  background-color: #032539;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bg-color {
+  background-color: #eee;
+}
+
+.navy-color {
+  color: #032539;
+  font-size: 16px;
+}
+
+.orange-color {
+  color: #fd7e14;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/*Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .profilePhoto-cont {
+    width: 100%;
+    height: 38%;
+    position: absolute;
+    top: 11%;
+  }
+  .primary-button {
+    width: 100px;
+    height: 23px;
+    border-radius: 50px;
+    border: none;
+    background-color: #1c768f;
+    color: #fff;
+    font-weight: 600px;
+    text-transform: uppercase;
+    margin: 10px auto;
+    line-height: 21px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+    position: absolute;
+    top: 49%;
+    left: 70%;
+    font-size: 8px;
+  }
+
+  .primary-button:hover {
+    background-color: #032539;
+  }
+  .primary-button-container .row {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/*Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/*Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/*X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/*XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}

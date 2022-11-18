@@ -1,6 +1,6 @@
-  <app-header *ngIf="loginAuth.isLoggedIn() && !IsAdmin.canActivate()"></app-header>
+  <app-header *ngIf="loginAuth.isLoggedIn() && !isAdmin.isadmin() "></app-header>
   <app-brand-admin-header
-    *ngIf="loginAuth.isLoggedIn() && IsAdmin.canActivate()"
+    *ngIf="loginAuth.isLoggedIn() && isAdmin.isadmin()"
   ></app-brand-admin-header>
   <router-outlet></router-outlet>
 

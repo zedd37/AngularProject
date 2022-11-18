@@ -354,6 +354,7 @@ export class SignupAndLoginComponent implements OnInit {
           next(data: any) {
             console.log('influencer');
             sessionStorage.setItem('token', data.access_token);
+            that.authService.isAdmin(data.isAdmin);
             that.router.navigate(['/profile']);
           },
           error(err) {

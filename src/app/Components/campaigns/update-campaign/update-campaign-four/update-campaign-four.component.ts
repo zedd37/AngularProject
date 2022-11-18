@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { data } from 'jquery';
+// import { data } from 'jquery';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
 @Component({

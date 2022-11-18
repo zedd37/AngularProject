@@ -11,9 +11,11 @@ export class CampaignsService {
   }
 
   Campaigns_Base_URL = "http://127.0.0.1:8000/api/campaigns";
-
-  getCurrentCampaigns() {
+  getAllCampaigns() {
     return this.CampaignClient.get(this.Campaigns_Base_URL);
+  }
+  getCurrentCampaigns() {
+    return this.CampaignClient.get("http://127.0.0.1:8000/api/campaigns");
   }
 
   getCampaign(id: number) {
