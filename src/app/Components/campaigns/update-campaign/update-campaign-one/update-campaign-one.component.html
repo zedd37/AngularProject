@@ -8,19 +8,20 @@
   </head>
 
   <body>
-  <app-header></app-header>
 <div class="body">
     <div class="create-campaign-container">
       <div class="title">UPDATE YOUR CAMPAIGN</div>
       <div class="subtitle">OVERVIEW</div>
       <hr>
     <div class="createCampaignContainer">
-      <form class="row" [formGroup]="platforms" (ngSubmit)="UpdateCampaign(title.value, type.value, start_date.value, country.value, details.value, image.value, instagram, tiktok)" >
+      <form class="row" [formGroup]="platforms" (ngSubmit)="UpdateCampaign(title.value, type.value, privacy.value, start_date.value, country.value, details.value, image.value, instagram, tiktok)" >
         <div class="col-sm-12 col-lg-6">
           <div class="input-group">
             <span class="input-group-text col-sm-12">Campaign Title</span>
-
             <input #title type="text" class="form-control" placeholder="Type" value="{{campaign.data.title}}"/>
+          </div>
+          <div class="error text-danger" *ngIf="title.value == '' && titleError">
+            <small>{{titleError}}</small>
           </div>
           <br />
         </div>
@@ -30,10 +31,26 @@
             <span class="input-group-text col-sm-12">Campaign Type</span>
 
             <select #type id="c-type" class="form-select text-muted" disabled>
-              <option selected value="{{campaign.data.type}}">{{campaign.data.type}}</option>
-              <option>Affiliate</option>
-              <option>Product</option>
+              <option  value="{{campaign.data.type}}">{{campaign.data.type}}</option>
+              <option value="affiliate">Affiliate</option>
+              <option value="product">Product</option>
             </select>
+          </div>
+          <br />
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Privacy</span>
+            <select #privacy
+            class="form-select" value="{{campaign.data.privacy}}">
+               <option value="">Choose..</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+          </div>
+          <div class="error text-danger" *ngIf="privacy.value == '' && privacyError">
+            <small>{{privacyError}}</small>
           </div>
           <br />
         </div>
@@ -57,8 +74,8 @@
 
             <select #country id="country" class="form-select text-muted" disabled>
               <option selected value="{{campaign.data.country}}">{{campaign.data.country}}</option>
-              <option>Turkey</option>
-              <option>Lebanon</option>
+              <option value="turkey">Turkey</option>
+              <option value="lebanon">Lebanon</option>
             </select>
 
           </div>
@@ -98,7 +115,7 @@
 
         <div class="col-sm-12 col-lg-6">
             <span class="input-group-text col-sm-12">Platforms included in campaign</span>
-
+            <small class="text-dark">*Please select at least one platform to continue.</small>
             <div class="checkboxes">
             <div *ngFor="let p of platformOptions; let i=index">
               <input type="checkbox"
@@ -106,18 +123,26 @@
               />
               <label for="platforms" class="checkboxLabels px-2 fs-6">{{p.name}}</label>
             </div>
+
           </div>
           </div>
           <br />
 
 
-       <div class="form-group">
+          <div class="form-group">
 
-        <div >
-          <input type="submit" value="Save Changes" class="btn submitOne">
-         </div>
+            <div *ngIf="!instagram && !tiktok; else case">
+              <input type="submit" value="Save Changes" class="btn submitOne" disabled>
+            </div>
 
-       </div>
+            <ng-template #case>
+              <input type="submit" value="Save Changes" class="btn submitOne">
+              <div class="error text-danger text-center" *ngIf="title.value == '' && titleError || privacy.value == '' && privacyError">
+                Some fields are missing.
+              </div>
+             </ng-template>
+
+           </div>
 
       </form>
     </div>

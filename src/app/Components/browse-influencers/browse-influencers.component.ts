@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { InfluencerService } from 'src/app/Services/influencer.service';
+import { InfluencerService } from 'src/app/services/influencer.service';
+
 
 @Component({
   selector: 'app-browse-influencers',
@@ -7,7 +9,8 @@ import { InfluencerService } from 'src/app/Services/influencer.service';
   styleUrls: ['./browse-influencers.component.css'],
 })
 export class BrowseInfluencersComponent implements OnInit {
-  constructor(private influencerService: InfluencerService) {}
+  brand: any;
+  constructor(private influencerService: InfluencerService, private Http: HttpClient,) {}
 
   influencers: any;
   filteredInfluencers: any = [];
@@ -15,6 +18,21 @@ export class BrowseInfluencersComponent implements OnInit {
 
   ngOnInit(): void {
     this.showInfluencers();
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    });
+    let that = this;
+    this.Http.get('http://localhost:8000/api/brand', {
+      headers: header,
+    }).subscribe({
+      next(data) {
+        that.brand = data;
+        console.log(data);
+      },
+      error(err) {
+        console.log(err);
+      },
+    }); 
   }
 
   showInfluencers() {
@@ -71,7 +89,14 @@ export class BrowseInfluencersComponent implements OnInit {
             this.influencers[i].followers > minFollowers &&
             this.influencers[i].followers < maxFollowers
           ) {
-            if (this.influencers[i].gender == gender) {
+            if (this.influencers[i].gender == gender && gender != 'all') {
+              if (this.influencers[i].marital_status == maritalStatus ) {
+                if (this.influencers[i].children == children) {
+                  this.filteredInfluencers.push(this.influencers[i]);
+                }
+              }
+            }
+            else if (gender == 'all') {
               if (this.influencers[i].marital_status == maritalStatus) {
                 if (this.influencers[i].children == children) {
                   this.filteredInfluencers.push(this.influencers[i]);

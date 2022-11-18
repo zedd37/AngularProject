@@ -1,14 +1,31 @@
 .body {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   color: white;
   background-color: #ddd;
   min-height: 100vh;
+
+}
+
+.campaign-details-container {
+  position: relative;
+  width: 77%;
+  box-shadow: 3px 4px 10px 3px rgb(150, 150, 150);
+  margin:35px 0px;
+  border-radius: 20px;
+}
+
+.card{
+  border-radius: 20px;
+}
+
+img{
+  border-radius: 20px 20px 0 0;
 }
 
 .img-gradient {
   position:relative;
+  border-radius: 20px;
 }
 
 
@@ -18,6 +35,7 @@
   left: 0; top: 0;
   width: 100%; height: 100%;
   background: linear-gradient(to bottom, #032539,transparent, transparent);
+  border-radius: 20px;
 }
 
 .nav-a{
@@ -38,21 +56,14 @@ a:hover {
   color: #fa991c;
 }
 
-.campaign-details-container {
-  position: relative;
-  width: 93%;
-  border-radius: 20px 0px 0px 20px;
-  box-shadow: 3px 4px 10px 3px rgb(150, 150, 150);
-  /* padding: 40px; */
-  margin:35px 0px;
-  /* background: #032539; */
+.title {
+  padding-top: 0.5rem;
+  text-transform: capitalize;
 }
 
-.title {
-  text-align: center;
-  padding: 20px;
-  font-size: 22px;
-  color: white;
+.subtitle{
+  text-transform: uppercase;
+  font-size: 0.9rem;
   letter-spacing: 3px;
 }
 
@@ -76,13 +87,48 @@ a:hover {
   padding: 0px;
 }
 
-.floatTitle::before{
-transform: translate(0%);
+b{
+color:#fa991c
 }
 
-.floatTitle::after{
-  transform: translate(50%);
-  }
+p:first-letter{
+  text-transform:capitalize;
+}
+
+.btns{
+  margin: 0px auto;
+  text-align: center;
+  z-index:7;
+}
+
+.btn {
+  margin-bottom: 10px;
+  border-radius: 50px;
+  border: none;
+  background-color: #fa991c;
+  color: #fff;
+  font-weight: 600px;
+  width:200px;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.goToCampaignsBtn{
+  background-color: #044469;
+}
+
+.goToCampaignsBtn:hover {
+  background-color: #032539;
+}
+
+.editBtn{
+background-color:#fa991c
+}
+
+.editBtn:hover{
+background-color:#c9780e
+}
 
 
 @media screen and (max-width: 991px) {
@@ -99,10 +145,9 @@ transform: translate(0%);
     border-radius: 50px 0px 0px 50px;
 
   }
-  .title {
-    font-size: 25px;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
+
+  .campaign-details-container {
+    width: 93%;
   }
 }
 

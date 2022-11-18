@@ -1,0 +1,111 @@
+<nav class="navbar navbar-dark navbar-expand-lg p-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fs-2" href="#"
+      ><img src="assets/images/Home/nav word logo.PNG" alt="logo" width="120"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-5">
+        <li class="nav-item">
+          <a
+            class="nav-link mt-3"
+            aria-current="page"
+            routerLinkActive="activeLinkClass"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/profile"
+            >Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link mt-3"
+            routerLinkActive="activeLinkClass"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/browse-influencers"
+            >Browse Influencers</a
+          >
+        </li>
+        <li class="nav-item dropdown" >
+          <a
+            type="nav-link"
+            class="nav-link dropdown-toggle mt-3"
+            data-toggle="dropdown"
+            href="#"
+          >
+            Campaigns
+          </a>
+          <div class="dropdown-menu ms-3">
+            <a
+              class="dropdown-item"
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/create-campaign"
+            >
+              Create Campaign
+            </a>
+            <a
+              class="dropdown-item"
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/campaigns"
+            >
+              Campaigns
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" >
+          <a
+            type="nav-link"
+            class="nav-link dropdown-toggle mt-3"
+            data-toggle="dropdown"
+            href="#"
+          >
+            Payments
+          </a>
+          <div class="dropdown-menu ms-3">
+            <a
+              class="dropdown-item"
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/influencers-payment"
+            >
+              Influencers
+            </a>
+            <a
+              class="dropdown-item"
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/payment-method"
+            >
+              Subscriptions
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link mt-3" href="#contactus">Contact Us</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <button
+          class="logout-btn btn text-light mt-3 btn-lg nav-link fs-5 fw-bold"
+          type="submit"
+          (click)="logout()"
+        >
+          Log Out
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

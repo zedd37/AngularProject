@@ -11,6 +11,7 @@ import { CreateCampaignThreeComponent } from './Components/campaigns/create-camp
 import { CreateCampaignTwoComponent } from './Components/campaigns/create-campaign/create-campaign-two/create-campaign-two.component';
 import { CreateCampaignComponent } from './Components/campaigns/create-campaign/create-campaign.component';
 import { MyCampaignsComponent } from './Components/campaigns/my-campaigns/my-campaigns.component';
+import { UpdateCampaignFourComponent } from './Components/campaigns/update-campaign/update-campaign-four/update-campaign-four.component';
 import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campaign/update-campaign-ig-tt/update-campaign-ig-tt.component';
 import { UpdateCampaignOneComponent } from './Components/campaigns/update-campaign/update-campaign-one/update-campaign-one.component';
 import { UpdateCampaignThreeComponent } from './Components/campaigns/update-campaign/update-campaign-three/update-campaign-three.component';
@@ -18,21 +19,26 @@ import { UpdateCampaignTwoComponent } from './Components/campaigns/update-campai
 import { UpdateCampaignComponent } from './Components/campaigns/update-campaign/update-campaign.component';
 import { ErrorComponentComponent } from './Components/error-component/error-component.component';
 import { HomeComponent } from './Components/home/home.component';
-import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
-import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { InfluencersPaymentsComponent } from './Components/payments/influencers-payments/influencers-payments.component';
 import { PaymentsMethodComponent } from './Components/payments/payments-method/payments-method.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { SignupAndLoginComponent } from './Components/signup-and-login/signup-and-login.component';
+import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
+import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
+import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { RoleGuard } from './Guard/role.guard';
-
+import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
+import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
+import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
+import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'influencer-page', component: InfluencerPageComponent, canActivate: [AuthGuard] },
-  { path: 'edit-influencer', component: EditInfluencerComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: ProfileComponent,canActivate: [AuthGuard],
+  },
   {
     path: 'browse-influencers',
     component: BrowseInfluencersComponent,
@@ -41,58 +47,62 @@ const routes: Routes = [
   {
     path: 'create-campaign',
     component: CreateCampaignOneComponent,
-    canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/instagram/:campaignId',
     component: CreateCampaignTwoComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/tiktok/:campaignId',
     component: CreateCampaignThreeComponent,
-    canActivate: [AuthGuard,RoleGuard],
-
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/instagram-tiktok/:campaignId',
     component: CreateCampaignIgTtComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
-    path: 'create-campaign/payment',
+    path: 'create-campaign/influencer-fees/:campaignId',
     component: CreateCampaignFourComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'campaigns',
     component: MyCampaignsComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'campaigns/:campaignId',
     component: CampaignDetailsComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/:campaignId',
     component: UpdateCampaignOneComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/instagram/:campaignId',
     component: UpdateCampaignTwoComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/tiktok/:campaignId',
     component: UpdateCampaignThreeComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'update-campaign/instagram-tiktok/:campaignId',
     component: UpdateCampaignIgTtComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'update-campaign/influencer-fees/:campaignId',
+    component: UpdateCampaignFourComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'influencers-payment',
@@ -102,8 +112,37 @@ const routes: Routes = [
   {
     path: 'payment-method',
     component: PaymentsMethodComponent,
-    canActivate: [AuthGuard,RoleGuard],
+    canActivate: [AuthGuard],
   },
+  {
+    path: 'admin-panel/campaigns',
+    component: AdminCampaignsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-panel/brands',
+    component: AdminBrandsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-panel/influencers',
+    component: AdminInfluencersComponent,
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'edit-brand-profile',
+    component: EditBrandProfileComponent,
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'change-brand-password',
+    component: ChangeBrandPasswordComponent,
+    canActivate: [AuthGuard],
+  },
+{path:'influencer-page',component: InfluencerPageComponent},
+{path:'edit-influencer', component:EditInfluencerComponent},
   { path: '**', component: ErrorComponentComponent },
 ];
 

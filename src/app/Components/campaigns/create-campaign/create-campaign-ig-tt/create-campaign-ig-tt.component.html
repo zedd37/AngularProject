@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <app-header></app-header>
+    
 <div class="body">
     <div class="create-campaign-container">
       <div class="title">NEW CAMPAIGN</div>
@@ -16,19 +16,25 @@
       <hr>
 <div class="createCampaignContainer">
 
-  <form class="row" (ngSubmit)="AddIgDet(ig_posts_imgs.value, ig_posts_vids.value, ig_stories_imgs.value, ig_stories_vids.value, ig_reels.value, ig_reel_duration.value, ig_hashtags.value, ig_tags.value)">
+  <form class="row" [formGroup]="instagram" (ngSubmit)="AddIgDet(ig_posts_imgs.value, ig_posts_vids.value, ig_stories_imgs.value, ig_stories_vids.value, ig_reels.value, ig_reel_duration.value, ig_hashtags.value, ig_tags.value)">
 
-    <!-- <input #campaign_id class="form-control" id="floatingInput" placeholder=" "> -->
     <div class="col-sm-12 col-lg-4">
       <div class="input-group">
         <span class="input-group-text col-sm-12">Posts</span>
         <div class="form-floating mb-3">
-          <input #ig_posts_imgs class="form-control" id="floatingInput" placeholder=" ">
+          <input #ig_posts_imgs class="form-control" id="floatingInput" placeholder=" " formControlName="postImgs">
           <label for="floatingInput">Images count</label>
+          <div class="error text-danger" *ngIf="!postImgs">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
+
         <div class="form-floating mb-3">
-          <input #ig_posts_vids class="form-control" id="floatingInput" placeholder=" ">
+          <input #ig_posts_vids class="form-control" id="floatingInput" placeholder=" " formControlName="postVids">
           <label for="floatingInput">Videos count</label>
+          <div class="error text-danger" *ngIf="!postVids">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
       </div>
     </div>
@@ -37,12 +43,18 @@
       <div class="input-group">
         <span class="input-group-text col-sm-12">Stories</span>
         <div class="form-floating mb-3">
-          <input #ig_stories_imgs class="form-control" id="floatingInput" placeholder=" ">
+          <input #ig_stories_imgs class="form-control" id="floatingInput" placeholder=" " formControlName="storyImgs">
           <label for="floatingInput">Images count</label>
+          <div class="error text-danger" *ngIf="!storyImgs">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
         <div class="form-floating mb-3">
-          <input #ig_stories_vids class="form-control" id="floatingInput" placeholder=" ">
+          <input #ig_stories_vids class="form-control" id="floatingInput" placeholder=" " formControlName="storyVids">
           <label for="floatingInput">Videos count</label>
+          <div class="error text-danger" *ngIf="!storyVids">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
       </div>
     </div>
@@ -51,12 +63,18 @@
       <div class="input-group">
         <span class="input-group-text col-sm-12">Reels</span>
         <div class="form-floating mb-3">
-          <input #ig_reels class="form-control" id="floatingInput" placeholder=" ">
+          <input #ig_reels class="form-control" id="floatingInput" placeholder=" " formControlName="reels">
           <label for="floatingInput">Count</label>
+          <div class="error text-danger" *ngIf="!reels">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
         <div class="form-floating mb-3">
-          <input #ig_reel_duration class="form-control" id="floatingInput" placeholder=" ">
-          <label for="floatingInput">Duration</label>
+          <input #ig_reel_duration class="form-control" id="floatingInput" placeholder=" " formControlName="duration">
+          <label for="floatingInput">Duration in sec</label>
+          <div class="error text-danger" *ngIf="!duration">
+            <small>Enter an integer number.</small>
+           </div>
           <br>
         </div>
 
@@ -68,7 +86,7 @@
         <div class="input-group">
           <span class="input-group-text col-sm-12">Hashtags</span>
           <div class="">
-            <textarea #ig_hashtags class="form-control" id="details" cols=200 rows=6 placeholder="Enter hashtages here..."></textarea>
+            <textarea #ig_hashtags class="form-control" id="details" cols=200 rows=6 placeholder="Enter hashtages here..." formControlName="hashtags"></textarea>
             <label for="floatingInput"></label>
             <br> <br>
           </div>
@@ -79,17 +97,28 @@
         <div class="input-group">
           <span class="input-group-text col-sm-12">Tags</span>
           <div class="">
-            <textarea #ig_tags class="form-control" id="details" cols=200 rows=6 placeholder="Enter tags here..."></textarea>
+            <textarea #ig_tags class="form-control" id="details" cols=200 rows=6 placeholder="Enter tags here..." formControlName="tags"></textarea>
             <label for="floatingInput"></label>
           </div>
         </div>
       </div>
 
-      <div class="form-group">
-        <div >
-          <input type="submit" value="Continue" class="btn submitOne" >
-        </div>
-        </div>
+      <div class="form-group btns row col-lg-12 justify-content-center">
+
+        <input type="submit" value="Submit" class="btn submitOne mb-2" >
+
+        <button class="btn btn-primary goToCampaignsBtn mb-2" routerLink="/create-campaign/influencer-fees/{{campaignId}}">Go to Fees</button>
+
+        <p>Not yet decided? Click on Go To Fees.</p>
+      </div>
+
+      <div class="form-group btns row col-lg-12 justify-content-lg-between justify-content-sm-center">
+
+        <button class="btn btn-primary backBtn  mb-2" routerLink="/update-campaign/{{campaignId}}">Back</button>
+
+      </div>
+
+
 
   </form>
 </div>
@@ -101,3 +130,8 @@
 
 </body>
 </html>
+
+
+
+
+

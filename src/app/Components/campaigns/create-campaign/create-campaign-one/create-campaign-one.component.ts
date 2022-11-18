@@ -1,5 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CampaignsService } from 'src/app/Services/campaigns.service';
 
@@ -9,26 +10,45 @@ import { CampaignsService } from 'src/app/Services/campaigns.service';
   styleUrls: ['./create-campaign-one.component.css'],
 })
 export class CreateCampaignOneComponent implements OnInit {
-
   instagram = 0;
   tiktok = 0;
   platforms: FormGroup;
+  file: any;
   platformOptions: Array<any> = [
     { name: 'Instagram', value: 'instagram' },
     { name: 'TikTok', value: 'tiktok' },
   ];
+  brand: any=null;
 
-  constructor(private campaignsService: CampaignsService, fb: FormBuilder, private router:Router) {
+  constructor(private Http:HttpClient, private campaignsService: CampaignsService, fb: FormBuilder, private router:Router) {
 
     this.platforms = fb.group({
       selectedPlatforms: new FormArray([]),
+      image:[null,Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
 
-  addCampaignValidator = new FormGroup({});
-
+  let that = this;
+  const header = new HttpHeaders({
+    Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+  });
+  this.Http.get('http://localhost:8000/api/brand', {
+    headers: header,
+  }).subscribe({
+    next(data) {
+      that.brand = data;
+    },
+    error(err) {
+      console.log(err);
+    },
+  });
+}
+uploadImage(event: any) {
+  this.file = event.target.files[0];
+  console.log(this.file);
+}
   onCheckboxChange(event: any) {
     const selectedPlatforms = this.platforms.controls[
       'selectedPlatforms'
@@ -45,19 +65,22 @@ export class CreateCampaignOneComponent implements OnInit {
     if (selectedPlatforms.value.includes('instagram')) {
       this.instagram = 1;
     } else {
-      this.instagram = 0
+      this.instagram = 0;
     }
 
     if (selectedPlatforms.value.includes('tiktok')) {
       this.tiktok = 1;
     } else {
-      this.tiktok=0
+      this.tiktok = 0;
     }
   }
+ titleError:any=null;
+ privacyError:any=null;
 
   AddCampaign(
     title: string,
     type: string,
+    privacy: string,
     start_date: any,
     country: string,
     details: any,
@@ -65,28 +88,30 @@ export class CreateCampaignOneComponent implements OnInit {
     instagram: number,
     tiktok: number
   ) {
-
-    // console.log(
-    //   country,instagram, title
-    // )
-
+    if (title==""){
+      this.titleError='Title field is required.'
+    }
+    if (privacy==""){
+      this.privacyError='Privacy field is required.'
+    }
       this.campaignsService.addNewCampaign({
+        brand_id:this.brand.data.id,
         title: title,
         type: type,
+        privacy: privacy,
         start_date: start_date,
         country: country,
         details: details,
-        // image: instagram,
+        image: this.file.name,
         instagram: instagram,
-        tiktok: tiktok
+        tiktok: tiktok,
+        pending:1,
+        completed:0,
+        drafts:0,
       }).subscribe((campaign:any) => {
         if (instagram && !tiktok){this.router.navigateByUrl(`/create-campaign/instagram/${campaign.id}`);}
         if (tiktok && !instagram){this.router.navigateByUrl(`/create-campaign/tiktok/${campaign.id}`);}
       if (instagram && tiktok){this.router.navigateByUrl(`/create-campaign/instagram-tiktok/${campaign.id}`);}
       });
-
-
-
-
   }
 }

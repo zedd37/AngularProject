@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SignupAndLoginService } from '../Services/signup-and-login.service';
 import { BrandService } from '../Services/brand.service';
 import { RoleGuard } from 'src/app/Guard/role.guard';
+import { LoginAuthService } from '../Services/login-auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ import { RoleGuard } from 'src/app/Guard/role.guard';
 export class ProfileComponent implements OnInit {
   constructor(
     private Http: HttpClient,
-
+    private hhh:LoginAuthService,
     private BrandService: SignupAndLoginService
   ) {}
   brand: any;
@@ -27,24 +28,25 @@ export class ProfileComponent implements OnInit {
     }).subscribe({
       next(data) {
         that.brand = data;
-        console.log(data);
+        // console.log(that.brand.data.isAdmin);
       },
       error(err) {
         console.log(err);
       },
     }); 
-    this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
-      headers: header,
-    }).subscribe({
+   
+    // this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
+    //   headers: header,
+    // }).subscribe({
 
-      next(data) {
-        // that.brand = data;
-        console.log(data);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    //   next(data) {
+    //     // that.brand = data;
+    //     console.log(data);
+    //   },
+    //   error(err) {
+    //     console.log(err);
+    //   },
+    // });
     
   }
   

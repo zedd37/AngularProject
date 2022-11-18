@@ -1,0 +1,77 @@
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 text-white" style="background-color:#032539;" >
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+              <div class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                  <span class="fs-5 d-none d-sm-inline">Menu</span>
+              </div>
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link align-middle px-0 text-white">
+                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="admin-panel/brands" class="nav-link px-0 align-middle" style="color:#FA991C">
+                          <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Brands</span> </a>
+                  </li>
+                  <li>
+                      <a href="admin-panel/campaigns" class="nav-link px-0 align-middle text-white">
+                          <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Campaigns</span> </a>
+                  </li>
+                  <li>
+                      <a href="admin-panel/influencers" class="nav-link px-0 align-middle text-white">
+                          <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Influencers</span> </a>
+                  </li>
+              </ul>
+              <hr>
+
+          </div>
+      </div>
+
+       <!-- ################################################################################## -->
+    <!-- Inside content -->
+      <div class="col py-3">
+        <h1 class="m-4 h1">Brands data</h1>
+        <div class="table-responsive-md ">
+          <div class="campaignsContainer">
+            <table
+              class="table table-hover table-responsive-md">
+              <thead>
+                <tr >
+                  <th class="Cname">Campaign</th>
+                  <th >Type</th>
+                  <th >Privacy</th>
+                  <th >Start Date</th>
+                  <th >Country</th>
+                  <th >Actions</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+                <tr *ngFor="let brand of brands">
+                  <td>{{brand.fname}}</td>
+                  <td>{{brand.lname}}</td>
+                  <td>{{brand.email}}</td>
+                  <td>{{brand.phone}}</td>
+                  <td>{{brand.brnd_name}}</td>
+                  <td class="actions">
+
+                    <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/create-campaign"><b>A</b></button>
+                    <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{brand.id}}"><b>i</b></button>
+                    <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{brand.id}}">E</button>
+                    <button class="iconBtn" (click)="DeleteBrand(brand.id)">D</button>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

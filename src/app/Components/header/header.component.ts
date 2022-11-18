@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   ) {}
   brand: any;
   ngOnInit(): void {
-    this.brand = sessionStorage.getItem('isAdmin');
+  
   }
   logout() {
     sessionStorage.clear();

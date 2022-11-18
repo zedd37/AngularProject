@@ -12,5 +12,4 @@ export class InfluencerPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
 }

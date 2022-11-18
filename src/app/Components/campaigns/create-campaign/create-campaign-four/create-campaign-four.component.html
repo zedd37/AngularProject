@@ -6,42 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  
+
   <body>
-    <app-header></app-header>
+
 <div class="body">
     <div class="create-campaign-container">
       <div class="title">NEW CAMPAIGN</div>
-      <div class="subtitle">PAYMENT</div>
+      <div class="subtitle">INFLUENCER FEES</div>
       <hr>
 
     <div class="createCampaignContainer col-12 col-sm-12 col-md-12 col-lg-12">
-      <form class="row">
+      <form class="row" [formGroup]="fees" (ngSubmit)="AddFees(feesAmount.value, feesDetails.value)">
 
         <div class="col-sm-12 col-lg-6">
           <div class="input-group">
-            <span class="input-group-text col-sm-12">Payment Amount</span>
-
-            <input type="text" class="form-control" placeholder="Type" />
+            <span class="input-group-text col-sm-12">Fees Amount</span>
+            <span class="curr">EGP</span>
+            <input #feesAmount type="text" class="form-control" placeholder="Type here.." formControlName="amount"/>
           </div>
-          <br />
-        </div>
-
-        <div class="col-sm-12 col-lg-6">
-          <div class="input-group">
-            <span class="input-group-text col-sm-12">Payment Currency</span>
-
-            <input type="text" class="form-control" placeholder="Type" />
-          </div>
+          <div class="error text-danger" *ngIf="!amount">
+            <small>Enter an integer number.</small>
+           </div>
           <br />
         </div>
 
 
         <div class="">
           <div class="input-group">
-            <span class="input-group-text col-sm-12">Payment Details</span>
+            <span class="input-group-text col-sm-12">Fees Details</span>
 
-            <textarea
+            <textarea #feesDetails
               class="form-control"
               id="idetails"
               cols="200"
@@ -52,13 +46,25 @@
           <br />
         </div>
 
+        <div class="form-group btns row col-lg-12 justify-content-center">
+
+          <input type="submit" value="Submit" class="btn submitOne mb-2" >
+
+        </div>
+
+        <div class="form-group btns row col-lg-12 justify-content-lg-between justify-content-sm-center">
+
+          <button class="btn btn-primary backBtn  mb-2" routerLink="/update-campaign/{{campaignId}}">Back</button>
+
+        </div>
+
       </form>
     </div>
   </div>
-  
-  </div> 
-  
+
+  </div>
+
   <app-footer></app-footer>
-  
+
   </body>
 </html>

@@ -1,6 +1,6 @@
 .body {
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   color: white;
   background-color: #ddd;
@@ -63,13 +63,6 @@ a:hover {
   padding: 0px;
 }
 
-.floatTitle::before{
-transform: translate(0%);
-}
-
-.floatTitle::after{
-  transform: translate(50%);
-  }
 
 
 @media screen and (max-width: 991px) {
