@@ -105,6 +105,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'update-campaign/influencer-fees/:campaignId',
+    component: UpdateCampaignFourComponent,
+    canActivate: [AuthGuard,RoleGuard],
+  },
+  {
     path: 'influencers-payment',
     component: InfluencersPaymentsComponent,
     canActivate: [AuthGuard],

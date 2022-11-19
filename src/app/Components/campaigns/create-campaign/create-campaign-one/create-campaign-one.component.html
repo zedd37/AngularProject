@@ -53,6 +53,23 @@
         </div>
         <div class="col-sm-12 col-lg-6">
           <div class="input-group">
+            <span class="input-group-text col-sm-12">Privacy</span>
+            <select #privacy
+            class="form-select">
+               <option value="">Choose..</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+          </div>
+          <div class="error text-danger" *ngIf="privacy.value == '' && privacyError">
+            <small>{{privacyError}}</small>
+          </div>
+          <br />
+        </div>
+
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
             <span class="input-group-text col-sm-12">Campaign Start Date</span>
             <input #start_date
               type="date"
@@ -99,6 +116,10 @@
         <div class="col-sm-12 col-lg-6">
             <span class="input-group-text col-sm-12">Platforms included in campaign</span>
             <small class="text-dark">*Please select at least one platform to continue.</small>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 01b7cc683d442ac3e8741782e658d5a08d1a79d4
             <div class="checkboxes">
             <div *ngFor="let p of platformOptions; let i=index">
               <input type="checkbox"
@@ -108,6 +129,7 @@
             </div>
             </div>
         </div>
+<<<<<<< HEAD
             <br />
             <div class="form-group">
               <div *ngIf="!instagram && !tiktok; else case">
@@ -118,6 +140,9 @@
                   disabled
                 />
               </div>
+=======
+
+>>>>>>> 01b7cc683d442ac3e8741782e658d5a08d1a79d4
         <ng-template #case>
           <input type="submit" value="Continue" class="btn submitOne">
             <div class="error text-danger text-center" *ngIf="title.value == '' && titleError || privacy.value == '' && privacyError">
