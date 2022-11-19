@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import {OverlayModule} from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -50,9 +53,8 @@ import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-
 import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/change-influencer-password/change-influencer-password.component';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
-import {OverlayModule} from '@angular/cdk/overlay';
+import { BrowseCampaignsComponent } from './Components/browse-campaigns/browse-campaigns.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +98,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     InfluencerPageComponent,
     EditInfluencerComponent,
     ChangeInfluencerPasswordComponent,
+    BrowseCampaignsComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +107,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    // BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
