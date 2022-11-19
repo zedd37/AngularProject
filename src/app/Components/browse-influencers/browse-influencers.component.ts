@@ -12,28 +12,17 @@ import { LoginAuthService } from '../Services/login-auth.service';
 export class BrowseInfluencersComponent implements OnInit {
   brand: any;
   constructor(private influencerService: InfluencerService, private Http: HttpClient,public loginAuth:LoginAuthService) {}
-
+  loader=true;
   influencers: any;
   filteredInfluencers: any = [];
   // selected_categories:any ={};
 
   ngOnInit(): void {
     this.showInfluencers();
-    const header = new HttpHeaders({
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-    });
-    let that = this;
-    this.Http.get('http://localhost:8000/api/brand', {
-      headers: header,
-    }).subscribe({
-      next(data) {
-        that.brand = data;
-        console.log(data);
-      },
-      error(err) {
-        console.log(err);
-      },
-    }); 
+
+    setTimeout(()=>{
+      this.loader = false;
+    },3000)
   }
 
   showInfluencers() {

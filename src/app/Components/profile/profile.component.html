@@ -1,51 +1,61 @@
-<app-brand-admin-header *ngIf="brand.data.isAdmin"></app-brand-admin-header>
-<app-header *ngIf="!brand.data.isAdmin"></app-header>
-<div class="body">
-  <div class="container containerColor">
-    <div class="header-details">
-      <div class="CoverPhoto-cont mt-5">
-        <img
-          src="../../../assets/images/profile/cover-picture.png"
-          class="img-fluid rounded-3"
-          alt="..."
-        />
-      </div>
-
-      <div class="contents">
-        <div class="profilePhoto-cont">
+<!-- <div class="text-center"  > -->
+<div
+  class="d-flex justify-content-center "
+  style="width: 100%; height: 100vh; align-items: center;"
+  *ngIf="loader"
+>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!-- </div> -->
+<div *ngIf="!loader">
+  <app-brand-admin-header *ngIf="loginAuth.isAdmin()"></app-brand-admin-header>
+  <app-header *ngIf="!loginAuth.isAdmin()"></app-header>
+  <div class="body">
+    <div class="container containerColor">
+      <div class="header-details">
+        <div class="CoverPhoto-cont mt-5">
           <img
-            src="../../../assets/images/profile/profilePic.jpg"
-            class="rounded-3"
+            src="../../../assets/images/profile/cover-picture.png"
+            class="img-fluid rounded-3"
             alt="..."
           />
         </div>
-        <div class="profile-content">
-          <h3 *ngIf="brand">{{ brand.data.fname }}</h3>
-          <p>nick name</p>
-          <p>
-            <a href="#" *ngIf="brand">{{ brand.data.email }}</a>
-          </p>
+
+        <div class="contents">
+          <div class="profilePhoto-cont">
+            <img
+              src="../../../assets/images/profile/profilePic.jpg"
+              class="rounded-3"
+              alt="..."
+            />
+          </div>
+          <div class="profile-content">
+            <h3 *ngIf="brand">{{ brand.data.fname }}</h3>
+            <p>{{ brand.data.brand_name }}</p>
+            <p>
+              <a href="#" *ngIf="brand">{{ brand.data.email }}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container button-container col-6">
+        <div class="row">
+          <div
+            class="button"
+            routerLinkActive="activeLinkClass"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/edit-brand-profile"
+          >
+            Edit Profile Settings
+          </div>
+          <div class="button">Connections</div>
+          <div class="button">Favourites</div>
         </div>
       </div>
     </div>
-    <div class="container button-container col-6">
-      <div class="row">
-        <div class=" button" 
-        routerLinkActive="activeLinkClass"
-        [routerLinkActiveOptions]="{ exact: true }"
-        routerLink="/edit-brand-profile">
-          Edit Profile Settings
-        </div>
-        <div class=" button">
-          Connections
-        </div>
-        <div class=" button">
-          Favourites
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- <div>
+    <!-- <div>
       <div class="row d-flex justify-content-center mt-3 ">
         <div class="col-md-10 col-xl-8 text-center">
          <div *ngIf="brands">
@@ -56,7 +66,7 @@
        </div>
       </div>
     </div> -->
-  <!-- <div class="row text-center d-flex align-items-stretch mt-3 ">
+    <!-- <div class="row text-center d-flex align-items-stretch mt-3 ">
         <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
           <div class="card testimonial-card box-shadow2">
             <div class="card-up" style="background-color: #1c768f"></div>
@@ -116,7 +126,7 @@
         </div>
       </div> -->
 
-  <!-- <nav aria-label="..." >
+    <!-- <nav aria-label="..." >
         <ul class="pagination justify-content-center my-4">
           <li class="page-item disabled">
             <a class="page-link">Previous</a>
@@ -131,18 +141,20 @@
           </li>
         </ul>
       </nav> -->
-  <!-- </div>
+    <!-- </div>
   </div>
 </div> -->
 
-
-<div style="width: 100%;">
-    <div class="brandinfo mt-5 mb-3 fs-3 fw-bold" style="width: 90%;">Brand Information</div>
-    <div class="row " style="width: 90%;">
-      <div class="brand-tabs w-100 justify-content-between nav nav-tabs "
-        id="pills-tab"
-        role="tablist"
-      >
+    <div style="width: 100%">
+      <div class="brandinfo mt-5 mb-3 fs-3 fw-bold" style="width: 90%">
+        Brand Information
+      </div>
+      <div class="row" style="width: 90%">
+        <div
+          class="brand-tabs w-100 justify-content-between nav nav-tabs"
+          id="pills-tab"
+          role="tablist"
+        >
           <button
             class="nav-link active"
             id="pills-about-tab"
@@ -332,8 +344,9 @@
           >
             {{ brand.data.brand_info.youtube }}
           </div>
+        </div>
       </div>
     </div>
+  </div>
+  <app-footer></app-footer>
 </div>
-</div>
-<app-footer></app-footer>

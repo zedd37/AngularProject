@@ -47,7 +47,7 @@ const routes: Routes = [
   {
     path: 'create-campaign',
     component: CreateCampaignOneComponent,
-    canActivate: [ RoleGuard],
+    canActivate: [ AuthGuard],
   },
   {
     path: 'create-campaign/instagram/:campaignId',

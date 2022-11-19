@@ -13,7 +13,7 @@ export class EditBrandProfileComponent implements OnInit {
   brand: any = null;
 
   constructor(private Http:HttpClient, private BrandService:BrandService, private router:Router) { }
-
+  loader=true;
   ngOnInit(): void {
     const header = new HttpHeaders({
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -30,6 +30,9 @@ export class EditBrandProfileComponent implements OnInit {
         console.log(err);
       },
     }); 
+    setTimeout(()=>{
+      this.loader = false;
+    },3000)
   }
   UpdateBrand(fname:any,lname:any,brandname:any,email:any,snapchat:any,facebook:any,industries:any,location:any,phone:any,instagram:any,tiktok:any,youtube:any,about:any){
     

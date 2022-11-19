@@ -39,6 +39,7 @@ export class LoginAuthService {
   influencerAuth(influencerData: any) {
     return this.client.post(this.influencerBaseUrl, influencerData);
   }
+
   isLoggedIn() {
     return !!sessionStorage.getItem('token');
   }

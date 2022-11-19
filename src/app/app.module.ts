@@ -51,6 +51,7 @@ import { EditInfluencerComponent } from './Components/influencer-page/edit-influ
 import { LoginAuthService } from './Components/Services/login-auth.service';
 import { InfluencerService } from './services/influencer.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +101,8 @@ import { InfluencerService } from './services/influencer.service';
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
   ],
 
   providers: [BrandService, CampaignsService, SignupAndLoginService,LoginAuthService,InfluencerService],
