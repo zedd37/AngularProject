@@ -39,8 +39,7 @@ import { UpdateCampaignIgTtComponent } from './Components/campaigns/update-campa
 import { SignupAndLoginService } from './Components/Services/signup-and-login.service';
 import { BrandService } from './brand.service';
 import { BrandAdminHeaderComponent } from './Components/brand-admin-header/brand-admin-header.component';
-// import { BrandAdminHeaderComponent } from './Components/header/brand-admin-header/brand-admin-header.component';
-// import { InfluencerHeaderComponent } from './Components/header/influencer-header/influencer-header.component';
+import { InfluencerHeaderComponent } from './Components/header/influencer-header/influencer-header.component';
 import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
 import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
 import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
@@ -49,6 +48,8 @@ import { EditBrandProfileComponent } from './Components/profile/edit-brand-profi
 import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
 import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
+import { LoginAuthService } from './Components/Services/login-auth.service';
+import { InfluencerService } from './services/influencer.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,7 @@ import { EditInfluencerComponent } from './Components/influencer-page/edit-influ
     CreateCampaignIgTtComponent,
     UpdateCampaignIgTtComponent,
     BrandAdminHeaderComponent,
-    // InfluencerHeaderComponent,
+    InfluencerHeaderComponent,
     AdminCampaignsComponent,
     AdminBrandsComponent,
     AdminInfluencersComponent,
@@ -102,7 +103,7 @@ import { EditInfluencerComponent } from './Components/influencer-page/edit-influ
     ReactiveFormsModule
   ],
 
-  providers: [BrandService, CampaignsService, SignupAndLoginService],
+  providers: [BrandService, CampaignsService, SignupAndLoginService,LoginAuthService,InfluencerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
