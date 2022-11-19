@@ -51,6 +51,9 @@ import { EditInfluencerComponent } from './Components/influencer-page/edit-influ
 import { AdminPaymentsComponent } from './Components/admin-payments/admin-payments.component';
 import { LoginAuthService } from './Components/Services/login-auth.service';
 import { InfluencerService } from './services/influencer.service';
+import { AddInfluencerComponent } from './Components/add-influencer/add-influencer.component';
+import { AddBrandComponent } from './Components/add-brand/add-brand.component';
+
 
 @NgModule({
   declarations: [
@@ -95,6 +98,9 @@ import { InfluencerService } from './services/influencer.service';
     InfluencerPageComponent,
     EditInfluencerComponent,
     AdminPaymentsComponent,
+    AddInfluencerComponent,
+    AddBrandComponent,
+
   ],
   imports: [
     BrowserModule,
