@@ -185,6 +185,7 @@ export class SignupAndLoginComponent implements OnInit {
     return this.brandValidation.controls.brandName.valid;
   }
   // ------- When sign-up as brand add brand data to database ---------
+  brandSignupEmailError: any = null;
   newBrand(
     fname: any,
     lname: any,
@@ -195,48 +196,60 @@ export class SignupAndLoginComponent implements OnInit {
     conf_password: any,
     brand_name: any
   ) {
+    let that = this;
     if (this.brandValidation.controls.firstName.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.firstNameError = 'You should enter your name';
     } else if (this.brandValidation.controls.lastName.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.lastNameError = 'you should enter your family name ';
     } else if (this.brandValidation.controls.email.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.emailError = 'you should write your email in form example@gmail.com';
     } else if (this.brandValidation.controls.emailConfirm.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.emailConfirmError = 'You should confirm your email';
     } else if (email !== conf_email) {
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.confirmE = "the emails aren't equal";
     } else if (this.brandValidation.controls.password.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.passwordError =
         'You should write your password and at least 8 characters';
     } else if (this.brandValidation.controls.passwordConfirm.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.passwordConfirmError = 'You should confirm your password';
     } else if (password !== conf_password) {
       this.confirmE = null;
+      this.brandSignupEmailError = null;
       this.confirmP = "the passwords aren't equal";
     } else if (this.brandValidation.controls.phone.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.phoneError = 'You should enter your phone and at least 11 numbers';
     } else if (this.brandValidation.controls.brandName.invalid) {
       this.confirmE = null;
       this.confirmP = null;
+      this.brandSignupEmailError = null;
       this.brandNameError = 'You should enter your brand Name';
     } else {
       this.confirmE = null;
       this.confirmP = null;
+
       this.storeService
         .addNewBrand({
           fname: fname,
@@ -246,11 +259,20 @@ export class SignupAndLoginComponent implements OnInit {
           password: password,
           brand_name: brand_name,
         })
-        .subscribe();
+        .subscribe({
+          next(data:any) {
+            // console.log(data["access_token"]);
+            sessionStorage.setItem('token', data.access_token);
+            that.router.navigate(['/edit-brand-profile']);
+          },
+          error(err) {
+            that.brandSignupEmailError = err.error.errors.email;
+          },
+        });
     }
   }
   // ------- When sign-up as influencer add influencer data to database ---------
-
+influencerSignupError:any=null;
   newInfluencer(
     inf_fname: any,
     inf_lname: any,
@@ -261,6 +283,7 @@ export class SignupAndLoginComponent implements OnInit {
     inf_password: any,
     inf_conf_password: any
   ) {
+    let that =this;
     if (this.brandValidation.controls.firstName.invalid) {
       this.confirmE = null;
       this.confirmP = null;
@@ -303,6 +326,7 @@ export class SignupAndLoginComponent implements OnInit {
     } else {
       this.confirmE = null;
       this.confirmP = null;
+
       this.storeService
         .addNewInfluencer({
           fname: inf_fname,
@@ -312,7 +336,15 @@ export class SignupAndLoginComponent implements OnInit {
           password: inf_password,
           occupation: inf_occupation,
         })
-        .subscribe();
+        .subscribe({
+          next(data:any){
+            sessionStorage.setItem('token', data.access_token);
+            that.router.navigate(['/edit-brand-profile']);
+          },
+          error(err){
+            that.influencerSignupError = err.error.errors.email;
+          }
+        });
     }
   }
   // ------- When login check if user is brand or influencer in database ---------
@@ -332,11 +364,9 @@ export class SignupAndLoginComponent implements OnInit {
         .subscribe({
           next(data: any) {
             console.log('brand');
-
             sessionStorage.setItem('token', data.access_token);
-            // sessionStorage.setItem('isAdmin', data.isAdmin);
-            that.authService.isAdmin(data.isAdmin);
-            that.router.navigate(['/profile']);
+            // that.authService.Admin=data.isAdmin;
+            that.router.navigate(['edit-brand-profile']);
           },
           error(err) {
             // console.log(err.error);
@@ -347,6 +377,7 @@ export class SignupAndLoginComponent implements OnInit {
           },
         });
     } else if (this.type === 'influencer') {
+      this.authService.Type="influencer";
       this.checkError = null;
       this.authService
         .influencerAuth({ email: log_email, password: log_password })
@@ -354,8 +385,7 @@ export class SignupAndLoginComponent implements OnInit {
           next(data: any) {
             console.log('influencer');
             sessionStorage.setItem('token', data.access_token);
-            that.authService.isAdmin(data.isAdmin);
-            that.router.navigate(['/profile']);
+            that.router.navigate(['/edit-influencer']);
           },
           error(err) {
             console.log(err);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginAuthService } from '../Services/login-auth.service';
 
 @Component({
   selector: 'app-brand-admin-header',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BrandAdminHeaderComponent implements OnInit {
 
-  constructor( private router:Router) { }
+  constructor( private router:Router,public loginAuth:LoginAuthService) { }
 
   ngOnInit(): void {
   }

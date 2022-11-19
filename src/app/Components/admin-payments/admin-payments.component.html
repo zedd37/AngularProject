@@ -48,7 +48,10 @@
                 <th class="Cname">ID</th>
                 <th >Campaign</th>
                 <th >Influencer</th>
-                <th >Fees</th>
+                <th >Amount</th>
+                <th >Service Fee</th>
+                <th >VAT</th>
+                <th >Total Amount</th>
               </tr>
             </thead>
 
@@ -58,7 +61,10 @@
                 <td>{{payment.id}}</td>
                 <td>{{payment.title}}</td>
                 <td>{{payment.influencer}}</td>
-                <td>{{payment.fees_amount}}</td>
+                <td>{{payment.amount}}</td>
+                <td>{{payment.service_fee}}</td>
+                <td>{{payment.vat}}</td>
+                <td>{{payment.total_amount}}</td>
                 <!-- <td class="actions">
 
                   <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/create-campaign"><b>A</b></button>

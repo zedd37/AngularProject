@@ -25,8 +25,13 @@ export class AdminInfluencersComponent implements OnInit {
       });
   }
 
-  DeleteInfluencer(i:number){
+  DeleteInfluencer(id:number){
+    if (confirm('Are you sure to delete?')) {
+      this.influencerService.deleteInfluencer(id).subscribe((influencer:any) => {
 
+          this.ngOnInit();
+        })
+      };
   }
 
 }

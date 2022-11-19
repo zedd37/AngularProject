@@ -1,4 +1,5 @@
-
+<app-brand-admin-header *ngIf="brand.data.isAdmin"></app-brand-admin-header>
+<app-header *ngIf="!brand.data.isAdmin"></app-header>
 <div class="body">
   <div class="container containerColor">
     <div class="header-details">

@@ -79,10 +79,10 @@
                 <td>{{influencer.children}}</td>
                 <td class="actions">
 
-                  <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/create-campaign"><b>A</b></button>
-                  <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{influencer.id}}"><b>i</b></button>
-                  <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{influencer.id}}">E</button>
-                  <button class="iconBtn" (click)="DeleteInfluencer(influencer.id)">D</button>
+                  <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/add-influencer"><b>A</b></button>
+                  <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{influencer.id}}"><b>i</b></button> -->
+                  <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{influencer.id}}">E</button> -->
+                  <button class="iconBtn my-1" (click)="DeleteInfluencer(influencer.id)">D</button>
                 </td>
 
               </tr>

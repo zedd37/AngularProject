@@ -68,10 +68,10 @@
                   <!-- <td>{{brand.created_at}}</td> -->
                   <td class="actions">
 
-                    <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/create-campaign"><b>A</b></button>
-                    <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{brand.id}}"><b>i</b></button>
-                    <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{brand.id}}">E</button>
-                    <button class="iconBtn" (click)="DeleteBrand(brand.id)">D</button>
+                    <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/add-brand"><b>A</b></button>
+                    <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{brand.id}}"><b>i</b></button> -->
+                    <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{brand.id}}">E</button> -->
+                    <button class="iconBtn my-1" (click)="DeleteBrand(brand.id)">D</button>
                   </td>
 
                 </tr>

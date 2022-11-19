@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { InfluencerService } from 'src/app/services/influencer.service';
+import { LoginAuthService } from '../Services/login-auth.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { InfluencerService } from 'src/app/services/influencer.service';
 })
 export class BrowseInfluencersComponent implements OnInit {
   brand: any;
-  constructor(private influencerService: InfluencerService, private Http: HttpClient,) {}
+  constructor(private influencerService: InfluencerService, private Http: HttpClient,public loginAuth:LoginAuthService) {}
 
   influencers: any;
   filteredInfluencers: any = [];
