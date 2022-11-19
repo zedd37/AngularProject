@@ -1,51 +1,57 @@
-<app-brand-admin-header *ngIf="brand.data.isAdmin"></app-brand-admin-header>
-<app-header *ngIf="!brand.data.isAdmin"></app-header>
-<div class="body">
-  <div class="container containerColor">
-    <div class="header-details">
-      <div class="CoverPhoto-cont mt-5">
-        <img
-          src="../../../assets/images/profile/cover-picture.png"
+<div class="d-flex justify-content-center " style="width: 100%; height: 100vh; align-items: center;" *ngIf="loader">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="!loader">
+  <app-brand-admin-header *ngIf="loginAuth.isAdmin()"></app-brand-admin-header>
+  <app-header *ngIf="!loginAuth.isAdmin()"></app-header>
+  <div class="body">
+    <div class="container containerColor">
+      <div class="header-details">
+        <div class="CoverPhoto-cont mt-5">
+          <!-- <img
+          src="assets/images/profile/cover-picture.png"
           class="img-fluid rounded-3"
           alt="..."
-        />
-      </div>
+        /> -->
+          <img src="assets/images/placeholder-image-campaigns.png" class="img-fluid rounded-3" alt="...">
+        </div>
 
-      <div class="contents">
-        <div class="profilePhoto-cont">
-          <img
-            src="../../../assets/images/profile/profilePic.jpg"
-            class="rounded-3"
+        <div class="contents ">
+          <div class="profilePhoto-cont ">
+            <!-- <img
+            src="assets/images/profile/profilePic.jpg"
+            class="rounded-3 "
             alt="..."
-          />
-        </div>
-        <div class="profile-content">
-          <h3 *ngIf="brand">{{ brand.data.fname }}</h3>
-          <p>nick name</p>
-          <p>
-            <a href="#" *ngIf="brand">{{ brand.data.email }}</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container button-container col-6">
-      <div class="row">
-        <div class=" button" 
-        routerLinkActive="activeLinkClass"
-        [routerLinkActiveOptions]="{ exact: true }"
-        routerLink="/edit-brand-profile">
-          Edit Profile Settings
-        </div>
-        <div class=" button">
-          Connections
-        </div>
-        <div class=" button">
-          Favourites
+          /> -->
+            <img src="assets/images/placeholder-image-brand.png" class="img-fluid rounded-3" alt="...">
+          </div>
+          <div class="profile-content">
+            <h3 *ngIf="brand">{{ brand.data.fname }}</h3>
+            <p>
+              <a href="#" *ngIf="brand">{{ brand.data.email }}</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- <div>
+    <div class="button-container d-flex justify-content-center gap-2 ">
+
+      <div class="button col-sm-3 col-lg-2" routerLinkActive="activeLinkClass"
+        [routerLinkActiveOptions]="{ exact: true }" routerLink="/edit-brand-profile">
+        Edit Profile
+      </div>
+      <div class=" button col-sm-3 col-lg-2">
+        Connections
+      </div>
+      <div class=" button col-sm-3 col-lg-2">
+        Favourites
+      </div>
+    </div>
+
+    <!-- </div> -->
+    <!-- <div>
       <div class="row d-flex justify-content-center mt-3 ">
         <div class="col-md-10 col-xl-8 text-center">
          <div *ngIf="brands">
@@ -56,7 +62,7 @@
        </div>
       </div>
     </div> -->
-  <!-- <div class="row text-center d-flex align-items-stretch mt-3 ">
+    <!-- <div class="row text-center d-flex align-items-stretch mt-3 ">
         <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
           <div class="card testimonial-card box-shadow2">
             <div class="card-up" style="background-color: #1c768f"></div>
@@ -116,7 +122,7 @@
         </div>
       </div> -->
 
-  <!-- <nav aria-label="..." >
+    <!-- <nav aria-label="..." >
         <ul class="pagination justify-content-center my-4">
           <li class="page-item disabled">
             <a class="page-link">Previous</a>
@@ -131,209 +137,86 @@
           </li>
         </ul>
       </nav> -->
-  <!-- </div>
+    <!-- </div>
   </div>
 </div> -->
 
 
-<div style="width: 100%;">
-    <div class="brandinfo mt-5 mb-3 fs-3 fw-bold" style="width: 90%;">Brand Information</div>
-    <div class="row " style="width: 90%;">
-      <div class="brand-tabs w-100 justify-content-between nav nav-tabs "
-        id="pills-tab"
-        role="tablist"
-      >
-          <button
-            class="nav-link active"
-            id="pills-about-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-about"
-            type="button"
-            role="tab"
-            aria-controls="pills-about"
-            aria-selected="true"
-          >
-            <a class="nav-a">About Us</a>
-          </button>
-          <button
-            class="nav-link"
-            id="pills-industries-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-industries"
-            type="button"
-            role="tab"
-            aria-controls="pills-industries"
-            aria-selected="true"
-          >
-            <a class="nav-a">Industries</a>
-          </button>
+    <div class="mainContent justify-content-center p-4" *ngIf="brand.data.brand_info; else nothingToDisplay">
+      <div class="brandinfo  mt-3 mb-2 fs-3 fw-bold">Brand Information</div>
+      <div class="row ">
+        <div class="col-sm-12 col-lg-12" *ngIf="brand.data.brand_info.about">
+          <p class="section"> About Us</p>
 
-          <button
-            class="nav-link"
-            id="pills-location-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-location"
-            type="button"
-            role="tab"
-            aria-controls="pills-location"
-            aria-selected="false"
-          >
-            <a class="nav-a">Location</a>
-          </button>
-
-          <button
-            class="nav-link"
-            id="pills-phone-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-phone"
-            type="button"
-            role="tab"
-            aria-controls="pills-phone"
-            aria-selected="false"
-          >
-            <a class="nav-a">Phone Number</a>
-          </button>
-
-          <button
-            class="nav-link"
-            id="pills-facebook-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-facebook"
-            type="button"
-            role="tab"
-            aria-controls="pills-facebook"
-            aria-selected="false"
-          >
-            <a class="nav-a">Facebook</a>
-          </button>
-
-          <button
-            class="nav-link"
-            id="pills-instagram-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-instagram"
-            type="button"
-            role="tab"
-            aria-controls="pills-instagram"
-            aria-selected="false"
-          >
-            <a class="nav-a">Instagram</a>
-          </button>
-
-          <button
-            class="nav-link"
-            id="pills-tiktok-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-tiktok"
-            type="button"
-            role="tab"
-            aria-controls="pills-tiktok"
-            aria-selected="false"
-          >
-            <a class="nav-a">TikTok</a>
-          </button>
-
-          <button
-            class="nav-link"
-            id="pills-youtube-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-youtube"
-            type="button"
-            role="tab"
-            aria-controls="pills-youtube"
-            aria-selected="false"
-          >
-            <a class="nav-a">Youtube</a>
-          </button>
+          {{ brand.data.brand_info.about }}
         </div>
-        <div class="tab-content" id="pills-tabContent">
-          <div
-            class="tab-pane active"
-            id="pills-about"
-            role="tabpanel"
-            aria-labelledby="pills-about-tab"
-            *ngIf="brand.data.brand_info"
-            tabindex="1"
-          >
-            {{ brand.data.brand_info.about }}
-          </div>
 
-          <div
-            class="tab-pane"
-            id="pills-industries"
-            role="tabpanel"
-            aria-labelledby="pills-industries-tab"
-            tabindex="2"
-            *ngIf="brand.data.brand_info"
-          >
-            {{ brand.data.brand_info.industries }}
-          </div>
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.brand_info.industries">
+          <p class="section"> Industries</p>
 
-          <div
-            class="tab-pane"
-            id="pills-location"
-            role="tabpanel"
-            aria-labelledby="pills-location-tab"
-            tabindex="3"
-            *ngIf="brand.data.brand_info"
-          >
-            {{ brand.data.brand_info.location }}
-          </div>
+          {{ brand.data.brand_info.industries }}
 
-          <div
-            class="tab-pane"
-            id="pills-phone"
-            role="tabpanel"
-            aria-labelledby="pills-phone-tab"
-            tabindex="4"
-            *ngIf="brand.data"
-          >
-            {{ brand.data.phone }}
-          </div>
+        </div>
 
-          <div
-            class="tab-pane"
-            id="pills-facebook"
-            role="tabpanel"
-            aria-labelledby="pills-facebook-tab"
-            tabindex="5"
-            *ngIf="brand.data.brand_info"
-          >
-            {{ brand.data.brand_info.facebook }}
-          </div>
-          <div
-            class="tab-pane"
-            id="pills-instagram"
-            role="tabpanel"
-            aria-labelledby="pills-instagram-tab"
-            tabindex="6"
-            *ngIf="brand.data"
-          >
-            {{ brand.data.instagram }}
-          </div>
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.brand_info.location">
+          <p class="section"> Location</p>
 
-          <div
-            class="tab-pane"
-            id="pills-tiktok"
-            role="tabpanel"
-            aria-labelledby="pills-tiktok-tab"
-            tabindex="7"
-            *ngIf="brand.data.brand_info"
-          >
-            {{ brand.data.brand_info.tiktok }}
-          </div>
-          <div
-            class="tab-pane"
-            id="pills-youtube"
-            role="tabpanel"
-            aria-labelledby="pills-youtube-tab"
-            tabindex="8"
-            *ngIf="brand.data.brand_info"
-          >
-            {{ brand.data.brand_info.youtube }}
-          </div>
+          {{ brand.data.brand_info.location }}
+
+        </div>
+
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.phone">
+          <p class="section"> Phone Number</p>
+
+          {{ brand.data.phone }}
+
+        </div>
+
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.brand_info.facebook">
+          <p class="section"> Facebook</p>
+
+          {{ brand.data.brand_info.facebook }}
+
+        </div>
+
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.brand_info.youtube">
+          <p class="section"> Youtube</p>
+
+          {{ brand.data.brand_info.youtube }}
+
+        </div>
+
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.brand_info.tiktok">
+          <p class="section"> TikTok</p>
+
+          {{ brand.data.brand_info.tiktok }}
+
+        </div>
+
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.instagram">
+          <p class="section"> Instagram</p>
+
+          {{ brand.data.instagram }}
+
+        </div>
+
+        <div class="col-sm-6 col-lg-4 mt-4" *ngIf="brand.data.snapchat">
+          <p class="section"> Snapchat</p>
+
+          {{ brand.data.snapchat }}
+
+        </div>
+
       </div>
     </div>
+  </div>
+
+  <ng-template #nothingToDisplay>
+    <div class="brandinfo mainContent text-center mt-3 mb-2 fw-bold p-5">
+      <p>Nothing To Display.</p>
+      <p class="text-muted">Make sure to update your profile so that people can know more about your company!</p>
+    </div>
+  </ng-template>
+  <br> <br>
+  <app-footer></app-footer>
 </div>
-</div>
-<app-footer></app-footer>

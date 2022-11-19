@@ -1,24 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InfluencerService {
 
-  url:string = 'http://localhost:8000';
+  url: string = 'http://localhost:8000';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  listInfluencers(){
-    return this.http.get<any>(this.url+`/api/influencers`);
+  listInfluencers() {
+    return this.http.get<any>(this.url + `/api/influencers`);
   }
 
 
-  url2= 'http://localhost:8000/api/influencers'
-  deleteInfluencer(id:number){
+  influencerurl = 'http://127.0.0.1:8000/api/influencers';
+
+  updateInfluencer(ID: any, influencer: any) {
+
+    return this.http.put(`${this.influencerurl}/${ID}`, influencer);
+  }
+
+  url2 = 'http://localhost:8000/api/influencers'
+  deleteInfluencer(id: number) {
     return this.http.delete(`${this.url2}/${id}`);
   }
+
+
+
 
 
   addInfluencer(influencer:any){

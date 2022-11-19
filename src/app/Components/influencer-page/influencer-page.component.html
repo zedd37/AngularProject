@@ -3,20 +3,48 @@
   <div class="container containerColor">
 
 
+<!------------------------Notifications--------------------->
+<mat-toolbar color="primary" class="bing">
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="clear()" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  <mat-icon class="icon">notifications</mat-icon>
+</button>
+<span class="badge" *ngIf="notificationNumberCount > 0">{{notificationNumberCount}}</span>
+  </mat-toolbar>
+  <br/><br/> <br/>
+  <ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+<div class="notifications">
+  <div *ngFor="let c of latestCampaigns">
+    <a routerLink="/browse-campaigns"><p>You can check <i>{{c.title}}</i> campaign now!</p></a>
+  </div>
+  </div>
+</ng-template>
+
+
+<!------------------------Notifications End--------------------->
+
+
       <!-- Influenz static Cover photo and Influencer profile photo with an edit profile button -->
       <div class="header-details">
           <div class="CoverPhoto-cont mt-5">
-              <img src="../../../assets/images/influencer-profile/cover-photo.png" class="img-fluid rounded-3"
+              <!-- <img src="../../../assets/images/influencer-profile/cover-photo.png" class="img-fluid rounded-3"
+                  alt="..."> -->
+                  <img src="assets/images/placeholder-image-campaigns.png" class="img-fluid rounded-3"
                   alt="...">
           </div>
           <div class="contents">
               <div class="profilePhoto-cont">
-                  <img src="../../../assets/images/influencer-profile/profile-photo.jpg" class=" rounded-3" alt="...">
+                  <!-- <img src="../../../assets/images/influencer-profile/profile-photo.jpg" class=" rounded-3" alt="..."> -->
+                  <img src="assets/images/placeholder-image-profile.jpeg" class="img-fluid rounded-3"
+                  alt="...">
               </div>
               <div class="profile-content">
-                  <h3>Influencer name</h3>
-                  <p>nick name</p>
-                  <p><a href="#">email</a></p>
+                  <h3>{{influencer.fname}} {{influencer.lname}}</h3>
+                  <p><a href="#">{{influencer.email}}</a></p>
               </div>
           </div>
       </div>
@@ -36,7 +64,7 @@
 
           <!-- About & Industry Section -->
           <div class="row">
-              <div class="col-sm-6 col-lg-8">
+              <!-- <div class="col-sm-6 col-lg-8">
                   <div class="card mb-3 ">
                       <div class="card-header card-header-style">
                           <b class="float-start">About</b>
@@ -48,7 +76,7 @@
                               pariatur eius soluta modi autem saepe, in, debitis iste officiis exercitationem?.</p>
                       </div>
                   </div>
-              </div>
+              </div> -->
               <div class="col-sm-6 col-lg-4">
                   <div class="card mb-3 ">
                       <div class="card-header card-header-style">
@@ -72,36 +100,36 @@
                       <div class="row p-3 bg-color">
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-geo-alt" style="font-size: 2rem;"></i>
-                              <p class="navy-color">Egypt</p>
+                              <p class="navy-color">{{influencer.country}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-phone" style="font-size: 2rem;"></i>
-                              <p class="navy-color">(+2) 012 3264 1316</p>
+                              <p class="navy-color">{{influencer.phone}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-envelope-check" style="font-size: 2rem;"></i>
-                              <p class="navy-color">angelica@yahoo.com</p>
+                              <p class="navy-color">{{influencer.email}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-facebook" style="font-size: 2rem;"></i>
-                              <p class="navy-color">angelica.35</p>
+                              <p class="navy-color">{{influencer.facebook}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-instagram" style="font-size: 2rem;"></i>
-                              <p class="navy-color">angelica.35</p>
+                              <p class="navy-color">{{influencer.instagram}}</p>
                           </div>
-                          <div class="feature-box col-sm col-6">
+                          <!-- <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-tiktok" style="font-size: 2rem;"></i>
                               <p class="navy-color">angelica.35</p>
                           </div>
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-youtube" style="font-size: 2rem;"></i>
                               <p class="navy-color">angelica.35</p>
-                          </div>
+                          </div> -->
                       </div>
                   </div>
               </section>
@@ -118,33 +146,33 @@
                       <div class="row p-3 bg-color">
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-calendar-heart" style="font-size: 2rem;"></i>
-                              <p class="navy-color">15-4-1997</p>
+                              <p class="navy-color">{{influencer.age}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-gender-female" style="font-size: 2rem;"></i>
-                              <p class="navy-color">female</p>
+                              <p class="navy-color">{{influencer.gender}}</p>
                           </div>
-
+<!-- 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-globe2" style="font-size: 2rem;"></i>
                               <p class="navy-color">Egyptian</p>
-                          </div>
+                          </div> -->
 
-                          <div class="feature-box col-sm col-6">
+                          <!-- <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-info" style="font-size: 2rem;"></i>
                               <p class="navy-color">Married</p>
-                          </div>
+                          </div> -->
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-info" style="font-size: 2rem;"></i>
-                              <p class="navy-color">Has children</p>
+                              <p class="navy-color">{{influencer.children}}</p>
                           </div>
 
-                          <div class="feature-box col-sm col-6">
+                          <!-- <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-info" style="font-size: 2rem;"></i>
                               <p class="navy-color">Has pets</p>
-                          </div>
+                          </div> -->
                       </div>
                   </div>
               </section>

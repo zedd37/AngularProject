@@ -5,6 +5,7 @@ import { BrandService } from '../Services/brand.service';
 import { RoleGuard } from 'src/app/Guard/role.guard';
 import { LoginAuthService } from '../Services/login-auth.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -13,41 +14,25 @@ import { LoginAuthService } from '../Services/login-auth.service';
 export class ProfileComponent implements OnInit {
   constructor(
     private Http: HttpClient,
-    private hhh:LoginAuthService,
-    private BrandService: SignupAndLoginService
+    private BrandService: SignupAndLoginService,
+    private brandService: BrandService,
+    public loginAuth:LoginAuthService
   ) {}
+ 
   brand: any;
-
+  loader = true;
   ngOnInit(): void {
-    const header = new HttpHeaders({
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-    });
-    let that = this;
-    this.Http.get('http://localhost:8000/api/brand', {
-      headers: header,
-    }).subscribe({
-      next(data) {
-        that.brand = data;
-        // console.log(that.brand.data.isAdmin);
-      },
-      error(err) {
-        console.log(err);
-      },
-    }); 
-   
-    // this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
-    //   headers: header,
-    // }).subscribe({
-
-    //   next(data) {
-    //     // that.brand = data;
-    //     console.log(data);
-    //   },
-    //   error(err) {
-    //     console.log(err);
-    //   },
-    // });
-    
+    this.showBrand();
+    setTimeout(() => {
+      this.loader = false;
+    }, 3000);
   }
-  
+  showBrand() {
+    let that = this;
+    this.brand = this.brandService.getlogedBrand().subscribe((brand) => {
+      this.brand = brand;
+    
+      console.log(this.brand);
+    });
+  }
 }

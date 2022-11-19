@@ -34,16 +34,16 @@
           </a>
         <div class="dropdown-menu ms-3">
           <a class="dropdown-item" href="#serviceOne">
-             Service one
+             For Brands
           </a>
           <a class="dropdown-item" href="#serviceTwo">
-             Service two
+             For Influencers
           </a>
         </div>
         </li>
 
           <li class="nav-item">
-            <a class="nav-link mt-3 " href="#contactUs">Contact Us</a>
+            <a class="nav-link mt-3 " href="#contact">Contact Us</a>
           </li>
         </ul>
 
@@ -90,10 +90,15 @@
       Why Influenz?
     </h3>
 <br>
-<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, nisi provident atque quasi inventore perferendis exercitationem temporibus, iste repellendus dolor cum minus eum excepturi soluta incidunt aliquid eius enim id.
+<p class="lead fs-4">Influenz enables world-class original influencer campaigns for leading brands on more than one platform. It's an oppurtunity for both brands and influencers!
 </p>
 <p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, dolores accusantium. Consectetur doloribus autem explicabo maxime voluptatum. Facere et, dolorum doloremque, deleniti vitae eius commodi tempore accusamus iure assumenda repellat!</p>
+  Do you have a hard time connecting your brand with more prospects? An influencer can take care of that for you.
+
+Finding the right one for your business isn’t that hard neither, thank to Influenz! With us, you can enjoy added perks when searching for influencers.</p> <p>You can set filters and browse through different categories with ease.
+You can talk to influencers directly.
+You can begin campaigns with your preferred influencers.
+You can choose the type of payment method of your choice.</p>
 
     </div>
   </div>
@@ -106,14 +111,15 @@
     </h3>
 <br> <br>
 
-      <h5 id="serviceOne">Service One</h5>
-      <p class="lead service col-sm-12 col-lg-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, dolores accusantium. Consectetur doloribus autem explicabo maxime voluptatum. Facere et, dolorum doloremque, deleniti vitae eius commodi tempore accusamus iure assumenda repellat!</p>
+      <h5 id="serviceOne">FOR BRANDS</h5>
+      <p class="lead service col-sm-12 col-lg-6">At Influenz we help you Discover the Power of AI-Driven Influencer Commerce Platforms. Revolutionizing Influencer Marketing with a data-led integrated platform that helps deliver exceptional customer experiences and amplified business revenues.</p>
       <img src="assets/images/profile/cover-picture.png" class="col-sm-12 col-lg-6 mb-4">
 
       <button class="learnMore-btn ">Learn more</button>
 
-        <h5 id="serviceTwo">Service Two</h5>
-        <p class="lead service col-sm-12 col-lg-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, dolores accusantium. Consectetur doloribus autem explicabo maxime voluptatum. Facere et, dolorum doloremque, deleniti vitae eius commodi tempore accusamus iure assumenda repellat!</p>
+        <h5 id="serviceTwo">FOR INFLUENCERS</h5>
+        <p class="lead service col-sm-12 col-lg-6">Unlock the value of your social influence with Influenz.
+          The next brand influencer is you! Work with the world’s leading brands and monetize your passion for online content by joining our influencer community. Influenz helps you understand your audience better to unlock your earning potential!</p>
         <img src="assets/images/profile/cover-picture.png" class="col-sm-12 col-lg-6 mb-4">
 
 
@@ -155,7 +161,7 @@
 
 </div>
 
-<div class="container" id="contactUs">
+<div class="container" id="contact">
       <div class="login-signup container-fluid shadow p-5 col-sm-11 col-lg-10">
         <div class="#signContainer  brand-influencer-signup row">
           <h3>
@@ -198,11 +204,26 @@
     <span>How can we help you?</span>
     <i></i>
   </div>
-  <input type="submit" value="Talk to Us!" class="submit-btn mt-5" />
+  <input type="submit" value="Talk to Us!" class="submit-btn mt-5" data-bs-toggle="modal" data-bs-target="#talkToUs" />
 </form>
     </div>
   </div>
 </div>
+<!-- Modal 2-->
+<div class="modal fade" #modal2 id="talkToUs" aria-hidden="true" aria-labelledby="talkToUsLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="text-center text-dark mt-5 mx-3">
+        <h4 id="talkToUsLabel">Thank you for sending to us!</h4>
+        <p>Our team will contact you soon.</p>
+      </div>
+      <div class="text-center  mx-3 ">
+        <button type="button" data-bs-dismiss="modal" class="btn btn-outline statusBtn mb-5" (click)="reloadPage()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>
 </body>
 

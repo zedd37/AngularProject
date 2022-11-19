@@ -81,4 +81,10 @@ export class DraftsComponent implements OnInit {
       this.campaigns.deleteCampaign(id).subscribe((campaign:any) => {
         });
     }
+
+    reloadPage() {
+      setTimeout(()=>{
+        window.location.reload();
+      }, 100);
+    }
   }
