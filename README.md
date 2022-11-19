@@ -10,7 +10,6 @@
   <p align="center">
     An awesome Website to jumpstart your marketing campaign!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
