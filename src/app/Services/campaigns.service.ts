@@ -1,16 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { formatDate } from "@angular/common";
+import { Subject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CampaignsService {
 
+  // subject = new Subject<any>();
+  notificationResetTime:any;
+  Campaigns_Base_URL = "http://127.0.0.1:8000/api/campaigns";
+
   constructor(private CampaignClient: HttpClient) {
 
   }
 
-  Campaigns_Base_URL = "http://127.0.0.1:8000/api/campaigns";
   getAllCampaigns() {
     return this.CampaignClient.get(this.Campaigns_Base_URL);
   }
@@ -72,5 +78,13 @@ export class CampaignsService {
 
   getDrafts() {
     return this.CampaignClient.get("http://127.0.0.1:8000/api/drafts")
+  }
+
+  getLatest(date:any){
+    return this.CampaignClient.get(`http://127.0.0.1:8000/api/latest/${this.notificationResetTime ? this.notificationResetTime : date}`)
+  }
+
+  resetDate(){
+    this.notificationResetTime=formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'EN-US');
   }
 }

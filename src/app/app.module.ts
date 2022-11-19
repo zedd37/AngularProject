@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import {OverlayModule} from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -49,6 +52,7 @@ import { EditBrandProfileComponent } from './Components/profile/edit-brand-profi
 import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
 import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
+import { BrowseCampaignsComponent } from './Components/browse-campaigns/browse-campaigns.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +96,7 @@ import { EditInfluencerComponent } from './Components/influencer-page/edit-influ
     ChangeBrandPasswordComponent,
     InfluencerPageComponent,
     EditInfluencerComponent,
+    BrowseCampaignsComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +104,13 @@ import { EditInfluencerComponent } from './Components/influencer-page/edit-influ
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    OverlayModule
   ],
 
   providers: [BrandService, CampaignsService, SignupAndLoginService],
