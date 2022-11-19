@@ -39,7 +39,7 @@ export class BrandService {
     });
     return this.brandhttp.get('http://localhost:8000/api/brand',{
       headers:header
-    })
+    });
   }
 }
 
