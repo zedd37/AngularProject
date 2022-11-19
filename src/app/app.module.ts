@@ -50,7 +50,9 @@ import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-
 import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/change-influencer-password/change-influencer-password.component';
-
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import {OverlayModule} from '@angular/cdk/overlay';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +103,12 @@ import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    OverlayModule
   ],
 
   providers: [BrandService, CampaignsService, SignupAndLoginService],

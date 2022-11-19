@@ -75,5 +75,11 @@ export class CompletedCampaignsComponent implements OnInit {
       this.router.navigateByUrl(`/campaigns`)
     });
   }
+
+  reloadPage() {
+    setTimeout(()=>{
+      window.location.reload();
+    }, 100);
+  }
 }
 

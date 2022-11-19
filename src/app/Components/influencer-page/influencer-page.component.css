@@ -143,6 +143,48 @@
 .orange-color {
   color: #fd7e14;
 }
+mat-toolbar{
+  position: relative;
+  padding-top: 10px;
+  float:right;
+  width:5rem;
+}
+
+.icon{
+  color: #fd7e14;
+  text-align: center;
+}
+
+.badge{
+position: relative;
+right:40%;
+top:-30%;
+background-color: #fd7e14;
+border-radius: 20px;
+color:white;
+font-weight: bold;
+text-align: center;
+}
+
+
+.notifications{
+  position: absolute;
+  top:120px;
+  right:190px;
+  background-color: #eee;
+  padding:10px;
+  text-decoration: none;
+  width:fit-content;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(26, 26, 26)
+}
+
+i{
+  color:#fd7e14;
+}
 
 /*Mobile devices (landscape phones, 480 and up) */
 @media (max-width: 480px) {
@@ -303,3 +345,4 @@
 /*XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
 }
+

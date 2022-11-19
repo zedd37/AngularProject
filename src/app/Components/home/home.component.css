@@ -230,13 +230,15 @@ form .input-field:last-of-type {
 
 .team div p{
   text-align:center;
-  text-indent: 10px;
+  /* text-indent: 10px; */
+  font-size:12px;
   font-weight:bold;
   color:#ffffff;
   padding:3px;
   background-color:#1c768f;
   border-radius: 20px;
-  width:60%;
+  width:100%;
+  max-width: 200px;
   position: relative;
   top:-13px;
 }
@@ -251,6 +253,21 @@ form .input-field:last-of-type {
   text-shadow: 1px 0px 1px rgb(190, 190, 190);
 }
 
+.statusBtn{
+  outline: 0.5px darkgrey solid;
+  background-color: transparent;
+  color:#032539;
+  margin: 0 auto;
+  margin-top:2rem;
+  width:5rem;
+  }
+
+.statusBtn:hover{
+  outline: none;
+  transform: scale(1.1);
+  background-color: #fa991c;
+  color: #032539;
+  }
 
 @keyframes X {
   0% {

@@ -1,0 +1,95 @@
+<!-- <div *ngFor="let campaign of currentCampaigns.data">
+<p class="text-dark">{{campaign.title}}</p>
+<p class="text-dark">{{campaign.details}}</p>
+</div> -->
+<div class="body row text-center">
+  <div>
+  <h5 class="card-title title text-dark fs-1 fw-light pt-5">Welcome Back!</h5>
+</div>
+<div>
+  <br>
+  <p class="text-muted col col-12">You are only viewing the campaigns available for you.</p>
+</div>
+</div>
+
+<div class="body" *ngFor="let campaign of currentCampaigns.data">
+  <div class="campaign-details-container col-lg-12 col-sm-12">
+
+    <div class="card text-bg-light">
+
+      <div class="card-body title ">
+        <h5 class="card-title title text-dark fs-1 fw-light ps-2 ">{{campaign.title}}</h5>
+      </div>
+
+
+
+<div class="row px-4">
+
+      <div class="card-body col-lg-12" *ngIf="campaign.details">
+        <p class="card-text">{{campaign.details}}</p>
+      </div>
+
+
+      <div class="card-body col-lg-3 col-md-3 col-sm-6"*ngIf="campaign.type" >
+        <h5 class="card-title">Campaign Type</h5>
+        <p class="card-text">{{campaign.type}}</p>
+      </div>
+
+
+      <div class="card-body col-lg-3 col-md-3 col-sm-6" *ngIf="campaign.start_date">
+        <h5 class="card-title">Start Date</h5>
+        <p class="card-text">{{campaign.start_date}}</p>
+      </div>
+
+    <div class="card-body col-lg-3 col-md-3 col-sm-6" *ngIf="campaign.country">
+      <h5 class="card-title">Country</h5>
+      <p class="card-text">{{campaign.country}}</p>
+    </div>
+
+    <div class="card-body col-lg-3 col-md-3 col-sm-6" *ngIf="campaign.fees_info.fees_amount">
+      <h5 class="card-title">Payment</h5>
+      <p class="card-text">EGP {{campaign.fees_info.fees_amount}}</p>
+    </div>
+
+    <div class="card-body col-lg-12 col-md-12 col-sm-12" *ngIf="campaign.fees_info.fees_details">
+    <p class="card-text">{{campaign.fees_info.fees_details}}</p>
+    </div>
+
+
+    <div class="card-body col-lg-5" >
+
+      <div>
+          <p class="card-text col-lg-5 col-sm-6" *ngIf="campaign.instagram"><b>Platform: Instagram &#10003; </b>  </p>
+          <p class="card-text col-lg-5 col-sm-6" *ngIf="campaign.tiktok"><b>Platform: TikTok &#10003; </b>  </p>
+        </div>
+
+    </div>
+
+  <div class="card-body btns col-lg-12" >
+      <button class="btn statusBtn" data-bs-toggle="modal" data-bs-target="#talkToUs">Interested</button>
+
+    </div>
+
+    <!-- Modal-->
+<div class="modal fade" #modal2 id="talkToUs" aria-hidden="true" aria-labelledby="talkToUsLabel">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="text-center text-dark mt-5 mx-3">
+      <h4 id="talkToUsLabel">Thank you for sending to us!</h4>
+      <p>Our team will contact you soon.</p>
+    </div>
+    <div class="text-center  mx-3 ">
+      <button type="button" data-bs-dismiss="modal" class="btn btn-outline statusBtn mb-5" (click)="reloadPage()">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<app-footer></app-footer>
+
+<app-footer></app-footer>
