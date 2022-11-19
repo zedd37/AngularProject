@@ -5,6 +5,7 @@ import { BrandService } from '../Services/brand.service';
 import { RoleGuard } from 'src/app/Guard/role.guard';
 import { LoginAuthService } from '../Services/login-auth.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,8 +15,10 @@ export class ProfileComponent implements OnInit {
   constructor(
     private Http: HttpClient,
     private hhh:LoginAuthService,
-    private BrandService: SignupAndLoginService
+    private BrandService: SignupAndLoginService,
+
   ) {}
+ 
   brand: any;
 
   ngOnInit(): void {
@@ -33,8 +36,11 @@ export class ProfileComponent implements OnInit {
       error(err) {
         console.log(err);
       },
-    }); 
-   
+    });
+
+
+
+
     // this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
     //   headers: header,
     // }).subscribe({
@@ -47,7 +53,7 @@ export class ProfileComponent implements OnInit {
     //     console.log(err);
     //   },
     // });
-    
+
   }
-  
+
 }

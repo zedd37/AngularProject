@@ -2,15 +2,44 @@
   <div class="container containerColor">
 
 
+<!------------------------Notifications--------------------->
+<mat-toolbar color="primary" class="bing">
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="clear()" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  <mat-icon class="icon">notifications</mat-icon>
+</button>
+<span class="badge" *ngIf="notificationNumberCount > 0">{{notificationNumberCount}}</span>
+  </mat-toolbar>
+  <br/><br/> <br/>
+  <ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+<div class="notifications">
+  <div *ngFor="let c of latestCampaigns">
+    <a routerLink="/browse-campaigns"><p>You can check <i>{{c.title}}</i> campaign now!</p></a>
+  </div>
+  </div>
+</ng-template>
+
+
+<!------------------------Notifications End--------------------->
+
+
       <!-- Influenz static Cover photo and Influencer profile photo with an edit profile button -->
       <div class="header-details">
           <div class="CoverPhoto-cont mt-5">
-              <img src="../../../assets/images/influencer-profile/cover-photo.png" class="img-fluid rounded-3"
+              <!-- <img src="../../../assets/images/influencer-profile/cover-photo.png" class="img-fluid rounded-3"
+                  alt="..."> -->
+                  <img src="assets/images/placeholder-image-campaigns.png" class="img-fluid rounded-3"
                   alt="...">
           </div>
           <div class="contents">
               <div class="profilePhoto-cont">
-                  <img src="../../../assets/images/influencer-profile/profile-photo.jpg" class=" rounded-3" alt="...">
+                  <!-- <img src="../../../assets/images/influencer-profile/profile-photo.jpg" class=" rounded-3" alt="..."> -->
+                  <img src="assets/images/placeholder-image-profile.jpeg" class="img-fluid rounded-3"
+                  alt="...">
               </div>
               <div class="profile-content">
                   <h3>Influencer name</h3>

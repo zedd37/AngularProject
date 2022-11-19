@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class BrandService {
   updateBrandInfo(ID:any, BrandInfo:any) {
 
    return this.brandhttp.put(`${this.brandInfourl}/${ID}`, BrandInfo);
-   
+
   }
 
  brandurl = 'http://127.0.0.1:8000/api/brands';
@@ -31,6 +31,15 @@ export class BrandService {
   updateBrand(ID:any, Brand:any) {
 
    return this.brandhttp.put(`${this.brandurl}/${ID}`, Brand);
+  }
+
+  getlastUsedAt(){
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    });
+    return this.brandhttp.get("http://localhost:8000/api/last-used-at", {
+      headers:header
+    })
   }
 }
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark navbar-expand-lg p-4">
+<nav class="navbar navbar-dark navbar-expand-lg p-2">
   <div class="container-fluid">
     <a class="navbar-brand fs-2" href="#"
       ><img src="assets/images/Home/nav word logo.PNG" alt="logo" width="120"
@@ -36,7 +36,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link mt-3" href="#contactus">Contact Us</a>
+          <a class="nav-link mt-3" href="#contactus" data-bs-toggle="modal" data-bs-target="#contactUs">Contact Us</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -48,6 +48,70 @@
           Log Out
         </button>
       </form>
+
+       <!-- Contact Us Modal -->
+  <div class="modal fade" id="contactUs" tabindex="-1" aria-labelledby="contactUsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header mx-3 ">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="container" id="contactUs">
+          <div class="login-signup container-fluid shadow p-5 col-sm-11 col-lg-10">
+            <div class="#signContainer  brand-influencer-signup row">
+              <h3>
+                Have a Question?
+              </h3>
+              <p class="text-muted">Submit this form and we will reply shortly!</p>
+        <form action="" #brand class="brand form">
+          <div class="input-field">
+            <input type="text" placeholder="" required />
+            <span>First Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" placeholder="" required />
+            <span>Last Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="email" placeholder="" required />
+            <span>Email</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="tel" placeholder="" required />
+            <span>Contact Number</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Company Name</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>Website</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input type="text" required />
+            <span>How can we help you?</span>
+            <i></i>
+          </div>
+        </form>
+
+          <button type="button" data-bs-dismiss="modal" class="btn statusBtn">Submit</button>
+
+      </div>
+    </div>
+    <div class="modal-footer  justify-content-center">
+      <br>
+    </div>
+  </div>
+</div>
+</div>
+</div>
     </div>
   </div>
 </nav>

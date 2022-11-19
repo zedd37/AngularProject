@@ -109,6 +109,22 @@ hr {
     color:#fa991c
   }
 
+  .statusBtn{
+    outline: 0.5px darkgrey solid;
+    background-color: transparent;
+    color:#032539;
+    margin: 0 auto;
+    margin-top:2rem;
+    width:5rem;
+    }
+
+  .statusBtn:hover{
+    outline: none;
+    transform: scale(1.1);
+    background-color: #fa991c;
+    color: #032539;
+    }
+    
   @media screen and (max-width: 991px) {
     .create-campaign-container {
       width: 93%;
@@ -127,5 +143,6 @@ hr {
       letter-spacing: 5px;
       margin-bottom: 10px;
     }
+
   }
 
