@@ -13,9 +13,9 @@
                   <img src="../../../assets/images/influencer-profile/profile-photo.jpg" class=" rounded-3" alt="...">
               </div>
               <div class="profile-content">
-                  <h3>Influencer name</h3>
+                  <h3>{{influencer.fname}} {{influencer.lname}}</h3>
                   <p>nick name</p>
-                  <p><a href="#">email</a></p>
+                  <p><a href="#">{{influencer.email}}</a></p>
               </div>
           </div>
       </div>
@@ -71,27 +71,27 @@
                       <div class="row p-3 bg-color">
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-geo-alt" style="font-size: 2rem;"></i>
-                              <p class="navy-color">Egypt</p>
+                              <p class="navy-color">{{influencer.country}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-phone" style="font-size: 2rem;"></i>
-                              <p class="navy-color">(+2) 012 3264 1316</p>
+                              <p class="navy-color">{{influencer.phone}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-envelope-check" style="font-size: 2rem;"></i>
-                              <p class="navy-color">angelica@yahoo.com</p>
+                              <p class="navy-color">{{influencer.email}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-facebook" style="font-size: 2rem;"></i>
-                              <p class="navy-color">angelica.35</p>
+                              <p class="navy-color">{{influencer.facebook}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-instagram" style="font-size: 2rem;"></i>
-                              <p class="navy-color">angelica.35</p>
+                              <p class="navy-color">{{influencer.instagram}}</p>
                           </div>
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-tiktok" style="font-size: 2rem;"></i>
@@ -117,12 +117,12 @@
                       <div class="row p-3 bg-color">
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-calendar-heart" style="font-size: 2rem;"></i>
-                              <p class="navy-color">15-4-1997</p>
+                              <p class="navy-color">{{influencer.age}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-gender-female" style="font-size: 2rem;"></i>
-                              <p class="navy-color">female</p>
+                              <p class="navy-color">{{influencer.gender}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">
@@ -137,7 +137,7 @@
 
                           <div class="feature-box col-sm col-6">
                               <i class="orange-color bi bi-info" style="font-size: 2rem;"></i>
-                              <p class="navy-color">Has children</p>
+                              <p class="navy-color">{{influencer.children}}</p>
                           </div>
 
                           <div class="feature-box col-sm col-6">

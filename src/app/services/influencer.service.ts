@@ -15,6 +15,12 @@ export class InfluencerService {
   }
 
 
+  influencerurl = 'http://127.0.0.1:8000/api/influencers';
+
+  updateInfluencer(ID:any, influencer:any) {
+
+   return this.http.put(`${this.influencerurl}/${ID}`, influencer);
+  }
 
   // getFilter(data:any){
   //   return this.http.get(this.url+`/api/influencers-filter`, data);
