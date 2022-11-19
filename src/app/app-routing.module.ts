@@ -26,6 +26,7 @@ import { SignupAndLoginComponent } from './Components/signup-and-login/signup-an
 import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
 import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
 import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
+import { AdminPaymentsComponent } from './Components/admin-payments/admin-payments.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { RoleGuard } from './Guard/role.guard';
 import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
@@ -127,6 +128,11 @@ const routes: Routes = [
   {
     path: 'admin-panel/influencers',
     component: AdminInfluencersComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-panel/payments',
+    component: AdminPaymentsComponent,
     canActivate: [AuthGuard],
   },
 
