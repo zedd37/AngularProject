@@ -35,7 +35,7 @@ export class EditBrandProfileComponent implements OnInit {
     },3000)
   }
   UpdateBrand(fname:any,lname:any,brandname:any,email:any,snapchat:any,facebook:any,industries:any,location:any,phone:any,instagram:any,tiktok:any,youtube:any,about:any){
-    
+
     console.log(fname);
     this.BrandService.updateBrand(this.brand.data.id,{
       fname: fname,
@@ -46,7 +46,7 @@ export class EditBrandProfileComponent implements OnInit {
       instagram: instagram,
       snapchat:snapchat
     }).subscribe();
-   
+
    this.BrandService.updateBrandInfo(this.brand.data.id,{
     brand_id:this.brand.data.id,
     about: about,

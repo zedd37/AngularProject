@@ -52,9 +52,11 @@ import { InfluencerPageComponent } from './Components/influencer-page/influencer
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/change-influencer-password/change-influencer-password.component';
 import { BrowseCampaignsComponent } from './Components/browse-campaigns/browse-campaigns.component';
+import { AdminPaymentsComponent } from './Components/admin-payments/admin-payments.component';
 import { LoginAuthService } from './Components/Services/login-auth.service';
 import { InfluencerService } from './services/influencer.service';
-
+import { AddInfluencerComponent } from './Components/add-influencer/add-influencer.component';
+import { AddBrandComponent } from './Components/add-brand/add-brand.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,9 @@ import { InfluencerService } from './services/influencer.service';
     EditInfluencerComponent,
     ChangeInfluencerPasswordComponent,
     BrowseCampaignsComponent,
+    AdminPaymentsComponent,
+    AddInfluencerComponent,
+    AddBrandComponent
   ],
   imports: [
     BrowserModule,

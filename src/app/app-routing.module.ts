@@ -26,6 +26,7 @@ import { SignupAndLoginComponent } from './Components/signup-and-login/signup-an
 import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
 import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
 import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
+import { AdminPaymentsComponent } from './Components/admin-payments/admin-payments.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { RoleGuard } from './Guard/role.guard';
 import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
@@ -34,12 +35,14 @@ import { InfluencerPageComponent } from './Components/influencer-page/influencer
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
 import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/change-influencer-password/change-influencer-password.component';
 import { BrowseCampaignsComponent } from './Components/browse-campaigns/browse-campaigns.component';
+import { AddInfluencerComponent } from './Components/add-influencer/add-influencer.component';
+import { AddBrandComponent } from './Components/add-brand/add-brand.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
   {
     path: 'profile',
-    component: ProfileComponent,canActivate: [AuthGuard],
+    component: ProfileComponent, canActivate: [AuthGuard],
   },
   {
     path: 'browse-influencers',
@@ -49,7 +52,7 @@ const routes: Routes = [
   {
     path: 'create-campaign',
     component: CreateCampaignOneComponent,
-    canActivate: [ AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-campaign/instagram/:campaignId',
@@ -131,6 +134,11 @@ const routes: Routes = [
     component: AdminInfluencersComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'admin-panel/payments',
+    component: AdminPaymentsComponent,
+    canActivate: [AuthGuard],
+  },
 
   {
     path: 'edit-brand-profile',
@@ -148,9 +156,19 @@ const routes: Routes = [
     component: ChangeInfluencerPasswordComponent,
     canActivate: [AuthGuard],
   },
-{path:'influencer-page',component: InfluencerPageComponent},
-{path:'edit-influencer', component:EditInfluencerComponent},
-{path:'browse-campaigns', component:BrowseCampaignsComponent},
+  {
+    path: 'add-influencer',
+    component: AddInfluencerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-brand',
+    component: AddBrandComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'influencer-page', component: InfluencerPageComponent },
+  { path: 'edit-influencer', component: EditInfluencerComponent },
+  { path: 'browse-campaigns', component: BrowseCampaignsComponent },
   { path: '**', component: ErrorComponentComponent },
   { path: 'error', component: ErrorComponentComponent },
 ];
@@ -159,4 +177,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

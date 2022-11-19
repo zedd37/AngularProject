@@ -16,9 +16,14 @@ export class BrandService {
   getAllBrands() {
     return this.brandhttp.get(this.baseurl);
   }
+
+
+  del = 'http://localhost:8000/api/brands'
   deleteBrand(id: number) {
-    return this.brandhttp.delete(`${this.baseurl}/${id}`);
+    return this.brandhttp.delete(`${this.del}/${id}`);
   }
+
+
   brandInfourl = 'http://127.0.0.1:8000/api/brandinfo';
 
   updateBrandInfo(ID: any, BrandInfo: any) {
@@ -42,6 +47,13 @@ export class BrandService {
     })
   }
 
+  addBrand(brand: any) {
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    });
+    return this.brandhttp.post('http://localhost:8000/api/brands', brand)
+  }
+
   getlastUsedAt() {
     const header = new HttpHeaders({
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -51,3 +63,4 @@ export class BrandService {
     })
   }
 }
+
