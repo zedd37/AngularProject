@@ -49,7 +49,7 @@ const routes: Routes = [
   {
     path: 'create-campaign',
     component: CreateCampaignOneComponent,
-    canActivate: [AuthGuard],
+    canActivate: [ AuthGuard],
   },
   {
     path: 'create-campaign/instagram/:campaignId',
@@ -152,6 +152,7 @@ const routes: Routes = [
 {path:'edit-influencer', component:EditInfluencerComponent},
 {path:'browse-campaigns', component:BrowseCampaignsComponent},
   { path: '**', component: ErrorComponentComponent },
+  { path: 'error', component: ErrorComponentComponent },
 ];
 
 @NgModule({

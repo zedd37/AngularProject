@@ -247,6 +247,12 @@
           >
             {{ brandNameError }}
           </div>
+          <div *ngIf="brandSignupEmailError"
+            style="width: 80%; margin: 5px auto; text-align: center"
+            class="alert alert-danger"
+          >
+            {{ brandSignupEmailError }}
+          </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
           <p class="account-text">
             Already have account?
@@ -374,26 +380,22 @@
             <span>Where did you hear about us?</span>
             <i></i>
           </div> -->
-          <div
-            *ngIf="firstNameError && !firstNameValid"
+          <div *ngIf="firstNameError && !firstNameValid"
             class="error alert alert-danger"
           >
             {{ firstNameError }}
           </div>
-          <div
-            *ngIf="lastNameError && !lastNameValid"
+          <div *ngIf="lastNameError && !lastNameValid"
             class="error alert alert-danger"
           >
             {{ lastNameError }}
           </div>
-          <div
-            *ngIf="emailError && !emailValid"
+          <div *ngIf="emailError && !emailValid"
             class="error alert alert-danger"
           >
             {{ emailError }}
           </div>
-          <div
-            *ngIf="emailConfirmError && !emailConfirmValid"
+          <div *ngIf="emailConfirmError && !emailConfirmValid"
             class="error alert alert-danger"
           >
             {{ emailConfirmError }}
@@ -401,14 +403,12 @@
           <div *ngIf="confirmE" class="error alert alert-danger">
             {{ confirmE }}
           </div>
-          <div
-            *ngIf="passwordError && !passwordValid"
+          <div *ngIf="passwordError && !passwordValid"
             class="error alert alert-danger"
           >
             {{ passwordError }}
           </div>
-          <div
-            *ngIf="passwordConfirmError && !passwordConfirmValid"
+          <div  *ngIf="passwordConfirmError && !passwordConfirmValid"
             class="error alert alert-danger"
           >
             {{ passwordConfirmError }}
@@ -416,18 +416,22 @@
           <div *ngIf="confirmP" class="error alert alert-danger">
             {{ confirmP }}
           </div>
-          <div
-            *ngIf="phoneError && !phoneValid"
+          <div *ngIf="phoneError && !phoneValid"
             class="error alert alert-danger"
           >
             {{ phoneError }}
           </div>
-          <div
-            *ngIf="brandNameError && !brandNameValid"
+          <div *ngIf="brandNameError && !brandNameValid"
             class="error alert alert-danger"
           >
             {{ brandNameError }}
           </div>
+          <div *ngIf="influencerSignupError"
+          style="width: 80%; margin: 5px auto; text-align: center"
+          class="alert alert-danger"
+        >
+          {{ influencerSignupError }}
+        </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
           <p class="account-text">
             Already have account?
@@ -448,8 +452,7 @@
             <span>Email</span>
             <i></i>
           </div>
-          <div
-            *ngIf="loginErrorEmail"
+          <div *ngIf="loginErrorEmail"
             style="width: 80%; margin: 5px auto; text-align: center"
             class="alert alert-danger"
           >
@@ -460,8 +463,7 @@
             <span>Password</span>
             <i></i>
           </div>
-          <div
-            *ngIf="loginErrorPassword"
+          <div *ngIf="loginErrorPassword"
             style="width: 80%; margin: 5px auto; text-align: center"
             class="alert alert-danger"
           >
@@ -494,8 +496,7 @@
               <label for="influencer">Influencer</label>
             </div>
           </div>
-          <div
-            *ngIf="checkError"
+          <div *ngIf="checkError"
             style="width: 80%; margin: 5px auto; text-align: center"
             class="alert alert-danger"
           >

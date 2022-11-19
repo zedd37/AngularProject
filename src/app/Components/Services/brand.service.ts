@@ -4,41 +4,50 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BrandService {
+  brand: any;
+  constructor(private brandhttp: HttpClient) { }
 
-  constructor(private brandhttp:HttpClient) {}
-
- baseurl = 'localhost:8000/api/brands';
-  getBrandInfo(ID:any) {
-   return this.brandhttp.get(`${this.baseurl}/${ID}`);
+  baseurl = 'http://localhost:8000/api/brands';
+  getBrandInfo(ID: any) {
+    return this.brandhttp.get(`${this.baseurl}/${ID}`);
   }
   getAllBrands() {
     return this.brandhttp.get(this.baseurl);
   }
-  deleteBrand(id:number){
+  deleteBrand(id: number) {
     return this.brandhttp.delete(`${this.baseurl}/${id}`);
   }
- brandInfourl = 'http://127.0.0.1:8000/api/brandinfo';
+  brandInfourl = 'http://127.0.0.1:8000/api/brandinfo';
 
-  updateBrandInfo(ID:any, BrandInfo:any) {
+  updateBrandInfo(ID: any, BrandInfo: any) {
 
-   return this.brandhttp.put(`${this.brandInfourl}/${ID}`, BrandInfo);
+    return this.brandhttp.put(`${this.brandInfourl}/${ID}`, BrandInfo);
 
   }
 
- brandurl = 'http://127.0.0.1:8000/api/brands';
+  brandurl = 'http://127.0.0.1:8000/api/brands';
 
-  updateBrand(ID:any, Brand:any) {
+  updateBrand(ID: any, Brand: any) {
 
-   return this.brandhttp.put(`${this.brandurl}/${ID}`, Brand);
+    return this.brandhttp.put(`${this.brandurl}/${ID}`, Brand);
+  }
+  getlogedBrand() {
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    });
+    return this.brandhttp.get('http://localhost:8000/api/brand', {
+      headers: header
+    })
   }
 
-  getlastUsedAt(){
+  getlastUsedAt() {
     const header = new HttpHeaders({
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
     });
     return this.brandhttp.get("http://localhost:8000/api/last-used-at", {
-      headers:header
+      headers: header
     })
   }
 }

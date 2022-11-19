@@ -1,6 +1,11 @@
-  <app-header *ngIf="loginAuth.isLoggedIn() && !isAdmin.isadmin() "></app-header>
-  <app-brand-admin-header
-    *ngIf="loginAuth.isLoggedIn() && isAdmin.isadmin()"
-  ></app-brand-admin-header>
+  <!-- <div *ngIf="loginAuth.isLoggedIn()">
+    <app-header *ngIf=" !loginAuth.isAdmin()"></app-header>
+    <app-brand-admin-header
+      *ngIf="loginAuth.isAdmin()"
+    ></app-brand-admin-header>
+  </div> -->
+  <!-- <div *ngIf="loginAuth.isLoggedIn() && loginAuth.Type === 'influencer'">
+    <app-influencer-header></app-influencer-header>
+  </div> -->
   <router-outlet></router-outlet>
 

@@ -13,14 +13,11 @@ export class AppComponent implements OnInit {
   constructor(
     private Http: HttpClient,
     public loginAuth: LoginAuthService,
-    public IsAdmin: RoleGuard,
-    public isAdmin:LoginAuthService
-  
   ) {}
-  brandAdmin: any= this.isAdmin.isadmin();
+
 
   ngOnInit(): void {
-    console.log(this.isAdmin.isadmin())
+    
   }
 
   title = 'AngularProject';
