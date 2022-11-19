@@ -32,6 +32,7 @@ import { EditBrandProfileComponent } from './Components/profile/edit-brand-profi
 import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
 import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
+import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/change-influencer-password/change-influencer-password.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: SignupAndLoginComponent },
@@ -139,6 +140,11 @@ const routes: Routes = [
   {
     path: 'change-brand-password',
     component: ChangeBrandPasswordComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'change-influencer-password',
+    component: ChangeInfluencerPasswordComponent,
     canActivate: [AuthGuard],
   },
 {path:'influencer-page',component: InfluencerPageComponent},

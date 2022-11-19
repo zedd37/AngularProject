@@ -29,7 +29,7 @@ export class EditInfluencerComponent implements OnInit {
       },
     });
   }
-  UpdateBrand(fname: any, lname: any, industry: any, location: any, phone: any, email: any, facebook: any, instagram: any, tikTok: any, youTube: any, birthDay: any, gender: any, nationality: any, status: any, kids: any, pets: any, about: any) {
+  UpdateInfluencer(fname: any, lname: any, industry: any, location: any, phone: any, email: any, facebook: any, instagram: any, birthDay: any, gender: any, kids: any) {
     this.influencerService.updateInfluencer(this.influencer.id, {
       fname: fname,
       lname: lname,
