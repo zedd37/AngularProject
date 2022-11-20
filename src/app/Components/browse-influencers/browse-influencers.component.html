@@ -9,8 +9,8 @@ style="width: 100%; height: 100vh; align-items: center;"
 </div>
 </div>
 <div>
-<app-brand-admin-header *ngIf="loginAuth.isAdmin()"></app-brand-admin-header>
-<app-header *ngIf="!loginAuth.isAdmin()"></app-header>
+<app-brand-admin-header *ngIf="brand.data.isAdmin"></app-brand-admin-header>
+<app-header *ngIf="!brand.data.isAdmin"></app-header>
 <div class="container-fluid shadow w-75 m-auto mt-3 p-4">
   <div class="row">
     <div

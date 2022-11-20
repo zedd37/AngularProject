@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { BrandService } from '../../Services/brand.service';
 
@@ -9,27 +9,23 @@ import { BrandService } from '../../Services/brand.service';
   templateUrl: './edit-brand-profile.component.html',
   styleUrls: ['./edit-brand-profile.component.css']
 })
-export class EditBrandProfileComponent implements OnInit {
+export class EditBrandProfileComponent implements OnInit,OnDestroy {
   brand: any = null;
 
   constructor(private Http:HttpClient, private BrandService:BrandService, private router:Router) { }
   loader=true;
+  private subscription: any;
+  brandData: any;
   ngOnInit(): void {
-    const header = new HttpHeaders({
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-    });
     let that = this;
-    this.Http.get('http://localhost:8000/api/brand', {
-      headers: header,
-    }).subscribe({
-      next(data) {
-        that.brand = data;
-        console.log(data);
-      },
-      error(err) {
-        console.log(err);
-      },
-    }); 
+   this.subscription=this.brandData= this.BrandService.getlogedBrand().subscribe({
+    next(data){
+that.brand =data;
+    },
+    error(err){
+      console.log(err);
+    }
+  })
     setTimeout(()=>{
       this.loader = false;
     },3000)
@@ -59,5 +55,8 @@ export class EditBrandProfileComponent implements OnInit {
   }).subscribe();
  this.router.navigateByUrl(`/profile`);
 
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

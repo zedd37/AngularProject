@@ -377,7 +377,6 @@ influencerSignupError:any=null;
           },
         });
     } else if (this.type === 'influencer') {
-      this.authService.Type="influencer";
       this.checkError = null;
       this.authService
         .influencerAuth({ email: log_email, password: log_password })

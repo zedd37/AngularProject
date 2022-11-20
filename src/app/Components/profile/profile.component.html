@@ -4,8 +4,8 @@
   </div>
 </div>
 <div *ngIf="!loader">
-  <app-brand-admin-header *ngIf="loginAuth.isAdmin()"></app-brand-admin-header>
-  <app-header *ngIf="!loginAuth.isAdmin()"></app-header>
+  <app-brand-admin-header *ngIf="brand.data.isAdmin"></app-brand-admin-header>
+  <app-header *ngIf="!brand.data.isAdmin"></app-header>
   <div class="body">
     <div class="container containerColor">
       <div class="header-details">
