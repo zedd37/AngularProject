@@ -45,6 +45,8 @@ export class CreateCampaignOneComponent implements OnInit {
     },
   });
 }
+
+
 uploadImage(event: any) {
   this.file = event.target.files[0];
   console.log(this.file);
@@ -94,6 +96,7 @@ uploadImage(event: any) {
     if (privacy==""){
       this.privacyError='Privacy field is required.'
     }
+    console.log(this.brand.data.id);
       this.campaignsService.addNewCampaign({
         brand_id:this.brand.data.id,
         title: title,
@@ -102,13 +105,14 @@ uploadImage(event: any) {
         start_date: start_date,
         country: country,
         details: details,
-        image: this.file.name,
+        // image: this.file.name,
         instagram: instagram,
         tiktok: tiktok,
         pending:1,
         completed:0,
         drafts:0,
       }).subscribe((campaign:any) => {
+        // this.campaignsService.subject.next(null);
         if (instagram && !tiktok){this.router.navigateByUrl(`/create-campaign/instagram/${campaign.id}`);}
         if (tiktok && !instagram){this.router.navigateByUrl(`/create-campaign/tiktok/${campaign.id}`);}
       if (instagram && tiktok){this.router.navigateByUrl(`/create-campaign/instagram-tiktok/${campaign.id}`);}

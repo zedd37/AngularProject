@@ -80,10 +80,25 @@
                 <input type="text" class="form-control form-control-md mb-4 " placeholder="123" />
               </div>
               <div class="text-center">
-                <button class="btn submitOne">Pay</button>
+                <button class="btn submitOne" data-bs-target="#subscribed" data-bs-toggle="modal">Pay</button>
+              </div>
+            </form>
+
+            <!-- Modal 2-->
+        <div class="modal fade" #modal2 id="subscribed" aria-hidden="true" aria-labelledby="subscribedLabel" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="text-center text-dark mt-5 mx-3">
+                <h4 id="subscribedLabel">Thank you for subscribing!</h4>
+                <p>Our team will contact you soon.</p>
+              </div>
+              <div class="text-center  mx-3 ">
+                <button type="button" data-bs-dismiss="modal" class="btn btn-outline statusBtn mb-5">Close</button>
               </div>
 
-            </form>
+            </div>
+          </div>
+        </div>
 
           </div>
         </div>

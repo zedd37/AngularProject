@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import {OverlayModule} from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -43,13 +46,17 @@ import { InfluencerHeaderComponent } from './Components/header/influencer-header
 import { AdminCampaignsComponent } from './Components/admin-campaigns/admin-campaigns.component';
 import { AdminBrandsComponent } from './Components/admin-brands/admin-brands.component';
 import { AdminInfluencersComponent } from './Components/admin-influencers/admin-influencers.component';
-
 import { EditBrandProfileComponent } from './Components/profile/edit-brand-profile/edit-brand-profile.component';
 import { ChangeBrandPasswordComponent } from './Components/profile/change-brand-password/change-brand-password.component';
 import { InfluencerPageComponent } from './Components/influencer-page/influencer-page.component';
 import { EditInfluencerComponent } from './Components/influencer-page/edit-influencer/edit-influencer.component';
+import { ChangeInfluencerPasswordComponent } from './Components/influencer-page/change-influencer-password/change-influencer-password.component';
+import { BrowseCampaignsComponent } from './Components/browse-campaigns/browse-campaigns.component';
+import { AdminPaymentsComponent } from './Components/admin-payments/admin-payments.component';
 import { LoginAuthService } from './Components/Services/login-auth.service';
 import { InfluencerService } from './services/influencer.service';
+import { AddInfluencerComponent } from './Components/add-influencer/add-influencer.component';
+import { AddBrandComponent } from './Components/add-brand/add-brand.component';
 
 
 @NgModule({
@@ -94,6 +101,11 @@ import { InfluencerService } from './services/influencer.service';
     ChangeBrandPasswordComponent,
     InfluencerPageComponent,
     EditInfluencerComponent,
+    ChangeInfluencerPasswordComponent,
+    BrowseCampaignsComponent,
+    AdminPaymentsComponent,
+    AddInfluencerComponent,
+    AddBrandComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +114,12 @@ import { InfluencerService } from './services/influencer.service';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-   
+    // BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    OverlayModule
   ],
 
   providers: [BrandService, CampaignsService, SignupAndLoginService,LoginAuthService,InfluencerService],

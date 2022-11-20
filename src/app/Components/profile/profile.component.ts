@@ -13,6 +13,8 @@ import { LoginAuthService } from '../Services/login-auth.service';
 })
 export class ProfileComponent implements OnInit , OnDestroy {
   constructor(
+    private Http: HttpClient,
+    private BrandService: SignupAndLoginService,
     private brandService: BrandService,
     
   ) {}

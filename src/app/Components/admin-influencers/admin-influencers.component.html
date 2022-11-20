@@ -8,23 +8,27 @@
               </div>
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                   <li class="nav-item">
-                      <a href="#" class="nav-link align-middle px-0 text-white">
-                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                    <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/" class="nav-link align-middle px-0 text-white">
+                      <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                       </a>
                   </li>
 
                   <li>
-                      <a href="admin-panel/brands" class="nav-link px-0 align-middle text-white">
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/brands" class="nav-link px-0 align-middle text-white">
                           <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Brands</span> </a>
                   </li>
                   <li>
-                      <a href="admin-panel/campaigns" class="nav-link px-0 align-middle text-white">
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/campaigns" class="nav-link px-0 align-middle text-white">
                           <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Campaigns</span> </a>
                   </li>
                   <li>
-                      <a href="admin-panel/influencers" class="nav-link px-0 align-middle"  style="color:#FA991C">
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/influencrs" class="nav-link px-0 align-middle" style="color:#FA991C">
                           <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Influencers</span> </a>
                   </li>
+                  <li>
+                    <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/payments" class="nav-link px-0 align-middle text-white">
+                        <i class="fs-4 bi-cash"></i> <span class="ms-1 d-none d-sm-inline">Payments</span> </a>
+                </li>
               </ul>
               <hr>
 
@@ -33,19 +37,26 @@
 
        <!-- ################################################################################## -->
     <!-- Inside content -->
-    <div class="col py-3">
-      <h1 class="m-4 h1">Campaigns data</h1>
-      <div class="table-responsive-md ">
-        <div class="campaignsContainer">
-          <table
-            class="table table-hover table-responsive-md">
+    <div class="col py-3 ">
+      <h1 class="m-4 h1">Influencers data</h1>
+      <div class="table-responsive ">
+        <div class="campaignsContainer table-responsive">
+          <table class="table table-hover table-responsive">
             <thead>
               <tr >
-                <th class="Cname">Campaign</th>
-                <th >Type</th>
-                <th >Privacy</th>
-                <th >Start Date</th>
-                <th >Country</th>
+                <th class="Cname">Influencer Name</th>
+                <th >Email</th>
+                <th >Phone</th>
+                <th >Job</th>
+                <th >Instagram</th>
+                <th >Facebook</th>
+                <th >SnapChat</th>
+                <th >Age</th>
+                <th >Price</th>
+                <th >Followers</th>
+                <th >Gender</th>
+                <th >Marital Status</th>
+                <th >Children</th>
                 <th >Actions</th>
               </tr>
             </thead>
@@ -53,17 +64,25 @@
             <tbody class="table-group-divider">
 
               <tr *ngFor="let influencer of influencers">
-                <td>{{influencer.fname}}</td>
-                <td>{{influencer.type}}</td>
-                <td>{{influencer.privacy}}</td>
-                <td>{{influencer.start_date}}</td>
-                <td>{{influencer.country}}</td>
+                <td>{{influencer.fname}} {{influencer.lname}}</td>
+                <td>{{influencer.email}}</td>
+                <td>{{influencer.phone}}</td>
+                <td>{{influencer.job}}</td>
+                <td>{{influencer.instagram}}</td>
+                <td>{{influencer.facebook}}</td>
+                <td>{{influencer.snapchat}}</td>
+                <td>{{influencer.age}}</td>
+                <td>{{influencer.price}}</td>
+                <td>{{influencer.followers}}</td>
+                <td>{{influencer.gender}}</td>
+                <td>{{influencer.marital_status}}</td>
+                <td>{{influencer.children}}</td>
                 <td class="actions">
 
-                  <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/create-campaign"><b>A</b></button>
-                  <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{influencer.id}}"><b>i</b></button>
-                  <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{influencer.id}}">E</button>
-                  <button class="iconBtn" (click)="DeleteInfluencer(influencer.id)">D</button>
+                  <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/add-influencer"><b>A</b></button>
+                  <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{influencer.id}}"><b>i</b></button> -->
+                  <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{influencer.id}}">E</button> -->
+                  <button class="iconBtn my-1" (click)="DeleteInfluencer(influencer.id)">D</button>
                 </td>
 
               </tr>

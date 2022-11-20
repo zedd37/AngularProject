@@ -120,13 +120,13 @@ ul.dropdown-menu.show {
     padding: 10px;
   }
 
-  .actions {
+  /* .actions {
     display: none;
   }
 
   .actionsCollapse {
     display: block;
-  }
+  } */
 
   th {
     font-size: smaller;
@@ -153,13 +153,13 @@ ul.dropdown-menu.show {
     padding: 5px;
   }
 
-  .actions {
+  /* .actions {
     display: none;
-  }
+  } */
 
-  .actionsCollapse {
+  /* .actionsCollapse {
     display: block;
-  }
+  } */
 
   th {
     font-size: smaller;

@@ -1,15 +1,19 @@
+import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CampaignsService {
 
+  // subject = new Subject<any>();
   constructor(private CampaignClient: HttpClient) {
 
   }
-
+  notificationResetTime:any;
   Campaigns_Base_URL = "http://127.0.0.1:8000/api/campaigns";
   getAllCampaigns() {
     return this.CampaignClient.get(this.Campaigns_Base_URL);
@@ -34,7 +38,7 @@ export class CampaignsService {
     return this.CampaignClient.post(`${this.Campaigns_Base_URL}/tiktok/${id}`, newTT);
   }
 
-  addFee(id: number, newFee:any){
+  addFee(id: number, newFee: any) {
     return this.CampaignClient.post(`${this.Campaigns_Base_URL}/fees/${id}`, newFee);
   }
 
@@ -42,23 +46,23 @@ export class CampaignsService {
     return this.CampaignClient.put(`${this.Campaigns_Base_URL}/${id}`, updatedCampaign);
   }
 
-  updateIG(id:number, updatedIg:any){
+  updateIG(id: number, updatedIg: any) {
     return this.CampaignClient.put(`${this.Campaigns_Base_URL}/instagram/${id}`, updatedIg);
   }
 
-  updateTT(id:number, updatedTT:any){
+  updateTT(id: number, updatedTT: any) {
     return this.CampaignClient.put(`${this.Campaigns_Base_URL}/tiktok/${id}`, updatedTT);
   }
 
-  updateFee(id: number, updatedFee:any){
+  updateFee(id: number, updatedFee: any) {
     return this.CampaignClient.put(`${this.Campaigns_Base_URL}/fees/${id}`, updatedFee);
   }
 
-  updateStatus(id: number, updatedStatus:any){
+  updateStatus(id: number, updatedStatus: any) {
     return this.CampaignClient.put(`${this.Campaigns_Base_URL}/status/${id}`, updatedStatus);
   }
 
-  deleteCampaign(id:number){
+  deleteCampaign(id: number) {
     return this.CampaignClient.delete(`${this.Campaigns_Base_URL}/${id}`);
   }
 
@@ -72,5 +76,13 @@ export class CampaignsService {
 
   getDrafts() {
     return this.CampaignClient.get("http://127.0.0.1:8000/api/drafts")
+  }
+
+  getLatest(date: any) {
+    return this.CampaignClient.get(`http://127.0.0.1:8000/api/latest/${this.notificationResetTime ? this.notificationResetTime : date}`)
+  }
+
+  resetDate() {
+    this.notificationResetTime = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'EN-US');
   }
 }
