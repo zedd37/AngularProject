@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
+  <app-brand-admin-header></app-brand-admin-header>
   <body>
-    <app-header></app-header>
 <div class="body">
     <div class="create-campaign-container">
       <div class="title">UPDATE YOUR CAMPAIGN</div>
@@ -17,18 +16,24 @@
 
 <div class="createCampaignContainer">
 
-  <form class="row" (ngSubmit)="UpdateTTDet(tt_posts_imgs.value, tt_posts_vids.value, tt_stories_imgs.value, tt_stories_vids.value, tt_vids.value, tt_vids_duration.value, tt_hashtags.value, tt_tags.value)">
+  <form class="row" [formGroup]="tiktok" (ngSubmit)="UpdateTTDet(tt_posts_imgs.value, tt_posts_vids.value, tt_stories_imgs.value, tt_stories_vids.value, tt_vids.value, tt_vids_duration.value, tt_hashtags.value, tt_tags.value)">
 
     <div class="col-sm-12 col-lg-4">
       <div class="input-group">
         <span class="input-group-text col-sm-12">Posts</span>
         <div class="form-floating mb-3">
-          <input #tt_posts_imgs class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_posts_imgs}}">
+          <input #tt_posts_imgs class="form-control" id="floatingInput" formControlName="postImgs">
           <label for="floatingInput">Images count</label>
+          <div class="error text-danger" *ngIf="!postImgs">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
         <div class="form-floating mb-3">
-          <input #tt_posts_vids class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_posts_vids}}" >
+          <input #tt_posts_vids class="form-control" id="floatingInput" formControlName="postVids" >
           <label for="floatingInput">Videos count</label>
+          <div class="error text-danger" *ngIf="!postVids">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
       </div>
     </div>
@@ -37,12 +42,18 @@
       <div class="input-group">
         <span class="input-group-text col-sm-12">Stories</span>
         <div class="form-floating mb-3">
-          <input #tt_stories_imgs class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_stories_imgs}}">
+          <input #tt_stories_imgs class="form-control" id="floatingInput" formControlName="storyImgs">
           <label for="floatingInput">Images count</label>
+          <div class="error text-danger" *ngIf="!storyImgs">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
         <div class="form-floating mb-3">
-          <input #tt_stories_vids class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_stories_vids}}">
+          <input #tt_stories_vids class="form-control" id="floatingInput" formControlName="storyVids">
           <label for="floatingInput">Videos count</label>
+          <div class="error text-danger" *ngIf="!storyVids">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
       </div>
     </div>
@@ -51,12 +62,18 @@
       <div class="input-group">
         <span class="input-group-text col-sm-12">Videos</span>
         <div class="form-floating mb-3">
-          <input #tt_vids class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_vids}}">
+          <input #tt_vids class="form-control" id="floatingInput" formControlName="vids">
           <label for="floatingInput">Count</label>
+          <div class="error text-danger" *ngIf="!vids">
+            <small>Enter an integer number.</small>
+           </div>
         </div>
         <div class="form-floating mb-3">
-          <input #tt_vids_duration class="form-control" id="floatingInput" value="{{campaign.data.tiktok_info.tt_vids_duration}}" >
+          <input #tt_vids_duration class="form-control" id="floatingInput" formControlName="duration" >
           <label for="floatingInput">Duration</label>
+          <div class="error text-danger" *ngIf="!duration">
+            <small>Enter an integer number.</small>
+           </div>
           <br>
         </div>
 
@@ -86,11 +103,19 @@
       </div>
 
 
-      <div class="form-group">
-        <div >
-          <input type="submit" value="Save Changes" class="btn submitOne" >
-        </div>
-        </div>
+      <div class="form-group btns row col-lg-12 justify-content-center">
+
+        <input type="submit" value="Save Changes" class="btn submitOne mb-2" >
+
+        <button class="btn btn-primary goToCampaignsBtn mb-2" routerLink="/update-campaign/influencer-fees/{{campaignId}}">Go to Fees</button>
+
+        <p>Not yet decided? Click on Go To Fees.</p>
+      </div>
+
+      <div class="form-group btns row col-lg-12 justify-content-lg-between justify-content-sm-center">
+
+        <button class="btn btn-primary backBtn  mb-2" routerLink="/update-campaign/{{campaignId}}">Back</button>
+      </div>
 
   </form>
 

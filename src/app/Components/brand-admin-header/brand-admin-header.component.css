@@ -1,0 +1,142 @@
+.navbar {
+  background-color: #032539;
+}
+.navbar-brand {
+  font-family: "Oswald", sans-serif;
+  color: #fa991c;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: #fa991c !important;
+}
+.dropdown-menu {
+  background-color: #032539;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  color: #fa991c;
+  background-color: transparent;
+}
+
+.iconColor {
+  color: #9933cc !important;
+}
+
+.navbar .navbar-toggler[aria-expanded="true"] {
+  color: #fa991c !important;
+}
+
+.navbar .navbar-toggler:hover {
+  color: white;
+}
+
+.login-btn {
+  color: #fa991c;
+  border-color: #fa991c;
+}
+.login-btn:hover {
+  background-color: #fa991c;
+  color: #fff;
+}
+.sign-btn {
+  color: #fa991c;
+  border-color: #fa991c;
+}
+.sign-btn:hover {
+  background-color: #fa991c;
+  color: #fff;
+}
+
+
+.form {
+  width: 100%;
+  /* padding: 0 20px; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.input-field {
+  position: relative;
+  width: 48%;
+  margin-top: 15px;
+}
+.input-field input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #525252;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  z-index:7
+}
+
+form .input-field:last-of-type {
+  width: 100%;
+}
+.input-field span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20px 10px 10px;
+  font-size: 0.7em;
+  color: #8f8f8f;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+}
+
+.input-field input:focus ~ span,
+.input-field input:valid ~ span {
+  color: #fa991c;
+  transform: translateX(-5px) translateY(-25px);
+  font-size: 0.6em;
+}
+.input-field i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  /* border: 1px solid; */
+  background-color: #ddd;
+  border-radius: 4px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.input-field input:focus ~ i,
+.input-field input:valid ~ i {
+  height: 40px;
+}
+
+.statusBtn{
+  outline: 0.5px darkgrey solid;
+  margin: 0 auto;
+  margin-top:2rem;
+  width:5rem;
+  }
+
+.statusBtn:hover{
+  outline: none;
+  transform: scale(1.1);
+  background-color: #fa991c;
+  color: #032539;
+  }
+
+  .modal-content{
+    background-color: #ddd;
+  }
+
+  .login-signup {
+background-color: white;
+border-radius: 15px;
+  }

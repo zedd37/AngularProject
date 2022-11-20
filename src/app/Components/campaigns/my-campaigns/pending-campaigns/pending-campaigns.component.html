@@ -1,6 +1,5 @@
-
 <div class="campaignsContainer">
-  <table class="table table-hover">
+  <table *ngIf="pendingCampaigns.data != 0" class="table table-hover">
     <thead>
       <tr>
         <th class="Cname">Campaign</th>
@@ -13,51 +12,71 @@
     </thead>
 
     <tbody class="table-group-divider">
-      <tr *ngFor="let pendingCampaign of pendingCampaigns.data">
-        <td>{{pendingCampaign.title}}</td>
-        <td>{{pendingCampaign.type}}</td>
-        <td>{{pendingCampaign.privacy}}</td>
-        <td>{{pendingCampaign.created_at}}</td>
-        <td>{{pendingCampaign.country}}</td>
+      <tr *ngFor="let c of pendingCampaigns.data">
+        <td>{{c.title}}</td>
+        <td>{{c.type}}</td>
+        <td>{{c.privacy}}</td>
+        <td>{{c.start_date}}</td>
+        <td>{{c.country}}</td>
         <td class="actions">
 
-          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{pendingCampaign.id}}"><b>i</b></button>
-          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{pendingCampaign.id}}">E</button>
-          <button class="iconBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">M</button>
+          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}"><b>i</b></button>
+          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{c.id}}">E</button>
+          <button class="iconBtn" type="button" data-bs-toggle="modal" data-bs-target="#statusModal-p" id="{{c.id}}" (click)="passIdToModal(c.id)">M</button>
         </td>
 
         <td class="actionsCollapse">
           <div class="btn-group dropstart">
-            <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{pendingCampaign.id}}">Info</a></li>
-              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{pendingCampaign.id}}">Edit</a></li>
-              <li><a class="dropdown-item" href="#">Move</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}">Info</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{c.id}}">Edit</a></li>
+              <li><a class="dropdown-item move" data-bs-toggle="modal" data-bs-target="#statusModal-p" id="{{c.id}}" (click)="passIdToModal(c.id)">Move</a></li>
             </ul>
           </div>
         </td>
-
       </tr>
-       <!-- Modal -->
-       <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Move Campaign</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="statusModal-p" tabindex="-1" aria-labelledby="statusModal-pLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header mx-3 mt-4">
+                <h1 class="modal-title fs-5" id="statusModal-pLabel">Move Campaign</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body fs-6 mx-3">
+                Select the campaign's status
+              </div>
+              <div class="modal-footer  justify-content-center mb-4 mx-3 gap-2">
+                <button type="button" data-bs-target="#confirmAction-p" data-bs-toggle="modal" class="btn  statusBtn" (click)="changeToCurrent(target_id)">Current</button>
+                <button type="button" data-bs-target="#confirmAction-p" data-bs-toggle="modal"
+                class="btn statusBtn" (click)="changeToCompleted(target_id)">Completed</button>
+                <button type="button" data-bs-target="#confirmAction-p" data-bs-toggle="modal"class="btn statusBtn" (click)="changeToDrafts(target_id)">Draft</button>
+              </div>
             </div>
-            <div class="modal-body">
-              Choose your Campaign Status.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Pending</button>
-              <button type="button" class="btn btn-primary">Completed</button>
-              <button type="button" class="btn btn-primary">Drafts</button>
+          </div>
+        </div>
+
+        <!-- Modal 2-->
+        <div class="modal fade" id="confirmAction-p" aria-hidden="true" aria-labelledby="confirmAction-pLabel" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="text-center mt-5 mb-3 mx-3">
+                <h4 id="confirmAction-pLabel">Campaign Status was changed successfully</h4>
+              </div>
+              <div class="text-center mb-4 mx-3 gap-2">
+                <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn statusBtn" (click)="reloadPage()">Close</button>
+              </div>
 
             </div>
           </div>
         </div>
-      </div>
+
     </tbody>
   </table>
+  <div class="noRecords" *ngIf="pendingCampaigns.data == 0">
+    <p>No records to display</p>
+  </div>
 </div>

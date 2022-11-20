@@ -1,51 +1,43 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { SignupAndLoginService } from '../Services/signup-and-login.service';
 import { BrandService } from '../Services/brand.service';
 import { RoleGuard } from 'src/app/Guard/role.guard';
+import { LoginAuthService } from '../Services/login-auth.service';
+
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit , OnDestroy {
   constructor(
     private Http: HttpClient,
-
-    private BrandService: SignupAndLoginService
+    private BrandService: SignupAndLoginService,
+    private brandService: BrandService,
+    
   ) {}
+  private subscription: any;
   brand: any;
 
+  brandData: any;
+  loader = true;
   ngOnInit(): void {
-    const header = new HttpHeaders({
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-    });
     let that = this;
-    this.Http.get('http://localhost:8000/api/brand', {
-      headers: header,
-    }).subscribe({
-      next(data) {
-        that.brand = data;
-        console.log(data);
-      },
-      error(err) {
-        console.log(err);
-      },
-    }); 
-    this.Http.get(`http://localhost:8000/api/brands/${this.brand.id}`, {
-      headers: header,
-    }).subscribe({
-
-      next(data) {
-        // that.brand = data;
-        console.log(data);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
-    
+    this.subscription = this.brandService.getlogedBrand().subscribe({
+    next(data){
+that.brand =data;
+    },
+    error(err){
+      console.log(err);
+    }
+  })
+    setTimeout(() => {
+      this.loader = false;
+    }, 3000);
   }
-  
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }

@@ -1,0 +1,85 @@
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 text-white" style="background-color:#032539;" >
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+              <div class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                  <span class="fs-5 d-none d-sm-inline">Menu</span>
+              </div>
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                  <li class="nav-item">
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/" class="nav-link align-middle px-0 text-white">
+                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/brands" class="nav-link px-0 align-middle" style="color:#FA991C">
+                          <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Brands</span> </a>
+                  </li>
+                  <li>
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/campaigns" class="nav-link px-0 align-middle text-white">
+                          <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Campaigns</span> </a>
+                  </li>
+                  <li>
+                      <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/influencers" class="nav-link px-0 align-middle text-white">
+                          <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Influencers</span> </a>
+                  </li>
+                  <li>
+                    <a routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/admin-panel/payments" class="nav-link px-0 align-middle text-white">
+                        <i class="fs-4 bi-cash"></i> <span class="ms-1 d-none d-sm-inline">Payments</span> </a>
+                </li>
+              </ul>
+              <hr>
+
+          </div>
+      </div>
+
+       <!-- ################################################################################## -->
+    <!-- Inside content -->
+      <div class="col py-3">
+        <h1 class="m-4 h1">Brands data</h1>
+        <div class="table-responsive-md ">
+          <div class="campaignsContainer">
+            <table
+              class="table table-hover table-responsive-md">
+              <thead>
+                <tr >
+                  <th >ID</th>
+                  <th >Brand Name</th>
+                  <th >Email</th>
+                  <th >Phone</th>
+                  <th >Instagram</th>
+                  <th >Snapchat</th>
+                  <!-- <th >Created at</th> -->
+                  <th >Actions</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+                <tr *ngFor="let brand of brands">
+                  <td>{{brand.id}}</td>
+                  <td>{{brand.brand_name}}</td>
+                  <td>{{brand.email}}</td>
+                  <td>{{brand.phone}}</td>
+                  <td>{{brand.instagram}}</td>
+                  <td>{{brand.snapchat}}</td>
+                  <!-- <td>{{brand.created_at}}</td> -->
+                  <td class="actions">
+
+                    <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/add-brand"><b>A</b></button>
+                    <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{brand.id}}"><b>i</b></button> -->
+                    <!-- <button class="iconBtn my-1" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{brand.id}}">E</button> -->
+                    <button class="iconBtn my-1" (click)="DeleteBrand(brand.id)">D</button>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

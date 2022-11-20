@@ -1,0 +1,172 @@
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div
+      class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 text-white"
+      style="background-color: #032539"
+    >
+      <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+      >
+        <div
+          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <span class="fs-5 d-none d-sm-inline">Menu</span>
+        </div>
+        <ul
+          class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+          id="menu"
+        >
+          <li class="nav-item">
+            <a
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/"
+              class="nav-link align-middle px-0 text-white"
+            >
+              <i class="fs-4 bi-house"></i>
+              <span class="ms-1 d-none d-sm-inline">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/admin-panel/brands"
+              class="nav-link px-0 align-middle"
+              style="color: #fa991c"
+            >
+              <i class="fs-4 bi-bootstrap"></i>
+              <span class="ms-1 d-none d-sm-inline">Brands</span>
+            </a>
+          </li>
+          <li>
+            <a
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/admin-panel/campaigns"
+              class="nav-link px-0 align-middle text-white"
+            >
+              <i class="fs-4 bi-grid"></i>
+              <span class="ms-1 d-none d-sm-inline">Campaigns</span>
+            </a>
+          </li>
+          <li>
+            <a
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/admin-panel/influencers"
+              class="nav-link px-0 align-middle text-white"
+            >
+              <i class="fs-4 bi-people"></i>
+              <span class="ms-1 d-none d-sm-inline">Influencers</span>
+            </a>
+          </li>
+          <li>
+            <a
+              routerLinkActive="activeLinkClass"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink="/admin-panel/payments"
+              class="nav-link px-0 align-middle text-white"
+            >
+              <i class="fs-4 bi-cash"></i>
+              <span class="ms-1 d-none d-sm-inline">Payments</span>
+            </a>
+          </li>
+        </ul>
+        <hr />
+      </div>
+    </div>
+
+    <!-- ################################################################################## -->
+    <!-- Inside content -->
+<div class="col">
+  <h1 class="m-4 h1">Add New Brand</h1>
+
+    <div class="form-container">
+      <form class="profile-form"  (ngSubmit)="AddBrand(fname.value,lname.value,brandname.value,email.value,snapchat.value,password.value,phone.value,instagram.value)">
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="firstname" class="col-form-label pe-2">First Name</label>
+          <input
+            #fname
+            type="text"
+            class="form-control"
+            id="firstname"
+          />
+        </div>
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="lastname" class="col-form-label pe-2">Last Name</label>
+          <input
+            #lname
+            type="text"
+            class="form-control"
+            id="lastname"
+          />
+        </div>
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="brandname" class="col-form-label pe-2">Brand Name</label>
+          <input
+            #brandname
+            type="text"
+            class="form-control"
+            id="lastname"
+          />
+        </div>
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="email" class="col-form-label pe-2">Email</label>
+          <input
+            #email
+            type="email"
+            class="form-control"
+            id="inputEmail4"
+          />
+        </div>
+        <div class="form-group col-lg-5 col-sm-12">
+          <label class="col-form-label pe-2">Password</label>
+          <input
+            #password
+            type="password"
+            class="form-control"
+            id="Snapchat"
+          />
+        </div>
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="Industries" class="col-form-label pe-2">Snapchat</label>
+          <input
+            #snapchat
+            type="text-area"
+            class="form-control"
+            id="Industries"
+          />
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="Phone Number" class="col-form-label pe-2"
+            >Phone Number</label
+          >
+          <input
+            #phone
+            class="form-control"
+            id="Phone Number"
+          />
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+          <label for="Instagram" class="col-form-label pe-2">Instagram</label>
+          <input
+            #instagram
+            type="text"
+            class="form-control"
+            id="Instagram"
+          />
+        </div>
+
+        <div class="form-group col-lg-12 col-sm-12"></div>
+        <button type="submit" class="btn btn-primary">
+          Add New Brand
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,120 @@
+<app-influencer-header></app-influencer-header>
+<!--HERE YOU CAN CHANGE YOUR PASSWORD-->
+<div class="form-header">
+    <h2>Profile Settings</h2>
+    <h5>You can edit your information here</h5>
+    <!--"It'll direct to change password page"-->
+    <div class=" button" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/change-influencer-password">
+        Change Password
+    </div>
+</div>
+
+
+<!--Form Content "17 form" to update Influencer profile-->
+<div class="form-container">
+    <form class="profile-form"
+        (ngSubmit)="UpdateInfluencer(fname.value,lname.value,industry.value,location.value,phone.value, email.value,facebook.value,instagram.value,birthDay.value,gender.value,kids.value)">
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="firstname" class="col-form-label pe-2">First Name</label>
+            <input #fname type="text" value="{{influencer.fname}}" class="form-control" id="firstname"
+                placeholder="Edit your first name here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="lastname" class="col-form-label pe-2">Last Name</label>
+            <input #lname type="text" value="{{influencer.lname}}" class="form-control" id="lastname"
+                placeholder="Edit your first name here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="Industry" class="col-form-label pe-2">Industry</label>
+            <input #industry type="text" value="{{influencer.occupation}}" class="form-control" id="industry"
+                placeholder="Edit your industry here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="Location" class="col-form-label pe-2">Location</label>
+            <input #location type="text" value="{{influencer.country}}" class="form-control" id="inputAddress"
+                placeholder="Edit your location here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="Phone Number" class="col-form-label pe-2">Phone Number</label>
+            <input #phone type="text" value="{{influencer.phone}}" class="form-control" id="PhoneNumber"
+                placeholder="Edit your phone number here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="email" class="col-form-label pe-2">Email</label>
+            <input #email type="email" value="{{influencer.email}}" class="form-control" id="inputEmail4"
+                placeholder="Edit your email here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="Facebook" class="col-form-label pe-2">Facebook</label>
+            <input #facebook type="text" value="{{influencer.facebook}}" class="form-control" id="Facebook"
+                placeholder="Edit your Facebook URL here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="Instagram" class="col-form-label pe-2">Instagram</label>
+            <input #instagram type="text" value="{{influencer.instagram}}" class="form-control" id="Instagram"
+                placeholder="Edit your Instagram URL here">
+        </div>
+
+        <!-- <div class="form-group col-lg-5 col-sm-12">
+            <label for="TikTok" class="col-form-label pe-2">TikTok</label>
+            <input #tikTok type="text" class="form-control" id="TikTok" placeholder="Edit your TikTok URL here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="Youtube" class="col-form-label pe-2">Youtube</label>
+            <input #youTube type="text" class="form-control" id="Youtube" placeholder="Edit your Youtube URL here">
+        </div> -->
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="birthDay" class="col-form-label pe-2">age</label>
+            <input #birthDay type="text" value="{{influencer.age}}" class="form-control" id="birthDay"
+                placeholder="Edit your age? here">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="gender" class="col-form-label pe-2">Gender</label>
+            <input #gender type="text" value="{{influencer.gender}}" class="form-control" id="gender"
+                placeholder="Edit your gender here">
+        </div>
+
+        <!-- <div class="form-group col-lg-5 col-sm-12">
+            <label for="nationality" class="col-form-label pe-2">Nationality</label>
+            <input #nationality type="text" class="form-control" id="nationality"
+                placeholder="Edit your nationality of birth here">
+        </div> -->
+
+        <!-- <div class="form-group col-lg-5 col-sm-12">
+            <label for="status" class="col-form-label pe-2">Marital status</label>
+            <input #status type="text" class="form-control" id="status" placeholder="Edit your marital status here">
+        </div> -->
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="kids" class="col-form-label pe-2">Kids</label>
+            <input #kids type="text" value="{{influencer.children}}" class="form-control" id="kids"
+                placeholder="Edit either if you have Kids or not">
+        </div>
+
+        <div class="form-group col-lg-5 col-sm-12">
+            <label for="pets" class="col-form-label pe-2">Pets</label>
+            <input #pets type="text" class="form-control" id="pets" placeholder="Edit either if you have Pets or not">
+        </div>
+
+        <!-- <div class="form-group col-lg-11 col-sm-10">
+            <label for="About" class="col-form-label pe-2" style="width:170px">About</label>
+            <textarea #about style="resize: none;" class="form-control" rows="4" id="About"
+                placeholder="Edit your Bio"></textarea>
+        </div> -->
+
+        <button type="submit" class="button2">Update Profile
+            Information</button>
+    </form>
+</div>
+<app-footer></app-footer>

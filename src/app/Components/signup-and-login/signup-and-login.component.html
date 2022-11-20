@@ -39,8 +39,10 @@
         </div>
         <form
           action=""
+          method="post"
           #brand
-          class="brand"
+          class="brand form-group"
+          [formGroup]="brandValidation"
           (ngSubmit)="
             newBrand(
               fname.value,
@@ -50,67 +52,206 @@
               phone.value,
               password.value,
               conf_password.value,
-              brand_name.value,
-              job_title.value,
-              hear_about_us.value,
-              instagram.value
+              brand_name.value
             )
           "
         >
           <div class="input-field">
-            <input #fname type="text" placeholder="" required />
-            <span>First Name</span>
+            <input
+              formControlName="firstName"
+              [ngClass]="{ pp: firstNameError && !firstNameValid }"
+              class="form-control"
+              #fname
+              type="text"
+              required
+            />
+            <span [ngClass]="{ err: firstNameError && !firstNameValid }"
+              >First Name</span
+            >
             <i></i>
           </div>
           <div class="input-field">
-            <input #lname type="text" placeholder="" required />
+            <input
+              #lname
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+              [ngClass]="{ pp: lastNameError && !lastNameValid }"
+              required
+            />
             <span>Last Name</span>
             <i></i>
           </div>
+
           <div class="input-field">
-            <input #email type="email" placeholder="" required />
+            <input
+              #email
+              type="email"
+              class="form-control"
+              formControlName="email"
+              [ngClass]="{ pp: emailError && !emailValid }"
+              required
+            />
             <span>Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #conf_email type="email" placeholder="" required />
+            <input
+              #conf_email
+              type="email"
+              class="form-control"
+              formControlName="emailConfirm"
+              [ngClass]="{
+                pp: (emailConfirmError && !emailConfirmValid) || confirmE
+              }"
+              required
+            />
             <span>Confirm Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #password type="password" required />
+            <input
+              #password
+              type="password"
+              class="form-control"
+              name="pass"
+              formControlName="password"
+              [ngClass]="{ pp: passwordError && !passwordValid }"
+              required
+            />
             <span>Password</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #conf_password type="password" required />
+            <input
+              #conf_password
+              type="password"
+              class="form-control"
+              formControlName="passwordConfirm"
+              [ngClass]="{
+                pp: (passwordConfirmError && !passwordConfirmValid) || confirmP
+              }"
+              required
+            />
             <span>Confirm Password</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #phone type="tel" placeholder="" required />
+            <input
+              #phone
+              type="tel"
+              class="form-control"
+              formControlName="phone"
+              [ngClass]="{ pp: phoneError && !phoneValid }"
+              required
+            />
             <span>Contact Number</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #brand_name type="text" required />
+            <input
+              #brand_name
+              type="text"
+              class="form-control"
+              formControlName="brandName"
+              [ngClass]="{ pp: brandNameError && !brandNameValid }"
+              required
+            />
             <span>Brand Name</span>
             <i></i>
           </div>
-          <div class="input-field">
-            <input #instagram type="text" required />
+          <!-- <div class="input-field">
+            <input
+              #instagram
+              type="text"
+              class="form-control"
+              formControlName="instagram"
+              required
+            />
             <span>Brand Instagram UserName</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #job_title type="text" required />
+            <input
+              #job_title
+              type="text"
+              class="form-control"
+              formControlName="jop"
+              required
+            />
             <span>Jop Title</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #hear_about_us type="text" required />
+            <input
+              #hear_about_us
+              type="text"
+              class="form-control"
+              formControlName="question"
+              required
+            />
             <span>Where did you hear about us ?</span>
             <i></i>
+          </div> -->
+          <div
+            *ngIf="firstNameError && !firstNameValid"
+            class="error alert alert-danger"
+          >
+            {{ firstNameError }}
+          </div>
+          <div
+            *ngIf="lastNameError && !lastNameValid"
+            class="error alert alert-danger"
+          >
+            {{ lastNameError }}
+          </div>
+          <div
+            *ngIf="emailError && !emailValid"
+            class="error alert alert-danger"
+          >
+            {{ emailError }}
+          </div>
+          <div
+            *ngIf="emailConfirmError && !emailConfirmValid"
+            class="error alert alert-danger"
+          >
+            {{ emailConfirmError }}
+          </div>
+          <div *ngIf="confirmE" class="error alert alert-danger">
+            {{ confirmE }}
+          </div>
+          <div
+            *ngIf="passwordError && !passwordValid"
+            class="error alert alert-danger"
+          >
+            {{ passwordError }}
+          </div>
+          <div
+            *ngIf="passwordConfirmError && !passwordConfirmValid"
+            class="error alert alert-danger"
+          >
+            {{ passwordConfirmError }}
+          </div>
+          <div *ngIf="confirmP" class="error alert alert-danger">
+            {{ confirmP }}
+          </div>
+          <div
+            *ngIf="phoneError && !phoneValid"
+            class="error alert alert-danger"
+          >
+            {{ phoneError }}
+          </div>
+          <div
+            *ngIf="brandNameError && !brandNameValid"
+            class="error alert alert-danger"
+          >
+            {{ brandNameError }}
+          </div>
+          <div *ngIf="brandSignupEmailError"
+            style="width: 80%; margin: 5px auto; text-align: center"
+            class="alert alert-danger"
+          >
+            {{ brandSignupEmailError }}
           </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
           <p class="account-text">
@@ -123,7 +264,8 @@
         <form
           action=""
           #influencer
-          class="influencer"
+          [formGroup]="brandValidation"
+          class="influencer form-group"
           (ngSubmit)="
             newInfluencer(
               inf_fname.value,
@@ -132,57 +274,164 @@
               inf_conf_email.value,
               inf_phone.value,
               inf_occupation.value,
-              inf_hear.value,
               inf_password.value,
               inf_conf_password.value
             )
           "
         >
           <div class="input-field">
-            <input #inf_fname type="text" required />
+            <input
+              #inf_fname
+              type="text"
+              formControlName="firstName"
+              [ngClass]="{ pp: firstNameError && !firstNameValid }"
+              class="form-control"
+              required
+            />
             <span>First Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #inf_lname type="text" required />
+            <input
+              #inf_lname
+              type="text"
+              formControlName="lastName"
+              [ngClass]="{ pp: lastNameError && !lastNameValid }"
+              class="form-control"
+              required
+            />
             <span>Last Name</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #inf_email type="email" required />
+            <input
+              #inf_email
+              type="email"
+              formControlName="email"
+              [ngClass]="{ pp: emailError && !emailValid }"
+              class="form-control"
+              required
+            />
             <span>Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #inf_conf_email type="email" required />
+            <input
+              #inf_conf_email
+              type="email"
+              formControlName="emailConfirm"
+              [ngClass]="{ pp: emailConfirmError && !emailConfirmValid }"
+              class="form-control"
+              required
+            />
             <span>Confirm Email</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #inf_phone type="tel" required />
-            <span>Phone Number</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input #inf_occupation type="text" required />
-            <span>Occupation</span>
-            <i></i>
-          </div>
-          <div class="input-field">
-            <input #inf_password type="password" required />
+            <input
+              #inf_password
+              type="password"
+              formControlName="password"
+              [ngClass]="{ pp: passwordError && !passwordValid }"
+              class="form-control"
+              required
+            />
             <span>Password</span>
             <i></i>
           </div>
           <div class="input-field">
-            <input #inf_conf_password type="password" required />
+            <input
+              #inf_conf_password
+              type="password"
+              formControlName="passwordConfirm"
+              [ngClass]="{ pp: passwordConfirmError && !passwordConfirmValid }"
+              class="form-control"
+              required
+            />
             <span>Confirm Password</span>
             <i></i>
           </div>
           <div class="input-field">
+            <input
+              #inf_phone
+              type="tel"
+              formControlName="phone"
+              [ngClass]="{ pp: phoneError && !phoneValid }"
+              class="form-control"
+              required
+            />
+            <span>Phone Number</span>
+            <i></i>
+          </div>
+          <div class="input-field">
+            <input
+              #inf_occupation
+              type="text"
+              formControlName="brandName"
+              [ngClass]="{ pp: brandNameError && !brandNameValid }"
+              class="form-control"
+              required
+            />
+            <span>Occupation</span>
+            <i></i>
+          </div>
+          <!-- <div class="input-field">
             <input #inf_hear type="text" required />
             <span>Where did you hear about us?</span>
             <i></i>
+          </div> -->
+          <div *ngIf="firstNameError && !firstNameValid"
+            class="error alert alert-danger"
+          >
+            {{ firstNameError }}
           </div>
+          <div *ngIf="lastNameError && !lastNameValid"
+            class="error alert alert-danger"
+          >
+            {{ lastNameError }}
+          </div>
+          <div *ngIf="emailError && !emailValid"
+            class="error alert alert-danger"
+          >
+            {{ emailError }}
+          </div>
+          <div *ngIf="emailConfirmError && !emailConfirmValid"
+            class="error alert alert-danger"
+          >
+            {{ emailConfirmError }}
+          </div>
+          <div *ngIf="confirmE" class="error alert alert-danger">
+            {{ confirmE }}
+          </div>
+          <div *ngIf="passwordError && !passwordValid"
+            class="error alert alert-danger"
+          >
+            {{ passwordError }}
+          </div>
+          <div  *ngIf="passwordConfirmError && !passwordConfirmValid"
+            class="error alert alert-danger"
+          >
+            {{ passwordConfirmError }}
+          </div>
+          <div *ngIf="confirmP" class="error alert alert-danger">
+            {{ confirmP }}
+          </div>
+          <div *ngIf="phoneError && !phoneValid"
+            class="error alert alert-danger"
+          >
+            {{ phoneError }}
+          </div>
+          <div *ngIf="brandNameError && !brandNameValid"
+            class="error alert alert-danger"
+          >
+            {{ brandNameError }}
+          </div>
+          <div *ngIf="influencerSignupError"
+          style="width: 80%; margin: 5px auto; text-align: center"
+          class="alert alert-danger"
+        >
+          {{ influencerSignupError }}
+        </div>
           <input type="submit" value="Sign Up" class="submit-btn" />
           <p class="account-text">
             Already have account?
@@ -203,18 +452,55 @@
             <span>Email</span>
             <i></i>
           </div>
+          <div *ngIf="loginErrorEmail"
+            style="width: 80%; margin: 5px auto; text-align: center"
+            class="alert alert-danger"
+          >
+            {{ loginErrorEmail }}
+          </div>
           <div class="input-field">
             <input #log_password type="password" required />
             <span>Password</span>
             <i></i>
           </div>
-          <div
-            *ngIf="loginError"
-            style="width: 80%; margin: 10px auto; text-align: center"
+          <div *ngIf="loginErrorPassword"
+            style="width: 80%; margin: 5px auto; text-align: center"
+            class="alert alert-danger"
           >
-            <p style="color: red; width: 100%; font-size: 16px">
-              {{ loginError }}
-            </p>
+            {{ loginErrorPassword }}
+          </div>
+          <div
+            class="input-field"
+            style="background-color: #ccc; padding: 10px"
+          >
+            <div>
+              <input
+                type="radio"
+                #check
+                name="check"
+                id="brand"
+                value="brand"
+                (change)="onChange($event)"
+              />
+              <label for="brand">Brand</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                #check
+                name="check"
+                id="influencer"
+                value="influencer"
+                (change)="onChange($event)"
+              />
+              <label for="influencer">Influencer</label>
+            </div>
+          </div>
+          <div *ngIf="checkError"
+            style="width: 80%; margin: 5px auto; text-align: center"
+            class="alert alert-danger"
+          >
+            {{ checkError }}
           </div>
           <input
             type="submit"

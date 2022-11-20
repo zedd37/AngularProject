@@ -1,20 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { InfluencerService } from 'src/app/Services/influencer.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { InfluencerService } from 'src/app/services/influencer.service';
+import { BrandService } from '../Services/brand.service';
+import { LoginAuthService } from '../Services/login-auth.service';
 
 @Component({
   selector: 'app-browse-influencers',
   templateUrl: './browse-influencers.component.html',
   styleUrls: ['./browse-influencers.component.css'],
 })
-export class BrowseInfluencersComponent implements OnInit {
-  constructor(private influencerService: InfluencerService) {}
-
+export class BrowseInfluencersComponent implements OnInit, OnDestroy {
+  brand: any;
+  brandData: any;
+  constructor(
+    private influencerService: InfluencerService,
+    private Http: HttpClient,
+    public loginAuth: LoginAuthService,
+    private brandService: BrandService
+  ) {}
+  private subscription: any;
+  loader = true;
   influencers: any;
   filteredInfluencers: any = [];
   // selected_categories:any ={};
 
   ngOnInit(): void {
     this.showInfluencers();
+    let that = this;
+    this.subscription = this.brandData = this.brandService
+      .getlogedBrand()
+      .subscribe({
+        next(data) {
+          that.brand = data;
+        },
+        error(err) {
+          console.log(err);
+        },
+      });
+    setTimeout(() => {
+      this.loader = false;
+    }, 3000);
   }
 
   showInfluencers() {
@@ -71,7 +97,13 @@ export class BrowseInfluencersComponent implements OnInit {
             this.influencers[i].followers > minFollowers &&
             this.influencers[i].followers < maxFollowers
           ) {
-            if (this.influencers[i].gender == gender) {
+            if (this.influencers[i].gender == gender && gender != 'all') {
+              if (this.influencers[i].marital_status == maritalStatus) {
+                if (this.influencers[i].children == children) {
+                  this.filteredInfluencers.push(this.influencers[i]);
+                }
+              }
+            } else if (gender == 'all') {
               if (this.influencers[i].marital_status == maritalStatus) {
                 if (this.influencers[i].children == children) {
                   this.filteredInfluencers.push(this.influencers[i]);
@@ -103,5 +135,8 @@ export class BrowseInfluencersComponent implements OnInit {
     // })
     // console.log(this.influencerService);
     // return this.selected_categories;
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

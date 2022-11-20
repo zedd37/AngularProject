@@ -1,6 +1,7 @@
 
 <div class="campaignsContainer">
-  <table class="table table-hover">
+
+  <table *ngIf="completedCampaigns.data != 0" class="table table-hover">
     <thead>
       <tr>
         <th class="Cname">Campaign</th>
@@ -13,52 +14,70 @@
     </thead>
 
     <tbody class="table-group-divider">
-      <tr *ngFor="let completedCampaign of completedCampaigns.data">
-        <td>{{completedCampaign.title}}</td>
-        <td>{{completedCampaign.type}}</td>
-        <td>{{completedCampaign.privacy}}</td>
-        <td>{{completedCampaign.created_at}}</td>
-        <td>{{completedCampaign.country}}</td>
+      <tr *ngFor="let c of completedCampaigns.data">
+        <td>{{c.title}}</td>
+        <td>{{c.type}}</td>
+        <td>{{c.privacy}}</td>
+        <td>{{c.start_date}}</td>
+        <td>{{c.country}}</td>
         <td class="actions">
 
-          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{completedCampaign.id}}"><b>i</b></button>
-          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{completedCampaign.id}}">E</button>
-          <button class="iconBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">M</button>
+          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}"><b>i</b></button>
+          <button class="iconBtn" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{c.id}}">E</button>
+          <button class="iconBtn" type="button" data-bs-toggle="modal" data-bs-target="#statusModal-c" id="{{c.id}}" (click)="passIdToModal(c.id)">M</button>
         </td>
 
         <td class="actionsCollapse">
           <div class="btn-group dropstart">
-            <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{completedCampaign.id}}">Info</a></li>
-              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{completedCampaign.id}}">Edit</a></li>
-              <li><a class="dropdown-item" href="#">Move</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/campaigns/{{c.id}}">Info</a></li>
+              <li><a class="dropdown-item" routerLinkActive="activeLinkClass" [routerLinkActiveOptions]= "{exact:true}" routerLink="/update-campaign/{{c.id}}">Edit</a></li>
+              <li><a class="dropdown-item move" data-bs-toggle="modal" data-bs-target="#statusModal-c" id="{{c.id}}" (click)="passIdToModal(c.id)">Move</a></li>
             </ul>
           </div>
         </td>
-
       </tr>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+
+
+       <!-- Modal -->
+       <div class="modal fade" id="statusModal-c" tabindex="-1" aria-labelledby="statusModal-cLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Move Campaign</h1>
+            <div class="modal-header mx-3 mt-4">
+              <h1 class="modal-title fs-5" id="statusModal-cLabel">Move Campaign</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              Choose your Campaign Status.
+            <div class="modal-body fs-6 mx-3">
+              Select the campaign's status
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Pending</button>
-              <button type="button" class="btn btn-primary">Completed</button>
-              <button type="button" class="btn btn-primary">Drafts</button>
-
+            <div class="modal-footer  justify-content-center mb-4 mx-3 gap-2">
+              <button type="button" data-bs-target="#confirmAction-c" data-bs-toggle="modal" class="btn  pendingBtn" (click)="changeToPending(target_id)">Pending</button>
+              <button type="button" data-bs-target="#confirmAction-c" data-bs-toggle="modal" class="btn statusBtn" (click)="changeToCurrent(target_id)">Current</button>
+              <button type="button" data-bs-target="#confirmAction-c" data-bs-toggle="modal"class="btn statusBtn" (click)="changeToDrafts(target_id)">Draft</button>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Modal 2-->
+      <div class="modal fade" id="confirmAction-c" aria-hidden="true" aria-labelledby="confirmAction-cLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="text-center mt-5 mb-3 mx-3">
+              <h4 id="confirmAction-cLabel">Campaign Status was changed successfully</h4>
+            </div>
+            <div class="text-center mb-4 mx-3 gap-2">
+              <button type="button" data-bs-dismiss="modal" class="btn statusBtn" (click)="reloadPage()">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </tbody>
   </table>
+
+  <div class="noRecords" *ngIf="completedCampaigns.data == 0">
+    <p>No records to display</p>
+  </div>
 </div>

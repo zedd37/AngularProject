@@ -1,1 +1,70 @@
-<p>update-campaign-four works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <app-brand-admin-header></app-brand-admin-header>
+  <body>
+<div class="body">
+    <div class="create-campaign-container">
+      <div class="title">UPDATE CAMPAIGN</div>
+      <div class="subtitle">INFLUENCER FEES</div>
+      <hr>
+
+    <div class="createCampaignContainer col-12 col-sm-12 col-md-12 col-lg-12">
+      <form class="row" [formGroup]="fees" (ngSubmit)="UpdateFees(feesAmount.value, feesDetails.value)">
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Fees Amount</span>
+            <span class="curr">EGP</span>
+            <input #feesAmount type="text" class="form-control" placeholder="Type here.." formControlName="amount"/>
+          </div>
+          <div class="error text-danger" *ngIf="!amount">
+            <small>Enter an integer number.</small>
+           </div>
+          <br />
+        </div>
+
+
+        <div class="">
+          <div class="input-group">
+            <span class="input-group-text col-sm-12">Fees Details</span>
+
+            <textarea #feesDetails
+              class="form-control"
+              id="idetails"
+              cols="200"
+              rows="6"
+              placeholder="Type here a detailed description of the payment.."
+              value={{campaign.data.fees_info.fees_details}}
+            ></textarea>
+          </div>
+          <br />
+        </div>
+
+        <div class="form-group btns row col-lg-12 justify-content-center">
+
+          <input type="submit" value="Save Changes" class="btn submitOne mb-2" >
+
+        </div>
+
+        <div class="form-group btns row col-lg-12 justify-content-lg-between justify-content-sm-center">
+
+          <button class="btn btn-primary backBtn  mb-2" routerLink="/update-campaign/{{campaignId}}">Back</button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  </div>
+
+  <app-footer></app-footer>
+
+  </body>
+</html>
