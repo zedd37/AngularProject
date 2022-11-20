@@ -339,7 +339,7 @@ influencerSignupError:any=null;
         .subscribe({
           next(data:any){
             sessionStorage.setItem('token', data.access_token);
-            that.router.navigate(['/edit-brand-profile']);
+            that.router.navigate(['/edit-influencer']);
           },
           error(err){
             that.influencerSignupError = err.error.errors.email;
@@ -366,7 +366,7 @@ influencerSignupError:any=null;
             console.log('brand');
             sessionStorage.setItem('token', data.access_token);
             // that.authService.Admin=data.isAdmin;
-            that.router.navigate(['edit-brand-profile']);
+            that.router.navigate(['/profile']);
           },
           error(err) {
             // console.log(err.error);
@@ -384,7 +384,7 @@ influencerSignupError:any=null;
           next(data: any) {
             console.log('influencer');
             sessionStorage.setItem('token', data.access_token);
-            that.router.navigate(['/edit-influencer']);
+            that.router.navigate(['/influencer-page']);
           },
           error(err) {
             console.log(err);
