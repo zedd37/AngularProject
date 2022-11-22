@@ -28,6 +28,14 @@
    <p>
    We Connect the most talented influencers with the best media marketing teams which results the most creative  marketing campaigns yet. 
   </p>
+  <a href="https://drive.google.com/file/d/1hDVFdN1EnlyAqKZuCZZzbFkWnR6L7StO/view?usp=drivesdk" >
+  <h2>
+
+    Project's video
+
+    </h2>
+</a> 
+   
 </div>
 
 <a href="https://drive.google.com/file/d/1hDVFdN1EnlyAqKZuCZZzbFkWnR6L7StO/view?usp=drivesdk" >Demo video of the project</a>
