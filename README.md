@@ -29,3 +29,5 @@
    We Connect the most talented influencers with the best media marketing teams which results the most creative  marketing campaigns yet. 
   </p>
 </div>
+
+<a href="https://drive.google.com/file/d/1hDVFdN1EnlyAqKZuCZZzbFkWnR6L7StO/view?usp=drivesdk" >Demo video of the project</a>
